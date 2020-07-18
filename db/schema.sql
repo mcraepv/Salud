@@ -1,0 +1,33 @@
+CREATE DATABASE IF NOT EXISTS cocktails_db;
+
+use cocktails_db;
+
+CREATE TABLE IF NOT EXISTS User (
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR (100)
+);
+
+CREATE TABLE IF NOT EXISTS Cocktail (
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(50),
+	description VARCHAR(50),
+	instructions VARCHAR(500),
+    user_id INT NOT NULL,
+    CONSTRAINT fk_user FOREIGN KEY(user_id) REFERENCES User(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS Ingredient (
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS Measure (
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(30)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS CocktailIngredient (cocktail_id INT NOT NULL, ingredient_id INT NOT NULL, measure_id INT, amount INT, 
+	CONSTRAINT fk_cocktail FOREIGN KEY(cocktail_id) REFERENCES Cocktail(id), 
+	CONSTRAINT fk_ingredient FOREIGN KEY(ingredient_id) REFERENCES Ingredient(id), 
+	CONSTRAINT fk_measure FOREIGN KEY(measure_id) REFERENCES Measure(id)) 
+	ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
