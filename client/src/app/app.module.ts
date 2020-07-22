@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavTogglerComponent } from './sidenav-toggler/sidenav-toggler.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { SignInModalComponent } from './sign-in-modal/sign-in-modal.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
     SidenavTogglerComponent,
     SidenavComponent,
     SignInComponent,
+    SignInModalComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],
