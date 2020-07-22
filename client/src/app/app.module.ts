@@ -11,6 +11,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignInModalComponent } from './sign-in-modal/sign-in-modal.component';
 import { FrontPageJumbotronComponent } from './front-page-jumbotron/front-page-jumbotron.component';
 import { FrontPageSearchBarComponent } from './front-page-search-bar/front-page-search-bar.component';
+import { DrinksOfDayComponent } from './drinks-of-day/drinks-of-day.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FrontPageSearchBarComponent } from './front-page-search-bar/front-page-
     SignInModalComponent,
     FrontPageJumbotronComponent,
     FrontPageSearchBarComponent,
+    DrinksOfDayComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],
