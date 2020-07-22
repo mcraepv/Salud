@@ -3,6 +3,25 @@
 Salud! is a cocktail recipe app which allows users to find and save recipes to
 their profiles.
 
+## User Story
+
+AS A Cocktail Enthusiast I WANT TO find and save my favorite cocktail recipes SO
+THAT I don't have to google things every time
+
+## Acceptance Criteria
+
+GIVEN I want to find a new cocktail WHEN I navigate to the Salud! webpage THEN I
+am presented with a clean, functional UI GIVEN I want to search for a cocktail
+by name WHEN I enter that name into the search bar THEN I am presented with a
+list of matching cocktails GIVEN I want to narrow my search WHEN I click search
+by ingredient THEN I am taken to the ingredient-search page GIVEN I want to find
+a cocktail with a specific set of ingredients WHEN I choose my preferred
+ingredient filters THEN I am presented with a list of cocktails which match all
+ingredients selected GIVEN I don't want to search at all WHEN I navigate to the
+main page THEN I am presented with four random cocktails to try out GIVEN I want
+to save my favorite recipes WHEN I log in with my account THEN I am presented
+with an option to save recipes
+
 ## Table of Contents
 
 - [Installation](#installation)
