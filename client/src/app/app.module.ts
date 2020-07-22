@@ -9,6 +9,8 @@ import { SidenavTogglerComponent } from './sidenav-toggler/sidenav-toggler.compo
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignInModalComponent } from './sign-in-modal/sign-in-modal.component';
+import { FrontPageJumbotronComponent } from './front-page-jumbotron/front-page-jumbotron.component';
+import { FrontPageSearchBarComponent } from './front-page-search-bar/front-page-search-bar.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { SignInModalComponent } from './sign-in-modal/sign-in-modal.component';
     SidenavComponent,
     SignInComponent,
     SignInModalComponent,
+    FrontPageJumbotronComponent,
+    FrontPageSearchBarComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],
