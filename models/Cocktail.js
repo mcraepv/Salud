@@ -2,7 +2,6 @@ module.exports = function (sequelize, DataTypes) {
   var Cocktail = sequelize.define(
     'Cocktail',
     {
-      freezeTableName: true,
       name: {
         type: DataTypes.STRING,
         allowNull: false,
