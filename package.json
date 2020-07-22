@@ -1,42 +1,42 @@
 {
-    "name": "project-2",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "test": "npm run lint",
-        "start": "node server.js",
-        "lint": "eslint --quiet .",
-        "fix": "eslint --fix .",
-        "watch": "nodemon server.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/mcraepv/Project-2.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/mcraepv/Project-2/issues"
-    },
-    "homepage": "https://github.com/mcraepv/Project-2#readme",
-    "dependencies": {
-        "bcryptjs": "^2.4.3",
-        "express": "^4.17.1",
-        "express-session": "^1.17.1",
-        "mysql2": "^2.1.0",
-        "passport": "^0.4.1",
-        "passport-local": "^1.0.0",
-        "sequelize": "^6.3.3"
-    },
-    "devDependencies": {
-        "chai": "^4.2.0",
-        "chai-http": "^4.3.0",
-        "cross-env": "^7.0.2",
-        "eslint": "^7.4.0",
-        "eslint-config-prettier": "^6.11.0",
-        "eslint-plugin-prettier": "^3.1.4",
-        "mocha": "^8.0.1",
-        "prettier": "^2.0.5"
-    }
+  "name": "Salud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint",
+    "start": "node server.js",
+    "lint": "eslint --quiet .",
+    "fix": "eslint --fix .",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcraepv/Salud.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcraepv/Salud/issues"
+  },
+  "homepage": "https://github.com/mcraepv/Salud#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mysql2": "^2.1.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.3.3"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "mocha": "^8.0.1",
+    "prettier": "^2.0.5"
+  }
 }

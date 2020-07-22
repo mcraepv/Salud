@@ -9,5 +9,9 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class SignInModalComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal) {}
 
+  checkCredentials() {
+    return this.activeModal.close('Close click');
+  }
+
   ngOnInit(): void {}
 }
