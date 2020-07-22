@@ -5,7 +5,8 @@ their profiles.
 
 ## User Story
 
-AS A Cocktail Enthusiast I WANT TO find and save my favorite cocktail recipes SO
+AS A Cocktail Enthusiast 
+I WANT TO find and save my favorite cocktail recipes SO
 THAT I don't have to google things every time
 
 ## Acceptance Criteria
@@ -26,7 +27,7 @@ with my account\n THEN I am presented with an option to save recipes\n
 
 - [Installation](#installation)
 
--[Technologies](#technologies)
+- [Technologies](#technologies)
 
 - [License](#license)
 
