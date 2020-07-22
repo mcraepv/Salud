@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "macDATAbase!6799",
-    "database": "database_development",
+    "database": "cocktails_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
