@@ -26,6 +26,8 @@ with an option to save recipes
 
 - [Installation](#installation)
 
+-[Technologies](#technologies)
+
 - [License](#license)
 
 - [Questions](#questions)
@@ -34,6 +36,20 @@ with an option to save recipes
 
 Clone the repo to check out our code or visit the live site above to see the
 app.
+
+## Technologies
+
+https://angular.io/
+
+https://getbootstrap.com/
+
+https://expressjs.com/
+
+https://www.mysql.com/
+
+https://nodejs.org/en/
+
+https://ng-bootstrap.github.io/#/home
 
 ## License
 
