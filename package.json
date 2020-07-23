@@ -1,28 +1,34 @@
 {
-  "name": "project-2",
+  "name": "Salud",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run lint",
+    "start": "node server.js",
+    "lint": "eslint --quiet .",
+    "fix": "eslint --fix .",
+    "watch": "nodemon server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mcraepv/Project-2.git"
+    "url": "git+https://github.com/mcraepv/Salud.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mcraepv/Project-2/issues"
+    "url": "https://github.com/mcraepv/Salud/issues"
   },
-  "homepage": "https://github.com/mcraepv/Project-2#readme",
+  "homepage": "https://github.com/mcraepv/Salud#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "crypto": "^1.0.1",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.1.0",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0",
+    "passport-jwt": "^4.0.0",
     "sequelize": "^6.3.3"
   },
   "devDependencies": {

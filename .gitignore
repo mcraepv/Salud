@@ -102,3 +102,8 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Our user story
+user-story.txt
+
+id_rsa_priv.pem

@@ -1,0 +1,12 @@
+.sidenav {
+  z-index: 1;
+  position: fixed;
+  width: 20vw;
+  height: 100vh;
+}
+
+#sidenav-placeholder {
+  width: 30%;
+  height: 10%;
+  clip-path: circle(40%);
+}
