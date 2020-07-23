@@ -1,23 +1,21 @@
 module.exports = function (sequelize, DataTypes) {
-  var Cocktail = sequelize.define(
-    'Cocktail',
-    {
-      name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      description: {
-        type: DataTypes.TEXT,
-        allowNull: true,
-      },
-      instructions: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-      },
+  var Cocktail = sequelize.define('Cocktail', {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
-    {
-      freezeTableName: true,
+    instructions: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    imageUrl: {
+      type: DataTypes.TEXT,
+      allowNull: true,
     }
+  },
+  {
+    freezeTableName: true,
+  }
   );
 
   Cocktail.associate = function (models) {
