@@ -1,12 +1,12 @@
-var express = require('express');
-var session = require('express-session');
-var passport = require('./config/passport');
+const express = require('express');
+const session = require('express-session');
+const passport = require('passport');
 
-var PORT = process.env.PORT || 3000;
-var db = require('./models');
+const PORT = process.env.PORT || 3000;
+const db = require('./models');
 
 // Creating express app and configuring middleware needed for authentication
-var app = express();
+const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));

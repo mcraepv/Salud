@@ -1,40 +1,35 @@
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+const JwtStrategy = require('passport-jwt').Strategy;
+const ExtractJwt = require('passport-jwt').ExtractJwt;
+const fs = require('fs');
+const path = require('path');
 
-var db = require('../models');
+const db = require('../models');
 
-passport.use(
-  new LocalStrategy(
-    {
-      usernameField: 'email',
-    },
-    function (email, password, done) {
-      db.User.findOne({
-        where: {
-          email: email,
-        },
-      }).then(function (dbUser) {
-        if (!dbUser) {
-          return done(null, false, {
-            message: 'Incorrect email.',
-          });
-        } else if (!dbUser.validPassword(password)) {
-          return done(null, false, {
-            message: 'Incorrect password.',
-          });
+const pathToKey = path.join(__dirname, '..', 'id_rsa_pub.pem');
+const PUB_KEY = fs.readFileSync(pathToKey, 'utf8');
+
+const options = {
+  jwtFrmRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  secretOrKey: PUB_KEY,
+  algorithms: ['RS256'],
+};
+
+module.exports = (passport) => {
+  passport.use(
+    new JwtStrategy(options, function (jwtPayload, done) {
+      console.log(jwtPayload);
+
+      //may need to change the _id prop to whatever is in our user model
+      db.User.findOne({ _id: jwtPayload.sub }, function (err, user) {
+        if (err) {
+          return done(err, false);
         }
-        return done(null, dbUser);
+        if (user) {
+          return done(null, user);
+        } else {
+          return done(null, false);
+        }
       });
-    }
-  )
-);
-
-passport.serializeUser(function (user, cb) {
-  cb(null, user);
-});
-
-passport.deserializeUser(function (obj, cb) {
-  cb(null, obj);
-});
-
-module.exports = passport;
+    })
+  );
+};
