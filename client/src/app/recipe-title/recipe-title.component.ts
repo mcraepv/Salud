@@ -1,3 +1,6 @@
+import { Test } from './../models/test';
+import { Cocktail } from './../models/cocktail';
+import { QueryService } from './../query.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-title.component.css'],
 })
 export class RecipeTitleComponent implements OnInit {
+  test: Test[];
   title: string = 'Margarita';
-  constructor() {}
+  cocktails: Cocktail[];
+  constructor(private queryService: QueryService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getCocktails();
+  }
+
+  getCocktails() {
+    this.queryService.getCocktails().subscribe((data) => {
+      console.log(data);
+      this.test = data;
+    });
+  }
 }
