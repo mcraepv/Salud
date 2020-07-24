@@ -1,9 +1,80 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
+
+  private loginUrl = 'http://localhost:3000/api/login';
+  private registerUrl = 'http://localhost:3000/api/register';
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
+
+  setLocalStorage(resObj) {
+    //resObj.expiresIn is the wrong format for moment, don't judge me
+    const expiresAt = moment().add(1, 'day');
+
+    localStorage.setItem('id_token', resObj.token);
+    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+  }
+
+  login(email: string, password: string) {
+    const reqObj = {
+      email: email,
+      password: password,
+    };
+    this.http.post(this.loginUrl, reqObj, this.httpOptions).subscribe(
+      (res) => {
+        this.setLocalStorage(res);
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        console.log('successfully logged in');
+      }
+    );
+  }
+
+  logout() {
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('expires_at');
+  }
+
+  public isLoggedIn() {
+    return moment().isBefore(this.getExpiration());
+  }
+
+  isLoggedOut() {
+    return !this.isLoggedIn();
+  }
+
+  getExpiration() {
+    const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+    return moment(expiresAt);
+  }
+
+  register(email: string, password: string) {
+    const reqObj = {
+      email: email,
+      password: password,
+    };
+    this.http.post(this.registerUrl, reqObj, this.httpOptions).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        console.log('Successfully registered, logging in user...');
+        this.login(email, password);
+      }
+    );
+  }
 }
