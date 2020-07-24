@@ -1,3 +1,4 @@
+import { RecipeComponent } from './recipe/recipe.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -7,6 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomepageComponent },
   { path: 'advanced-search', component: AdvancedSearchComponent },
+  { path: 'recipe', component: RecipeComponent },
 ];
 
 @NgModule({
