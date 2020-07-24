@@ -18,6 +18,8 @@ import { SignOutComponent } from './sign-out/sign-out.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
 import { AdvancedSearchNavComponent } from './advanced-search-nav/advanced-search-nav.component';
+import { RecipeComponent } from './recipe/recipe.component';
+import { RecipeImgComponent } from './recipe-img/recipe-img.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { AdvancedSearchNavComponent } from './advanced-search-nav/advanced-searc
     HomepageComponent,
     AdvancedSearchComponent,
     AdvancedSearchNavComponent,
+    RecipeComponent,
+    RecipeImgComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
   providers: [],
