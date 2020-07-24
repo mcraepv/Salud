@@ -10,15 +10,20 @@ module.exports = function (sequelize, DataTypes) {
       defaultValue: 'Other'
     }
   }, {
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
   });
 
   Ingredient.associate = function (models) {
-    Ingredient.hasMany(models.CocktailIngredient, {
+    Ingredient.belongsToMany(models.Cocktail, {
+      through: 'CocktailIngredient',
       onDelete: 'cascade',
-      foreignKey: {
-        allowNull: false
-      }
+      foreignKey: 'IngredientId'
+    });
+    Ingredient.belongsToMany(models.Measure, {
+      through: 'CocktailIngredient',
+      onDelete: 'cascade',
+      foreignKey: 'IngredientId'
     });
   };
 
