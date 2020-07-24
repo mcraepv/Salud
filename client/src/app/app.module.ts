@@ -12,6 +12,12 @@ import { SignInModalComponent } from './sign-in-modal/sign-in-modal.component';
 import { FrontPageJumbotronComponent } from './front-page-jumbotron/front-page-jumbotron.component';
 import { FrontPageSearchBarComponent } from './front-page-search-bar/front-page-search-bar.component';
 import { DrinksOfDayComponent } from './drinks-of-day/drinks-of-day.component';
+import { RegisterModalComponent } from './register-modal/register-modal.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SignOutComponent } from './sign-out/sign-out.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
+import { AdvancedSearchNavComponent } from './advanced-search-nav/advanced-search-nav.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +30,13 @@ import { DrinksOfDayComponent } from './drinks-of-day/drinks-of-day.component';
     FrontPageJumbotronComponent,
     FrontPageSearchBarComponent,
     DrinksOfDayComponent,
+    RegisterModalComponent,
+    SignOutComponent,
+    HomepageComponent,
+    AdvancedSearchComponent,
+    AdvancedSearchNavComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule],
+  imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
