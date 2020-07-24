@@ -2,7 +2,8 @@ const db = require('../models');
 // const passport = require('passport');
 
 module.exports = function (app) {
-  app.get('/api/login', (req, res) => {
+  app.post('/api/login', (req, res) => {
+    console.log(req.body);
     db.User.findOne({ where: { email: req.body.email } })
       .then((user) => {
         if (!user) {
@@ -35,7 +36,7 @@ module.exports = function (app) {
       password: req.body.password,
     })
       .then(() => {
-        res.redirect(200, 'api/login');
+        res.status(200);
       })
       .catch((err) => {
         res.status(401).json(err);
