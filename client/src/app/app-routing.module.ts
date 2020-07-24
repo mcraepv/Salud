@@ -5,10 +5,11 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomepageComponent },
   { path: 'advanced-search', component: AdvancedSearchComponent },
   { path: 'recipe', component: RecipeComponent },
+  { path: '**', component: HomepageComponent },
 ];
 
 @NgModule({

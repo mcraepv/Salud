@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { QueryService } from '../query.service';
+import { Ingredient } from '../ingredient';
 
 @Component({
   selector: 'app-advanced-search-nav',
@@ -8,11 +15,40 @@ import { QueryService } from '../query.service';
 })
 export class AdvancedSearchNavComponent implements OnInit {
   constructor(private queryService: QueryService) {}
+  ingredients: Ingredient[];
+  categoriesObj: Object = {
+    spirits: [],
+    liqueurs: [],
+    wines: [],
+    beers: [],
+    mixers: [],
+    others: [],
+  };
+  test: string = 'foo';
 
-  //this breaks the thing
-  // getIngredient(ingredient: string): void {
-  //   return this.queryService.getIngredientByType(ingredient);
-  // }
+  updateProps(ingredients): void {
+    this.ingredients = ingredients;
 
-  ngOnInit(): void {}
+    for (let i = 0; i < this.ingredients.length; i++) {
+      const check = this.ingredients[i].category;
+      const ingredient = this.ingredients[i].name;
+      const propArr = Object.getOwnPropertyNames(this.categoriesObj);
+      for (let x = 0; x < propArr.length; x++) {
+        if (check === propArr[x]) {
+          this.categoriesObj[propArr[x]].push(ingredient);
+        }
+      }
+    }
+    console.log(this.categoriesObj);
+  }
+
+  getIngredients(): void {
+    this.queryService.getIngredients().subscribe((ingredients) => {
+      this.updateProps(ingredients);
+    });
+  }
+
+  ngOnInit(): void {
+    this.getIngredients();
+  }
 }
