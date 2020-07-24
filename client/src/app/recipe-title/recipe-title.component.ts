@@ -10,7 +10,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RecipeTitleComponent implements OnInit {
   @Input() test: Test;
-  title: string = 'Margarita';
   cocktails: Cocktail[];
   constructor(private queryService: QueryService) {}
 
