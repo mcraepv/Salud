@@ -1,5 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
-  var CocktailIngredient = sequelize.define('CocktailIngredient', {
+var CocktailIngredient = sequelize.define('CocktailIngredient', {
     amount: {
       type: DataTypes.FLOAT,
       allowNull: true
