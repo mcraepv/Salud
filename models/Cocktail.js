@@ -1,5 +1,3 @@
-const CocktailIngredient = require("./CocktailIngredient");
-
 module.exports = function (sequelize, DataTypes) {
   var Cocktail = sequelize.define('Cocktail', {
     name: {
