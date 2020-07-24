@@ -15,6 +15,9 @@ import { DrinksOfDayComponent } from './drinks-of-day/drinks-of-day.component';
 import { RegisterModalComponent } from './register-modal/register-modal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignOutComponent } from './sign-out/sign-out.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
+import { AdvancedSearchNavComponent } from './advanced-search-nav/advanced-search-nav.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { SignOutComponent } from './sign-out/sign-out.component';
     DrinksOfDayComponent,
     RegisterModalComponent,
     SignOutComponent,
+    HomepageComponent,
+    AdvancedSearchComponent,
+    AdvancedSearchNavComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
   providers: [],

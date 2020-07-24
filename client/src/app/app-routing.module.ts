@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SignInModalComponent } from './sign-in-modal/sign-in-modal.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
 
-const routes: Routes = [{ path: 'api/login', component: SignInModalComponent }];
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomepageComponent },
+  { path: 'advanced-search', component: AdvancedSearchComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -16,7 +16,7 @@ export class AuthService {
   };
 
   setLocalStorage(resObj) {
-    //resObj.expiresIn is the wrong format for moment, don't judge me,
+    //resObj.expiresIn is the wrong format for moment, don't judge me
     const expiresAt = moment().add(1, 'day');
 
     localStorage.setItem('id_token', resObj.token);
