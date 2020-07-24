@@ -46,4 +46,24 @@ module.exports = function (app) {
     req.logout();
     res.redirect('/');
   });
+
+  app.get('/api/cocktail', function(req, res) {
+    db.Cocktail.findAll({
+      include: [db.Ingredient, db.Measure]
+    }).then(function(result) {
+      res.json(result);
+    });
+  });
+
+  app.get('/api/ingredient', function(req, res) {
+    db.Ingredient.findAll({}).then(function(result) {
+      res.json(result);
+    });
+  });
+
+  app.get('/api/measure', function(req, res) {
+    db.Measure.findAll({}).then(function(result) {
+      res.json(result);
+    });
+  });
 };
