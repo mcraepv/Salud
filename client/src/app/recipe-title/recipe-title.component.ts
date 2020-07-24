@@ -1,7 +1,7 @@
 import { Test } from './../models/test';
 import { Cocktail } from './../models/cocktail';
 import { QueryService } from './../query.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-recipe-title',
@@ -9,19 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-title.component.css'],
 })
 export class RecipeTitleComponent implements OnInit {
-  test: Test[];
+  @Input() test: Test;
   title: string = 'Margarita';
   cocktails: Cocktail[];
   constructor(private queryService: QueryService) {}
 
-  ngOnInit(): void {
-    this.getCocktails();
-  }
-
-  getCocktails() {
-    this.queryService.getCocktails().subscribe((data) => {
-      console.log(data);
-      this.test = data;
-    });
-  }
+  ngOnInit(): void {}
 }
