@@ -22,11 +22,15 @@ module.exports = function (sequelize, DataTypes) {
   );
 
   Cocktail.associate = function (models) {
-    Cocktail.hasMany(models.CocktailIngredient, {
+    Cocktail.belongsToMany(models.Ingredient, {
+      through: 'CocktailIngredient',
       onDelete: 'cascade',
-      foreignKey: {
-        allowNull: false,
-      },
+      foreignKey: 'CocktailId'
+    });
+    Cocktail.belongsToMany(models.Measure, {
+      through: 'CocktailIngredient',
+      onDelete: 'cascade',
+      foreignKey: 'CocktailId'
     });
   };
 

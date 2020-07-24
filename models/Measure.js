@@ -14,11 +14,15 @@ module.exports = function (sequelize, DataTypes) {
   );
 
   Measure.associate = function (models) {
-    Measure.hasMany(models.CocktailIngredient, {
+    Measure.belongsToMany(models.Cocktail, {
+      through: 'CocktailIngredient',
       onDelete: 'cascade',
-      foreignKey: {
-        allowNull: false,
-      },
+      foreignKey: 'MeasureId'
+    });
+    Measure.belongsToMany(models.Ingredient, {
+      through: 'CocktailIngredient',
+      onDelete: 'cascade',
+      foreignKey: 'MeasureId'
     });
   };
 
