@@ -19,17 +19,6 @@ module.exports = function (sequelize, DataTypes) {
       freezeTableName: true,
       timestamps: false,
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-  },
-  {
-    freezeTableName: true,
-    timestamps: false
-  }
-=======
->>>>>>> 534859160f8b12941c69770ef0af278324b67096
-=======
->>>>>>> 9cd1771d170ab0c3d64d99b8ffe34480a7c35da2
   );
 
   Cocktail.associate = function (models) {
