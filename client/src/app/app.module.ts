@@ -20,6 +20,11 @@ import { AdvancedSearchComponent } from './advanced-search/advanced-search.compo
 import { AdvancedSearchNavComponent } from './advanced-search-nav/advanced-search-nav.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { RecipeImgComponent } from './recipe-img/recipe-img.component';
+import { RecipeTitleComponent } from './recipe-title/recipe-title.component';
+import { RecipeInfoComponent } from './recipe-info/recipe-info.component';
+import { RecipeIngredientsComponent } from './recipe-ingredients/recipe-ingredients.component';
+import { RecipeExtraComponent } from './recipe-extra/recipe-extra.component';
+import { RecipeStepsComponent } from './recipe-steps/recipe-steps.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +44,11 @@ import { RecipeImgComponent } from './recipe-img/recipe-img.component';
     AdvancedSearchNavComponent,
     RecipeComponent,
     RecipeImgComponent,
+    RecipeTitleComponent,
+    RecipeInfoComponent,
+    RecipeIngredientsComponent,
+    RecipeExtraComponent,
+    RecipeStepsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
   providers: [],
