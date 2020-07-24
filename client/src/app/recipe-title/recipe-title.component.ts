@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Test } from './../models/test';
+import { Cocktail } from './../models/cocktail';
+import { QueryService } from './../query.service';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-recipe-title',
@@ -6,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-title.component.css'],
 })
 export class RecipeTitleComponent implements OnInit {
-  title: string = 'Margarita';
-  constructor() {}
+  @Input() test: Test;
+  cocktails: Cocktail[];
+  constructor(private queryService: QueryService) {}
 
   ngOnInit(): void {}
 }
