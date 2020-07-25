@@ -3,6 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { Drink } from '../drink';
 import { QueryService } from '../query.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-advanced-search',
@@ -10,7 +11,7 @@ import { QueryService } from '../query.service';
   styleUrls: ['./advanced-search.component.css'],
 })
 export class AdvancedSearchComponent implements OnInit {
-  constructor(private queryService: QueryService) {}
+  constructor(private queryService: QueryService, private router: Router) {}
 
   private searchSub = new Subject();
 
@@ -21,8 +22,13 @@ export class AdvancedSearchComponent implements OnInit {
   // drinksBottom: Array<Object>;
 
   getResults(res): void {
-    console.log('parent: ', res);
     this.searchSub.next(res);
+  }
+
+  goRecipe(cocktail) {
+    this.router.navigate(['/recipe'], {
+      queryParams: { cocktailName: cocktail },
+    });
   }
 
   ngOnInit(): void {
@@ -31,7 +37,7 @@ export class AdvancedSearchComponent implements OnInit {
     //   this.drinksBottom = data.splice(0, 4);
     // });
     this.searchSub.subscribe({
-      next: (searchVals: string[]) => {
+      next: (searchVals: number[]) => {
         debounceTime(300);
 
         this.results$ = this.queryService.advancedSearch(searchVals);

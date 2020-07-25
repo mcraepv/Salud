@@ -1,9 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { QueryService } from '../query.service';
 import { Ingredient } from '../ingredient';
-import { Observable, Subject } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
-import { Drink } from '../drink';
 
 @Component({
   selector: 'app-advanced-search-nav',
@@ -22,19 +19,17 @@ export class AdvancedSearchNavComponent implements OnInit {
   };
   // private searchSub = new Subject();
   // searchVals: Array<string> = [];
-  @Input() searchVals: Array<string> = [];
+  @Input() searchVals: Array<Object> = [];
   // results$: Observable<Drink[]>;
   @Output() sendToParent = new EventEmitter<Array<Object>>();
 
-  onCheck(ingredient, event) {
+  onCheck(ingredientID, event) {
     if (event.target.checked) {
-      this.searchVals.push(ingredient);
-      console.log(this.searchVals);
+      this.searchVals.push(ingredientID);
       // this.searchSub.next(this.searchVals);
       this.sendToParent.emit(this.searchVals);
     } else {
-      this.searchVals = this.searchVals.filter((el) => el !== ingredient);
-      console.log(this.searchVals);
+      this.searchVals = this.searchVals.filter((el) => el !== ingredientID);
     }
   }
 
@@ -43,7 +38,7 @@ export class AdvancedSearchNavComponent implements OnInit {
 
     for (let i = 0; i < this.ingredients.length; i++) {
       const check = this.ingredients[i].category;
-      const ingredient = this.ingredients[i].name;
+      const ingredient = this.ingredients[i];
       const propArr = Object.getOwnPropertyNames(this.categoriesObj);
       for (let x = 0; x < propArr.length; x++) {
         if (check === propArr[x]) {

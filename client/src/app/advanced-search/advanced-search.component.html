@@ -4,7 +4,7 @@
 <div *ngIf="results$ | async as drinks" class="container">
   <div class="row">
     <div *ngFor="let drink of drinks" class="col-3 mt-4">
-      <div class="card">
+      <div class="card" (click)="goRecipe(drink.name)">
         <div class="card-body">
           <h5 class="card-title text-center">{{ drink.name }}</h5>
           <p class="card-text">

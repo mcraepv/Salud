@@ -47,7 +47,7 @@ module.exports = function (app) {
     res.redirect('/');
   });
 
-  app.get('/api/cocktail', function (req, res) {
+  app.get('/api/cocktail/', function (req, res) {
     console.log('called');
     db.Cocktail.findAll({
       include: [db.Ingredient, db.Measure],
