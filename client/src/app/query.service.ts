@@ -37,8 +37,8 @@ export class QueryService {
 
   advancedSearch(searchArr: Array<string>): Observable<Drink[]> {
     console.log('query');
-    const customURL = `${this.advancedSearchURL}/:${searchArr.toString()}`;
-    return this.http.get<Drink[]>(customURL).pipe(
+    const customURL = `${this.advancedSearchURL}/${searchArr.toString()}`;
+    return this.http.get<any>(customURL).pipe(
       tap((x) => {
         x.length
           ? console.log('Found drinks')
