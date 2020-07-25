@@ -1,1 +1,31 @@
-<app-advanced-search-nav></app-advanced-search-nav>
+<app-advanced-search-nav
+  (sendToParent)="getResults($event)"
+></app-advanced-search-nav>
+<div *ngIf="results$ | async as drinks" class="container">
+  <div class="row">
+    <div *ngFor="let drink of drinks" class="col-3 mt-4">
+      <div class="card" (click)="goRecipe(drink.name)">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ drink.name }}</h5>
+          <p class="card-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+            quod assumenda ratione magni ea, tempore iure architecto accusamus,
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="row">
+    <div *ngFor="let drink of drinksBottom" class="col-3 my-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ drink.name }}</h5>
+          <p class="card-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+            quod assumenda ratione magni ea, tempore iure architecto accusamus,
+          </p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>

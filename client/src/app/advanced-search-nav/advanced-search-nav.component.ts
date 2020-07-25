@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { QueryService } from '../query.service';
 import { Ingredient } from '../ingredient';
 
@@ -22,16 +16,29 @@ export class AdvancedSearchNavComponent implements OnInit {
     wines: [],
     beers: [],
     mixers: [],
-    others: [],
   };
-  test: string = 'foo';
+  // private searchSub = new Subject();
+  // searchVals: Array<string> = [];
+  @Input() searchVals: Array<Object> = [];
+  // results$: Observable<Drink[]>;
+  @Output() sendToParent = new EventEmitter<Array<Object>>();
+
+  onCheck(ingredientID, event) {
+    if (event.target.checked) {
+      this.searchVals.push(ingredientID);
+      // this.searchSub.next(this.searchVals);
+      this.sendToParent.emit(this.searchVals);
+    } else {
+      this.searchVals = this.searchVals.filter((el) => el !== ingredientID);
+    }
+  }
 
   updateProps(ingredients): void {
     this.ingredients = ingredients;
 
     for (let i = 0; i < this.ingredients.length; i++) {
       const check = this.ingredients[i].category;
-      const ingredient = this.ingredients[i].name;
+      const ingredient = this.ingredients[i];
       const propArr = Object.getOwnPropertyNames(this.categoriesObj);
       for (let x = 0; x < propArr.length; x++) {
         if (check === propArr[x]) {
@@ -39,7 +46,6 @@ export class AdvancedSearchNavComponent implements OnInit {
         }
       }
     }
-    console.log(this.categoriesObj);
   }
 
   getIngredients(): void {
@@ -50,5 +56,17 @@ export class AdvancedSearchNavComponent implements OnInit {
 
   ngOnInit(): void {
     this.getIngredients();
+
+    // this.searchSub.subscribe({
+    //   next: (searchVals: string[]) => {
+    //     debounceTime(300);
+
+    //     this.results$ = this.queryService.advancedSearch(searchVals);
+    //     this.results$.subscribe((res) => {
+    //       console.log('Nav: ', res);
+    //       this.sendToParent.emit(res);
+    //     });
+    //   },
+    // });
   }
 }

@@ -19,11 +19,11 @@ export class RecipeIngredientsInfoComponent implements OnInit {
 
   getCocktail() {
     if (this.cocktail) {
-      console.log(
-        this.cocktail.Ingredients[0].CocktailIngredient.amount,
-        this.cocktail.Measures[0].name,
-        this.cocktail.Ingredients[0].name
-      );
+      // console.log(
+      //   this.cocktail.Ingredients[0].CocktailIngredient.amount,
+      //   this.cocktail.Measures[0].name,
+      //   this.cocktail.Ingredients[0].name
+      // );
     }
   }
 }

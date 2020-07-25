@@ -27,13 +27,12 @@ export class RecipeComponent implements OnInit {
   //   });
   // }
 
-    ngOnInit(): void {
+  ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       console.log(params.cocktailName);
-      this.queryService
-        .getCocktail(params.cocktailName)
-        .subscribe((data) => {
-          this.cocktail = data;
-        });
+      this.queryService.getCocktail(params.cocktailName).subscribe((data) => {
+        this.cocktail = data;
+      });
     });
+  }
 }
