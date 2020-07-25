@@ -1,12 +1,9 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { QueryService } from '../query.service';
 import { Ingredient } from '../ingredient';
+import { Observable, Subject, ObservableInput } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { Drink } from '../drink';
 
 @Component({
   selector: 'app-advanced-search-nav',
@@ -24,7 +21,21 @@ export class AdvancedSearchNavComponent implements OnInit {
     mixers: [],
     others: [],
   };
-  test: string = 'foo';
+  private searchSub = new Subject();
+  results$: Observable<Drink[]>;
+  searchVals: Array<string> = [];
+
+  onCheck(ingredient, event) {
+    console.log(event.target.checked);
+    if (event.target.checked) {
+      this.searchVals.push(ingredient);
+      console.log(this.searchVals);
+      this.searchSub.next(this.searchVals);
+    } else {
+      this.searchVals = this.searchVals.filter((el) => el !== ingredient);
+      console.log(this.searchVals);
+    }
+  }
 
   updateProps(ingredients): void {
     this.ingredients = ingredients;
@@ -39,7 +50,6 @@ export class AdvancedSearchNavComponent implements OnInit {
         }
       }
     }
-    console.log(this.categoriesObj);
   }
 
   getIngredients(): void {
@@ -50,5 +60,15 @@ export class AdvancedSearchNavComponent implements OnInit {
 
   ngOnInit(): void {
     this.getIngredients();
+
+    this.searchSub.subscribe({
+      next: (searchVals: string[]) => {
+        console.log(`observerA: ${typeof searchVals}`);
+        debounceTime(300);
+
+        console.log(searchVals);
+        this.queryService.advancedSearch(searchVals);
+      },
+    });
   }
 }
