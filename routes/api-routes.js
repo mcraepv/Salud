@@ -56,19 +56,17 @@ module.exports = function (app) {
     });
   });
 
-  app.get('/api/advanced-search/:cocktail', function (req, res) {
-    let selectedCategories = [];
-    const hasCategories = selectedCategories.length === 0;
+  // Results Page
+  app.get('/api/advanced-search/:ingredients', function (req, res) {
+    let selectedIngredients = req.params.ingredients.split(',');
+    const hasIngredients = selectedIngredients.length === 0;
     db.Cocktail.findAll({
       attributes: ['id', 'name', 'imageUrl'],
       include: [db.Ingredient, db.Measure],
       where: {
-        name: {
-          [sequelize.Op.like]: req.params.cocktail + '%',
-        },
         [sequelize.Op.or]: [
-          { '$Ingredients.category$': selectedCategories },
-          sequelize.literal('TRUE = ' + hasCategories),
+          { '$Ingredients.name$': selectedIngredients },
+          sequelize.literal('TRUE = ' + hasIngredients),
         ],
       },
     }).then(function (result) {

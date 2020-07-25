@@ -16,6 +16,7 @@ const httpOptions = {
 export class QueryService {
   ingredientURL = 'http://localhost:3000/api/ingredient';
   cocktailURL = 'http://localhost:3000/api/cocktail';
+  advancedSearchURL = 'http://localhost:3000/api/advanced-search';
   testURL = 'https://jsonplaceholder.typicode.com/comments';
 
   constructor(private http: HttpClient) {}
@@ -36,7 +37,7 @@ export class QueryService {
 
   advancedSearch(searchArr: Array<string>): Observable<Drink[]> {
     console.log('query');
-    const customURL = `${this.cocktailURL}/?:${searchArr.toString()}`;
+    const customURL = `${this.advancedSearchURL}/:${searchArr.toString()}`;
     return this.http.get<Drink[]>(customURL).pipe(
       tap((x) => {
         x.length

@@ -6,24 +6,36 @@ const pathToKey = path.join(__dirname, '..', 'id_rsa_priv.pem');
 const PRIV_KEY = fs.readFileSync(pathToKey, 'utf8');
 
 module.exports = function (sequelize, DataTypes) {
-  const User = sequelize.define('User', {
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
+  const User = sequelize.define(
+    'User',
+    {
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          isEmail: true,
+        },
+      },
+
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
     },
+    {
+      freezeTableName: true,
+    }
+  );
 
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-  });
+  User.associate = function (models) {
+    User.belongsToMany(models.Cocktail, {
+      through: 'FavoriteRecipe',
+      foreignKey: 'UserId',
+    });
+  };
 
   User.prototype.validPassword = function (password) {
-    console.log(password);
     return bcrypt.compareSync(password, this.password);
   };
 

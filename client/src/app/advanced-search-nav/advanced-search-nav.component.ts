@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QueryService } from '../query.service';
 import { Ingredient } from '../ingredient';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, ObservableInput } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { Drink } from '../drink';
 
@@ -61,14 +61,14 @@ export class AdvancedSearchNavComponent implements OnInit {
   ngOnInit(): void {
     this.getIngredients();
 
-    this.results$ = this.searchSub.subscribe(
-      debounceTime(300),
+    this.searchSub.subscribe({
+      next: (searchVals: string[]) => {
+        console.log(`observerA: ${typeof searchVals}`);
+        debounceTime(300);
 
-      distinctUntilChanged(),
-
-      switchMap((searchVals: Array<string>) =>
-        this.queryService.advancedSearch(searchVals)
-      )
-    );
+        console.log(searchVals);
+        this.queryService.advancedSearch(searchVals);
+      },
+    });
   }
 }
