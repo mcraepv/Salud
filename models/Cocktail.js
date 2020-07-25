@@ -32,6 +32,11 @@ module.exports = function (sequelize, DataTypes) {
       onDelete: 'cascade',
       foreignKey: 'CocktailId'
     });
+    Cocktail.belongsToMany(models.User, {
+      through: 'FavoriteRecipe',
+      onDelete: 'cascade',
+      foreignKey: 'CocktailId'
+    });
   };
 
   return Cocktail;

@@ -22,6 +22,13 @@ module.exports = function (sequelize, DataTypes) {
     },
   });
 
+  User.associate = function (models) {
+    User.belongsToMany(models.Cocktail, {
+      through: 'FavoriteRecipe',
+      foreignKey: 'UserId'
+    });
+  };
+
   User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
   };
