@@ -56,6 +56,16 @@ module.exports = function (app) {
     });
   });
 
+  app.get('/recipe/:cocktailname', function (req, res) {
+    db.Cocktail.findOne({
+      include: [db.Ingredient, db.Measure],
+      where: {
+        name: req.params.cocktailname,
+      },
+    }).then(function (result) {
+      res.json(result);
+    });
+  });
   // Results Page
   app.get('/api/advanced-search/:ingredients', function (req, res) {
     let selectedIngredients = req.params.ingredients.split(',');

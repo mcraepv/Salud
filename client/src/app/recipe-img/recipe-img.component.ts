@@ -1,6 +1,5 @@
-import { QueryService } from './../query.service';
 import { Cocktail } from './../models/cocktail';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-recipe-img',
@@ -8,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-img.component.css'],
 })
 export class RecipeImgComponent implements OnInit {
+  @Input() cocktail: Cocktail;
   itemImageUrl: string = 'https://via.placeholder.com/400x500ij';
-  cocktails: Cocktail[];
-  constructor(private queryService: QueryService) {}
+  constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // console.log(this.cocktail);
+  }
 }
