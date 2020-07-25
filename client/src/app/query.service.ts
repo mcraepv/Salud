@@ -19,7 +19,6 @@ export class QueryService {
 
   constructor(private http: HttpClient) {}
 
-<<<<<<< HEAD
   getIngredients(): Observable<Ingredient[]> {
     return this.http.get<Ingredient[]>(this.ingredientURL).pipe(
       tap((x) => {}),
@@ -33,7 +32,7 @@ export class QueryService {
       return of(result as T);
     };
   }
-  
+
   getCocktails(): Observable<Test[]> {
     return this.http.get<Test[]>(this.testURL);
   }
