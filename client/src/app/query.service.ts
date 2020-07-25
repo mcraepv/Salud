@@ -35,10 +35,10 @@ export class QueryService {
     };
   }
 
-  advancedSearch(searchArr: Array<string>): Observable<Drink[]> {
+  advancedSearch(searchArr: Array<number>): Observable<Drink[]> {
     console.log('query');
-    const customURL = `${this.advancedSearchURL}/:${searchArr.toString()}`;
-    return this.http.get<Drink[]>(customURL).pipe(
+    const customURL = `${this.advancedSearchURL}/${searchArr.toString()}`;
+    return this.http.get<any>(customURL).pipe(
       tap((x) => {
         x.length
           ? console.log('Found drinks')
@@ -48,7 +48,7 @@ export class QueryService {
     );
   }
 
-  getCocktails(): Observable<Test[]> {
+  getCocktails(cocktailName): Observable<Test[]> {
     return this.http.get<Test[]>(this.testURL);
   }
 }
