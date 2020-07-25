@@ -29,11 +29,7 @@ module.exports = function (sequelize, DataTypes) {
     Measure.belongsToMany(models.Ingredient, {
       through: 'CocktailIngredient',
       onDelete: 'cascade',
-<<<<<<< HEAD
-      foreignKey: 'MeasureId'
-=======
       foreignKey: 'MeasureId',
->>>>>>> f9f39b3960a2596726e3dfba23b33864a058c42d
     });
   };
 

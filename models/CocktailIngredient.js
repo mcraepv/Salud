@@ -10,13 +10,10 @@ module.exports = function (sequelize, DataTypes) {
     {
       freezeTableName: true,
       timestamps: false,
-<<<<<<< HEAD
-=======
     },
     {
       freezeTableName: true,
       timestamps: false,
->>>>>>> f9f39b3960a2596726e3dfba23b33864a058c42d
     }
   );
 

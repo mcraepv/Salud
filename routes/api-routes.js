@@ -47,7 +47,8 @@ module.exports = function (app) {
     res.redirect('/');
   });
 
-  app.get('/api/cocktail', function (req, res) {
+  app.get('/api/cocktail/', function (req, res) {
+    console.log('called');
     db.Cocktail.findAll({
       include: [db.Ingredient, db.Measure],
     }).then(function (result) {
@@ -65,24 +66,6 @@ module.exports = function (app) {
       res.json(result);
     });
   });
-
-  app.get('/api/ingredient', function (req, res) {
-    db.Ingredient.findAll({}).then(function (result) {
-      res.json(result);
-    });
-  });
-
-  app.get('/api/measure', function (req, res) {
-    db.Measure.findAll({}).then(function (result) {
-  app.get('/api/cocktail/', function (req, res) {
-    console.log('called');
-    db.Cocktail.findAll({
-      include: [db.Ingredient, db.Measure],
-    }).then(function (result) {
-      res.json(result);
-    });
-  });
-
   // Results Page
   app.get('/api/advanced-search/:ingredients', function (req, res) {
     let selectedIngredients = req.params.ingredients.split(',');
