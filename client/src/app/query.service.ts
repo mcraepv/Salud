@@ -2,12 +2,13 @@ import { Test } from './models/test';
 import { Cocktail } from './models/cocktail';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Ingredient } from './ingredient';
+import { catchError, tap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
 };
-
 @Injectable({
   providedIn: 'root',
 })
@@ -18,13 +19,21 @@ export class QueryService {
 
   constructor(private http: HttpClient) {}
 
+  getIngredients(): Observable<Ingredient[]> {
+    return this.http.get<Ingredient[]>(this.ingredientURL).pipe(
+      tap((x) => {}),
+      catchError(this.handleError<Ingredient[]>('getIngredients', []))
+    );
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      return of(result as T);
+    };
+  }
+
   getCocktails(): Observable<Test[]> {
     return this.http.get<Test[]>(this.testURL);
   }
-  //this is gonna mess it up so just don't lol
-  // getIngredientByType(type) {
-  //   this.http.get(this.ingredientURL, type).subscribe((res) => {
-  //     console.log(res);
-  //   });
-  // }
 }
