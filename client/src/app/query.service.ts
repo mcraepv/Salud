@@ -1,19 +1,25 @@
+import { Test } from './models/test';
+import { Cocktail } from './models/cocktail';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Ingredient } from './ingredient';
 import { catchError, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+};
 @Injectable({
   providedIn: 'root',
 })
 export class QueryService {
-  constructor(private http: HttpClient) {}
   ingredientURL = 'http://localhost:3000/api/ingredient';
+  cocktailURL = 'http://localhost:3000/api/cocktail';
+  testURL = 'https://jsonplaceholder.typicode.com/comments';
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-  };
+  constructor(private http: HttpClient) {}
 
+<<<<<<< HEAD
   getIngredients(): Observable<Ingredient[]> {
     return this.http.get<Ingredient[]>(this.ingredientURL).pipe(
       tap((x) => {}),
@@ -26,5 +32,9 @@ export class QueryService {
       console.error(error);
       return of(result as T);
     };
+  }
+  
+  getCocktails(): Observable<Test[]> {
+    return this.http.get<Test[]>(this.testURL);
   }
 }
