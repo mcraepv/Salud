@@ -5,7 +5,16 @@
     </section>
     <aside class="col-6 mt-5 mb-5">
       <app-recipe-title [cocktail]="cocktail"></app-recipe-title>
-      <app-recipe-info></app-recipe-info>
+      <div class="info row mt-5">
+        <div class="col-6">
+          <app-recipe-ingredients-info
+            [cocktail]="cocktail"
+          ></app-recipe-ingredients-info>
+        </div>
+        <div class="col-6">
+          <app-recipe-extra-info></app-recipe-extra-info>
+        </div>
+      </div>
       <app-recipe-steps [cocktail]="cocktail"></app-recipe-steps>
     </aside>
   </div>

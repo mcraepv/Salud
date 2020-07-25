@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'home', component: HomepageComponent },
   { path: 'advanced-search', component: AdvancedSearchComponent },
   { path: 'recipe', component: RecipeComponent },
+  // { path: 'recipe/:cocktailName', component:RecipeComponent },
   { path: '**', component: HomepageComponent },
 ];
 

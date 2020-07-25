@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class QueryService {
   ingredientURL = 'http://localhost:3000/api/ingredient';
-  cocktailURL = 'http://localhost:3000/api/cocktail';
+  cocktailURL = 'http://localhost:3000/recipe/';
 
   constructor(private http: HttpClient) {}
 
@@ -31,7 +31,7 @@ export class QueryService {
     };
   }
 
-  getCocktails(): Observable<Cocktail[]> {
-    return this.http.get<Cocktail[]>(this.cocktailURL);
+  getCocktail(cocktailName: String): Observable<Cocktail[]> {
+    return this.http.get<Cocktail[]>(`${this.cocktailURL}${cocktailName}`);
   }
 }

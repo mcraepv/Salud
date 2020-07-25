@@ -1,5 +1,4 @@
 import { Cocktail } from './../models/cocktail';
-import { QueryService } from './../query.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -9,15 +8,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RecipeTitleComponent implements OnInit {
   @Input() cocktail: Cocktail;
+  name: string;
 
-  constructor(private queryService: QueryService) {}
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  ngOnChanges(): void {
     this.getCocktail();
   }
 
   getCocktail() {
-    console.log(this.cocktail);
-    return this.cocktail;
+    if (this.cocktail) {
+      this.name = this.cocktail.name;
+    }
   }
 }

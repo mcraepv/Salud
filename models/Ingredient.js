@@ -25,7 +25,7 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     // Uncomment Below After Creating the Database
-    /*Ingredient.belongsToMany(models.Cocktail, {
+    Ingredient.belongsToMany(models.Cocktail, {
       through: 'CocktailIngredient',
       onDelete: 'cascade',
       foreignKey: 'IngredientId'
@@ -34,7 +34,7 @@ module.exports = function (sequelize, DataTypes) {
       through: 'CocktailIngredient',
       onDelete: 'cascade',
       foreignKey: 'IngredientId'
-    });*/
+    });
   };
 
   return Ingredient;

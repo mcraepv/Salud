@@ -24,20 +24,20 @@ module.exports = function (sequelize, DataTypes) {
   Cocktail.associate = function (models) {
     Cocktail.hasMany(models.CocktailIngredient, {
       onDelete: 'cascade',
-      foreignKey: 'CocktailId'
+      foreignKey: 'CocktailId',
     });
 
     // Uncomment Below After Creating the Database
-    /*Cocktail.belongsToMany(models.Ingredient, {
+    Cocktail.belongsToMany(models.Ingredient, {
       through: 'CocktailIngredient',
       onDelete: 'cascade',
-      foreignKey: 'CocktailId'
+      foreignKey: 'CocktailId',
     });
     Cocktail.belongsToMany(models.Measure, {
       through: 'CocktailIngredient',
       onDelete: 'cascade',
-      foreignKey: 'CocktailId'
-    });*/
+      foreignKey: 'CocktailId',
+    });
   };
 
   return Cocktail;

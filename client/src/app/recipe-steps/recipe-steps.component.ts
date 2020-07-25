@@ -1,4 +1,3 @@
-import { QueryService } from './../query.service';
 import { Cocktail } from './../models/cocktail';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -9,10 +8,21 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RecipeStepsComponent implements OnInit {
   @Input() cocktail: Cocktail;
+  instructions: string;
 
-  constructor(private queryService: QueryService) {}
+  constructor() {}
 
   ngOnInit(): void {
     // console.log(this.cocktail);
+  }
+
+  ngOnChanges(): void {
+    this.getCocktail();
+  }
+
+  getCocktail() {
+    if (this.cocktail) {
+      this.instructions = this.cocktail.instructions;
+    }
   }
 }

@@ -3,6 +3,6 @@ export class Cocktail {
   name: string;
   instructions: string;
   imageUrl: string;
-  ingredients: string[];
-  measures: string[];
+  Ingredients: string[];
+  Measures: string[];
 }

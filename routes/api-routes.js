@@ -49,22 +49,33 @@ module.exports = function (app) {
     res.redirect('/');
   });
 
-  app.get('/api/cocktail', function(req, res) {
+  app.get('/api/cocktail', function (req, res) {
     db.Cocktail.findAll({
-      include: [db.Ingredient, db.Measure]
-    }).then(function(result) {
+      include: [db.Ingredient, db.Measure],
+    }).then(function (result) {
       res.json(result);
     });
   });
 
-  app.get('/api/ingredient', function(req, res) {
-    db.Ingredient.findAll({}).then(function(result) {
+  app.get('/recipe/:cocktailname', function (req, res) {
+    db.Cocktail.findOne({
+      include: [db.Ingredient, db.Measure],
+      where: {
+        name: req.params.cocktailname,
+      },
+    }).then(function (result) {
       res.json(result);
     });
   });
 
-  app.get('/api/measure', function(req, res) {
-    db.Measure.findAll({}).then(function(result) {
+  app.get('/api/ingredient', function (req, res) {
+    db.Ingredient.findAll({}).then(function (result) {
+      res.json(result);
+    });
+  });
+
+  app.get('/api/measure', function (req, res) {
+    db.Measure.findAll({}).then(function (result) {
       res.json(result);
     });
   });
@@ -78,13 +89,13 @@ module.exports = function (app) {
       include: [db.Ingredient, db.Measure],
       where: {
         name: {
-          [sequelize.Op.like]: req.params.cocktail + '%'
+          [sequelize.Op.like]: req.params.cocktail + '%',
         },
         [sequelize.Op.or]: [
           { '$Ingredients.category$': selectedCategories },
-          sequelize.literal('TRUE = ' + hasCategories)
-        ]
-      }
+          sequelize.literal('TRUE = ' + hasCategories),
+        ],
+      },
     }).then(function (result) {
       res.json(result);
     });
