@@ -23,6 +23,7 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   User.prototype.validPassword = function (password) {
+    console.log(password);
     return bcrypt.compareSync(password, this.password);
   };
 

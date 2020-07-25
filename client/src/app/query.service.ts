@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Ingredient } from './ingredient';
 import { catchError, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
+import { Drink } from './drink';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -31,6 +32,19 @@ export class QueryService {
       console.error(error);
       return of(result as T);
     };
+  }
+
+  advancedSearch(searchArr: Array<string>): Observable<Drink[]> {
+    console.log('query');
+    const customURL = `${this.cocktailURL}/?:${searchArr.toString()}`;
+    return this.http.get<Drink[]>(customURL).pipe(
+      tap((x) => {
+        x.length
+          ? console.log('Found drinks')
+          : console.log("didn't find drinks");
+      }),
+      catchError(this.handleError<Drink[]>('advancedSearch', []))
+    );
   }
 
   getCocktails(): Observable<Test[]> {
