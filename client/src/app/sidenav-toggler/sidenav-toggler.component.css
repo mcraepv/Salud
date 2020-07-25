@@ -1,0 +1,14 @@
+/* .navbar-toggler-icon {
+  outline: black !important;
+  color: black !important;
+} */
+
+.navbar-toggler:hover {
+  background-color: black;
+  outline: white !important;
+  color: white !important;
+}
+
+/* .btn {
+  outline: white;
+} */
