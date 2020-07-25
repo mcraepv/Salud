@@ -20,7 +20,16 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
+  }, {
+    freezeTableName: true
   });
+
+  User.associate = function (models) {
+    User.belongsToMany(models.Cocktail, {
+      through: 'FavoriteRecipe',
+      foreignKey: 'UserId'
+    });
+  };
 
   User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);

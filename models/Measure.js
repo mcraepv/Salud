@@ -14,7 +14,14 @@ module.exports = function (sequelize, DataTypes) {
   );
 
   Measure.associate = function (models) {
-    Measure.belongsToMany(models.Cocktail, {
+    Measure.hasMany(models.CocktailIngredient, {
+      onDelete: 'cascade',
+      foreignKey: 'MeasureId'
+    });
+
+    // Uncomment Below After Creating the Database
+
+    /*Measure.belongsToMany(models.Cocktail, {
       through: 'CocktailIngredient',
       onDelete: 'cascade',
       foreignKey: 'MeasureId'
@@ -23,7 +30,7 @@ module.exports = function (sequelize, DataTypes) {
       through: 'CocktailIngredient',
       onDelete: 'cascade',
       foreignKey: 'MeasureId'
-    });
+    });*/
   };
 
   return Measure;

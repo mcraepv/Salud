@@ -6,23 +6,33 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.FLOAT,
         allowNull: true,
       },
-      CocktailId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      IngredientId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      MeasureId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
     },
     {
       freezeTableName: true,
       timestamps: false,
     }
   );
+
+  CocktailIngredient.associate = function (models) {
+    CocktailIngredient.belongsTo(models.Cocktail, {
+      onDelete: 'cascade',
+      foreignKey: {
+        allowNull: false,
+      },
+    });
+    CocktailIngredient.belongsTo(models.Ingredient, {
+      onDelete: 'cascade',
+      foreignKey: {
+        allowNull: false,
+      },
+    });
+    CocktailIngredient.belongsTo(models.Measure, {
+      onDelete: 'cascade',
+      foreignKey: {
+        allowNull: false,
+      },
+    });
+  };
+
   return CocktailIngredient;
 };
