@@ -1,6 +1,6 @@
 import { QueryService } from './../query.service';
 import { Cocktail } from './../models/cocktail';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-recipe-steps',
@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-steps.component.css'],
 })
 export class RecipeStepsComponent implements OnInit {
-  cocktails: Cocktail[];
+  @Input() cocktail: Cocktail;
+
   constructor(private queryService: QueryService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // console.log(this.cocktail);
+  }
 }

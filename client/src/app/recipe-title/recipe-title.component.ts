@@ -1,4 +1,3 @@
-import { Test } from './../models/test';
 import { Cocktail } from './../models/cocktail';
 import { QueryService } from './../query.service';
 import { Component, OnInit, Input } from '@angular/core';
@@ -9,9 +8,16 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./recipe-title.component.css'],
 })
 export class RecipeTitleComponent implements OnInit {
-  @Input() test: Test;
-  cocktails: Cocktail[];
+  @Input() cocktail: Cocktail;
+
   constructor(private queryService: QueryService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getCocktail();
+  }
+
+  getCocktail() {
+    console.log(this.cocktail);
+    return this.cocktail;
+  }
 }

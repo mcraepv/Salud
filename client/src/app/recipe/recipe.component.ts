@@ -1,5 +1,5 @@
+import { Cocktail } from './../models/cocktail';
 import { QueryService } from './../query.service';
-import { Test } from './../models/test';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,18 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe.component.css'],
 })
 export class RecipeComponent implements OnInit {
-  test: Test[];
+  cocktail: Cocktail[];
 
   constructor(private queryService: QueryService) {}
 
   ngOnInit(): void {
-    this.getCocktails();
-  }
-
-  getCocktails() {
     this.queryService.getCocktails().subscribe((data) => {
       console.log(data);
-      this.test = data;
+      this.cocktail = data;
     });
   }
 }

@@ -1,4 +1,3 @@
-import { Test } from './models/test';
 import { Cocktail } from './models/cocktail';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -15,7 +14,6 @@ const httpOptions = {
 export class QueryService {
   ingredientURL = 'http://localhost:3000/api/ingredient';
   cocktailURL = 'http://localhost:3000/api/cocktail';
-  testURL = 'https://jsonplaceholder.typicode.com/comments';
 
   constructor(private http: HttpClient) {}
 
@@ -33,7 +31,7 @@ export class QueryService {
     };
   }
 
-  getCocktails(): Observable<Test[]> {
-    return this.http.get<Test[]>(this.testURL);
+  getCocktails(): Observable<Cocktail[]> {
+    return this.http.get<Cocktail[]>(this.cocktailURL);
   }
 }
