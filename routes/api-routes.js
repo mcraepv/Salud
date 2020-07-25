@@ -1,4 +1,5 @@
 const db = require('../models');
+const sequelize = require('sequelize');
 // const passport = require('passport');
 
 module.exports = function (app) {
@@ -64,6 +65,27 @@ module.exports = function (app) {
 
   app.get('/api/measure', function(req, res) {
     db.Measure.findAll({}).then(function(result) {
+      res.json(result);
+    });
+  });
+
+  // Results Page
+  app.get('/api/advanced-search/:cocktail', function (req, res) {
+    let selectedCategories = [];
+    const hasCategories = selectedCategories.length === 0;
+    db.Cocktail.findAll({
+      attributes: ['id', 'name', 'imageUrl'],
+      include: [db.Ingredient, db.Measure],
+      where: {
+        name: {
+          [sequelize.Op.like]: req.params.cocktail + '%'
+        },
+        [sequelize.Op.or]: [
+          { '$Ingredients.category$': selectedCategories },
+          sequelize.literal('TRUE = ' + hasCategories)
+        ]
+      }
+    }).then(function (result) {
       res.json(result);
     });
   });
