@@ -1,4 +1,4 @@
-.btn {
+/* .btn {
   color: black;
   background-color: white;
 }
@@ -6,4 +6,8 @@
 .btn:hover {
   color: white !important;
   background-color: black;
+} */
+
+img {
+  height: 45px;
 }

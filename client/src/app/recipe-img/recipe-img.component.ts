@@ -9,6 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RecipeImgComponent implements OnInit {
   @Input() cocktail: Cocktail;
   url: string;
+  source: string;
   constructor() {}
 
   ngOnInit(): void {
@@ -22,6 +23,7 @@ export class RecipeImgComponent implements OnInit {
   getUrl() {
     if (this.cocktail) {
       this.url = this.cocktail.imageUrl;
+      this.source = this.cocktail.source;
     }
   }
 }
