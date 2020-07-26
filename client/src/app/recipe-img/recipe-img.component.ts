@@ -12,9 +12,7 @@ export class RecipeImgComponent implements OnInit {
   source: string;
   constructor() {}
 
-  ngOnInit(): void {
-    // console.log(this.cocktail);
-  }
+  ngOnInit(): void {}
 
   ngOnChanges(): void {
     this.getUrl();

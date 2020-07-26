@@ -1,12 +1,12 @@
-.ingredients {
-  list-style-type: none;
-  padding: none;
+h5 {
+  font-weight: 700;
 }
 
 li {
-  margin-bottom: 16px;
+  margin-bottom: 5px;
 }
 
-h5 {
-  font-weight: 700;
+.ingredients {
+  list-style-type: none;
+  padding: none;
 }
