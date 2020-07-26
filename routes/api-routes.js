@@ -3,6 +3,7 @@ const sequelize = require('sequelize');
 // const passport = require('passport');
 
 module.exports = function (app) {
+  //Auth
   app.post('/api/login', (req, res) => {
     db.User.findOne({ where: { email: req.body.email } })
       .then((user) => {
@@ -46,31 +47,30 @@ module.exports = function (app) {
     req.logout();
     res.redirect('/');
   });
-
-  app.get('/api/cocktail/', function (req, res) {
-    console.log('called');
+  
+  //Home Page
+  app.get('/api/random', function (req, res) {
+    const randomArr = [];
+    while (randomArr.length < 8) {
+      const random = Math.floor(Math.random() * Math.floor(51)) + 1;
+      if (randomArr.indexOf(random) === -1) {
+        randomArr.push(random);
+      }
+    }
+    const randomQuery = [];
+    randomArr.forEach((num) => {
+      randomQuery.push({ id: num });
+    });
     db.Cocktail.findAll({
-      include: [{
-        model: db.CocktailIngredient,
-        attributes: ['id'],
-        include: [{
-          model: db.Ingredient,
-          attributes: ['name'],
-          required: true
-        },
-        {
-          model: db.Measure,
-          attributes: [],
-          required: true,
-        }],
-        required: true,
-      }],
-    }).then(function (result) {
-      res.json(result);
+      where: {
+        [sequelize.Op.or]: randomQuery,
+      },
+    }).then(function (results) {
+      res.json(results);
     });
   });
 
-  // Advanced Search
+    // Advanced Search
   app.get('/api/advanced-search/:ingredientids', function (req, res) {
     let selectedIngredients = req.params.ingredientids.split(',').map(id => parseInt(id));
     db.Cocktail.findAll({
@@ -115,16 +115,11 @@ module.exports = function (app) {
       attributes: ['name', 'instructions', 'imageUrl'],
       include: [{
         model: db.CocktailIngredient,
-        attributes: ['amount'],
+        attributes: ['amount', 'measure'],
         include: [{
           model: db.Ingredient,
           attributes: ['name'],
           required: true
-        },
-        {
-          model: db.Measure,
-          attributes: ['name'],
-          required: true,
         }],
         required: true,
       }],
@@ -132,9 +127,7 @@ module.exports = function (app) {
         'name': req.params.cocktail
       }
     }).then(function (result) {
-      console.log(result);
       res.json(result);
-
     });
   });
 

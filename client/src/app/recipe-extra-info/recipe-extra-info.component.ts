@@ -1,3 +1,5 @@
+import { RecipeNutritionModalComponent } from './../recipe-nutrition-modal/recipe-nutrition-modal.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { QueryService } from './../query.service';
 import { Cocktail } from './../models/cocktail';
 import { Component, OnInit, Input } from '@angular/core';
@@ -11,7 +13,10 @@ export class RecipeExtraInfoComponent implements OnInit {
   @Input() cocktail: Cocktail;
   name: string;
 
-  constructor(private queryService: QueryService) {}
+  constructor(
+    private queryService: QueryService,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {}
 
@@ -25,10 +30,15 @@ export class RecipeExtraInfoComponent implements OnInit {
     }
   }
 
-  getNutrition() {
-    console.log(this.name);
-    this.queryService.getNutritionFacts(this.name).subscribe((data) => {
-      console.log(data);
-    });
+  // getNutrition() {
+  //   console.log(this.name);
+  //   this.queryService.getNutritionFacts(this.name).subscribe((data) => {
+  //     console.log(data);
+  //   });
+  // }
+
+  open(): void {
+    const modalRef = this.modalService.open(RecipeNutritionModalComponent);
+    modalRef.componentInstance.name = this.name;
   }
 }

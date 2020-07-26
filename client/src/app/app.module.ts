@@ -24,6 +24,7 @@ import { RecipeTitleComponent } from './recipe-title/recipe-title.component';
 import { RecipeStepsComponent } from './recipe-steps/recipe-steps.component';
 import { RecipeExtraInfoComponent } from './recipe-extra-info/recipe-extra-info.component';
 import { RecipeIngredientsInfoComponent } from './recipe-ingredients-info/recipe-ingredients-info.component';
+import { RecipeNutritionModalComponent } from './recipe-nutrition-modal/recipe-nutrition-modal.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { RecipeIngredientsInfoComponent } from './recipe-ingredients-info/recipe
     RecipeStepsComponent,
     RecipeExtraInfoComponent,
     RecipeIngredientsInfoComponent,
+    RecipeNutritionModalComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
   providers: [],

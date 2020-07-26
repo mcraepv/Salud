@@ -1,11 +1,10 @@
-import { Measures } from './measure';
-import { Ingredient } from './../ingredient';
+import { Ingredient } from './ingredient';
 
 export interface Cocktail {
+  Ingredients: Array<Ingredient>;
   id: number;
-  name: string;
-  instructions: string;
   imageUrl: string;
-  Ingredients: Ingredient;
-  Measures: Measures;
+  instructions: string;
+  name: string;
+  source: string;
 }

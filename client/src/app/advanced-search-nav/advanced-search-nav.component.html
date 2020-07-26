@@ -1,13 +1,14 @@
 <nav class="navbar navbar-light">
   <div class="container justify-content-center">
     <div class="row justify-content-center">
+      <div class="col-12 text-center mt-1"></div>
       <div
         *ngFor="let cat of categoriesObj | keyvalue"
         class="col justify-content-center mx-2"
       >
         <div class="d-inline-block" ngbDropdown #dropdown="ngbDropdown">
           <button
-            class="btn mr-2"
+            class="btn mt-1"
             id="dropdownManual"
             ngbDropdownAnchor
             (focus)="dropdown.open()"

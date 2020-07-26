@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { dummyDrinks } from '../dummy-drinks';
+import { Observable } from 'rxjs';
+import { Drink } from '../drink';
+import { QueryService } from '../query.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-drinks-of-day',
@@ -7,9 +10,11 @@ import { dummyDrinks } from '../dummy-drinks';
   styleUrls: ['./drinks-of-day.component.css'],
 })
 export class DrinksOfDayComponent implements OnInit {
-  constructor() {}
+  constructor(private queryService: QueryService) {}
 
-  drinks = dummyDrinks;
+  results$: Observable<Drink[]>;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.results$ = this.queryService.getRandom();
+  }
 }
