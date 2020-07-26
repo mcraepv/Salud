@@ -23,7 +23,7 @@ export class RecipeComponent implements OnInit {
     // console.log(cocktailName);
     this.queryService.getCocktail(cocktailName).subscribe((data) => {
       this.cocktail = data;
-      // console.log(data);
+      console.log(data);
     });
   }
 
