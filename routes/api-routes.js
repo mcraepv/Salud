@@ -66,7 +66,14 @@ module.exports = function (app) {
       res.json(result);
     });
   });
+
   // Results Page
+  app.get('/api/ingredient', function (req, res) {
+    db.Ingredient.findAll({}).then((data) => {
+      res.json(data);
+    });
+  });
+
   app.get('/api/advanced-search/:ingredients', function (req, res) {
     const selectedIngredients = req.params.ingredients.split(',');
     const queryParams = [];
@@ -79,7 +86,6 @@ module.exports = function (app) {
         [sequelize.Op.or]: queryParams,
       },
     }).then(function (results) {
-      console.log(results);
       const cocktails = {};
       const count = {};
       results.forEach((result) => {
@@ -103,8 +109,12 @@ module.exports = function (app) {
           delete cocktails[cocktail];
         }
       }
-      console.log(cocktails);
-      res.send(cocktails);
+      const final = [];
+      for (cocktail in cocktails) {
+        final.push(cocktails[cocktail]);
+      }
+      console.log(final);
+      res.send(final);
     });
   });
 };

@@ -1,26 +1,15 @@
 <div class="container">
   <div class="row">
-    <div *ngFor="let drink of drinksTop" class="col-3">
-      <div class="card">
+    <div
+      *ngFor="let drink of drinks"
+      class="col-lg-3 col-md-6 col-12 mt-4 text-center"
+    >
+      <div class="card" (click)="goRecipe(drink.name)">
         <div class="card-body">
           <h5 class="card-title text-center">{{ drink.name }}</h5>
-          <p class="card-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-            quod assumenda ratione magni ea, tempore iure architecto accusamus,
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div *ngFor="let drink of drinksBottom" class="col-3 my-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title text-center">{{ drink.name }}</h5>
-          <p class="card-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-            quod assumenda ratione magni ea, tempore iure architecto accusamus,
-          </p>
+          <img
+            src="https://images.unsplash.com/photo-1550234699-2ebb2d96dfa7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80"
+          />
         </div>
       </div>
     </div>

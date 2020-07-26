@@ -9,9 +9,7 @@ import { dummyDrinks } from '../dummy-drinks';
 export class DrinksOfDayComponent implements OnInit {
   constructor() {}
 
-  drinksTop = dummyDrinks.splice(0, 4);
-
-  drinksBottom = dummyDrinks;
+  drinks = dummyDrinks;
 
   ngOnInit(): void {}
 }
