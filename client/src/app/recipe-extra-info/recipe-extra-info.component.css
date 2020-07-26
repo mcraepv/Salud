@@ -1,0 +1,13 @@
+.extra {
+  list-style-type: none;
+  padding: none;
+  /* text-align: center; */
+}
+
+ul.card-text {
+  padding: 0;
+}
+
+h5 {
+  font-weight: 700;
+}

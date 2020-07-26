@@ -5,10 +5,14 @@
 
 .navbar-toggler:hover {
   background-color: black;
-  outline: white !important;
+  outline: none;
   color: white !important;
 }
 
 /* .btn {
   outline: white;
 } */
+
+.logo {
+  height: 40px;
+}
