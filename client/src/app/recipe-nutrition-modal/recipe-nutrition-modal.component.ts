@@ -1,8 +1,6 @@
-import { Cocktail } from './../models/cocktail';
 import { QueryService } from './../query.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormControlName } from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-nutrition-modal',
@@ -10,24 +8,31 @@ import { FormControlName } from '@angular/forms';
   styleUrls: ['./recipe-nutrition-modal.component.css'],
 })
 export class RecipeNutritionModalComponent implements OnInit {
+  @Input() public name;
+  protein: string;
+  carbs: string;
+  fats: string;
+  sugars: string;
+
   constructor(
     public activeModal: NgbActiveModal,
     private modalService: NgbModal,
     private queryService: QueryService
   ) {}
 
-  ngOnInit(): void {}
-
-  ngOnChanges(): void {
+  ngOnInit(): void {
     this.getNutrition();
   }
 
   getNutrition() {
-    // const cocktailName: string = this.route.snapshot.paramMap.get(
-    //   'cocktailName'
-    // );
-    // this.queryService.getNutritionFacts(cocktailName).subscribe((data) => {
-    //   console.log(data);
-    // });
+    this.queryService.getNutritionFacts(this.name).subscribe((data) => {
+      console.log(data);
+      if (data) {
+        this.protein = `${data.foods[0].foodNutrients[0].value} ${data.foods[0].foodNutrients[0].unitName}`;
+        this.carbs = `${data.foods[0].foodNutrients[1].value} ${data.foods[0].foodNutrients[1].unitName}`;
+        this.fats = `${data.foods[0].foodNutrients[2].value} ${data.foods[0].foodNutrients[2].unitName}`;
+        this.sugars = `${data.foods[0].foodNutrients[8].value} ${data.foods[0].foodNutrients[8].unitName}`;
+      }
+    });
   }
 }

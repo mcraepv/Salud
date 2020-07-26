@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   font-family: "Mulish", sans-serif;
-  /* font-family: "Open Sans", sans-serif; */
   color: black;
   background-color: #f1f4f5;
 }
@@ -12,4 +11,5 @@ body {
 
 .card:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }

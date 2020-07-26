@@ -12,9 +12,7 @@ export class RecipeStepsComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    // console.log(this.cocktail);
-  }
+  ngOnInit(): void {}
 
   ngOnChanges(): void {
     this.getInstructions();

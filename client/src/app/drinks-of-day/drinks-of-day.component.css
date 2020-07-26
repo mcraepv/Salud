@@ -9,7 +9,3 @@ img {
   filter: drop-shadow(5px 8px 4px lightgrey);
   border-radius: 10px;
 }
-
-.card:hover {
-  cursor: pointer;
-}
