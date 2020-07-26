@@ -1,8 +1,11 @@
-export class Cocktail {
+import { Measures } from './measure';
+import { Ingredient } from './../ingredient';
+
+export interface Cocktail {
   id: number;
   name: string;
   instructions: string;
   imageUrl: string;
-  Ingredients: string[];
-  Measures: string[];
+  Ingredients: Ingredient;
+  Measures: Measures;
 }

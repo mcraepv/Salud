@@ -1,0 +1,12 @@
+.ingredients {
+  list-style-type: none;
+  padding: none;
+}
+
+li {
+  margin-bottom: 16px;
+}
+
+h5 {
+  font-weight: 700;
+}

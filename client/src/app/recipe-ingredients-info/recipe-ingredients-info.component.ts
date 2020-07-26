@@ -7,23 +7,27 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./recipe-ingredients-info.component.css'],
 })
 export class RecipeIngredientsInfoComponent implements OnInit {
-  @Input() cocktail: Cocktail[];
-  ingredients: string[];
+  @Input() cocktail: Cocktail;
+  ingredients: object[];
 
   constructor() {}
 
   ngOnInit(): void {}
   ngOnChanges(): void {
-    this.getCocktail();
+    this.getIngredients();
   }
 
-  getCocktail() {
+  getIngredients() {
     if (this.cocktail) {
-      // console.log(
-      //   this.cocktail.Ingredients[0].CocktailIngredient.amount,
-      //   this.cocktail.Measures[0].name,
-      //   this.cocktail.Ingredients[0].name
-      // );
+      // for (var i = 0; i < 3; i++) {
+      //   let ingredient = {
+      //     name: this.cocktail.Ingredients[i].name,
+      //     amount: this.cocktail.Ingredients[i].CocktailIngredient.amount,
+      //     measure: this.cocktail.Measures[i].name,
+      //   };
+      //   this.ingredients.push(ingredient);
+      // }
+      // console.log(this.ingredients);
     }
   }
 }
