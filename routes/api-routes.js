@@ -50,27 +50,119 @@ module.exports = function (app) {
   app.get('/api/cocktail', function (req, res) {
     console.log('called');
     db.Cocktail.findAll({
-      include: [db.Ingredient, db.Measure],
+      include: [{
+        model: db.CocktailIngredient,
+        attributes: ['id'],
+        include: [{
+          model: db.Ingredient,
+          attributes: ['name'],
+          required: true
+        },
+        {
+          model: db.Measure,
+          attributes: [],
+          required: true,
+        }],
+        required: true,
+      }],
+    }).then(function (result) {
+      res.json(result);
+    });
+  });
+
+  // Advanced Search
+  app.get('/api/advanced-search/:ingredientids', function (req, res) {
+    let selectedIngredients = req.params.ingredientids.split(',').map(id => parseInt(id));
+    db.Cocktail.findAll({
+      attributes: ['name'],
+      include: [{
+        model: db.CocktailIngredient,
+        attributes: [],
+        include: [{
+          model: db.Ingredient,
+          attributes: [],
+          required: true
+        }],
+        required: true
+      }],
+      where: {
+        '$CocktailIngredients->Ingredient.id$': selectedIngredients
+      },
+      group: ['Cocktail.name'],
+      having: sequelize.literal('count(Cocktail.name) =' + selectedIngredients.length)
+    }).then(function (result) {
+      res.json(result);
+    });
+  });
+
+  // Cocktail Search
+  app.get('/api/cocktail-search/:cocktail', function (req, res) {
+    db.Cocktail.findAll({
+      attributes: ['id', 'name', 'imageUrl'],
+      where: {
+        'name': {
+          [sequelize.Op.like]: req.params.cocktail + '%'
+        }
+      }
     }).then(function (result) {
       res.json(result);
     });
   });
 
   // Results Page
-  app.get('/api/advanced-search/:ingredients', function (req, res) {
-    let selectedIngredients = req.params.ingredients.split(',');
-    const hasIngredients = selectedIngredients.length === 0;
+  app.get('/api/results/:cocktail', function (req, res) {
     db.Cocktail.findAll({
-      attributes: ['id', 'name', 'imageUrl'],
-      include: [db.Ingredient, db.Measure],
+      attributes: ['name', 'instructions', 'imageUrl'],
+      include: [{
+        model: db.CocktailIngredient,
+        attributes: ['amount'],
+        include: [{
+          model: db.Ingredient,
+          attributes: ['name'],
+          required: true
+        },
+        {
+          model: db.Measure,
+          attributes: ['name'],
+          required: true,
+        }],
+        required: true,
+      }],
       where: {
-        [sequelize.Op.or]: [
-          { '$Ingredients.name$': selectedIngredients },
-          sequelize.literal('TRUE = ' + hasIngredients),
-        ],
-      },
+        'name': req.params.cocktail
+      }
     }).then(function (result) {
       res.json(result);
     });
+  });
+
+  // Add Favorite Cocktail
+  app.post('api/favorite', function (req, res) {
+    db.FavoriteRecipe.create({
+      CocktailId: req.body.CocktailId,
+      UserId: req.body.UserId
+    })
+      .then(() => {
+        res.status(200);
+      })
+      .catch((err) => {
+        res.status(401).json(err);
+      });
+  });
+
+  // Remove Favorite Cocktail
+  app.delete('api/favorite/:CocktailId', function (req, res) {
+    db.FavoriteRecipe.destroy({
+      where: {
+        CocktailId: parseInt(req.params.CocktailId),
+        UserId: req.body.UserId
+      }
+    })
+      .then(() => {
+        res.status(200);
+      })
+      .catch((err) => {
+        res.status(401).json(err);
+      });
   });
 };
