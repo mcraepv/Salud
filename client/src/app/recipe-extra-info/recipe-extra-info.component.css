@@ -1,19 +1,17 @@
-.extra {
-  list-style-type: none;
-  padding: none;
-  /* text-align: center; */
+h5 {
+  font-weight: 700;
 }
 
 ul.card-text {
   padding: 0;
 }
 
-h5 {
-  font-weight: 700;
+.extra {
+  list-style-type: none;
+  padding: none;
 }
 
 .btn {
-  /* background-color: #f8f9fa; */
   background-color: #f1f4f5;
   color: black;
 }
@@ -30,7 +28,7 @@ h5 {
 .nutrition {
   background-color: transparent;
   text-decoration: underline;
-  color: rgb(51, 28, 255);
+  color: rgb(35, 12, 240);
   padding-top: 0;
 }
 

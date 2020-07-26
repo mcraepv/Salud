@@ -1,11 +1,13 @@
 <div>
   <h5 class="col text-center">Ingredients</h5>
-  <ul class="mt-4 ingredients">
-    <!-- <li *ngFor="let cocktail of cocktail">
-      <input type="checkbox" /> {{ cocktail.Ingredients }}
-    </li> -->
-    <li><input type="checkbox" /> 1 oz Ingredient</li>
-    <li><input type="checkbox" /> 1.5 oz Ingredient</li>
-    <li><input type="checkbox" /> .75 oz Ingredient</li>
+  <ul class="mt-1 ingredients">
+    <li *ngFor="let ingredient of ingredients">
+      <input type="checkbox" /> {{ ingredient.amount }}
+      {{ ingredient.measure }} {{ ingredient.name }}
+    </li>
+    <li *ngFor="let garnish of garnishes">
+      <input type="checkbox" />
+      {{ garnish.measure | uppercase }}: {{ garnish.name }}
+    </li>
   </ul>
 </div>
