@@ -26,3 +26,15 @@ h5 {
 .fa {
   color: pink;
 }
+
+.nutrition {
+  background-color: transparent;
+  text-decoration: underline;
+  color: rgb(51, 28, 255);
+  padding-top: 0;
+}
+
+.nutrition:hover {
+  color: black;
+  background-color: transparent;
+}
