@@ -6,6 +6,6 @@ export interface Cocktail {
   name: string;
   instructions: string;
   imageUrl: string;
-  Ingredients: Ingredient;
-  Measures: Measures;
+  Ingredients: Array<Ingredient>;
+  Measures: Array<Measures>;
 }

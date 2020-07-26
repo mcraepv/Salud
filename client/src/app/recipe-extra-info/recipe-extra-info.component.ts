@@ -26,7 +26,7 @@ export class RecipeExtraInfoComponent implements OnInit {
   }
 
   getNutrition() {
-    console.log(this.name);
+    // console.log(this.name);
     this.queryService.getNutritionFacts(this.name).subscribe((data) => {
       console.log(data);
     });
