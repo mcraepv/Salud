@@ -16,12 +16,19 @@ export class AdvancedSearchComponent implements OnInit {
   private searchSub = new Subject();
 
   results$: Observable<Drink[]>;
+  isSuccessful: boolean = true;
 
   getResults(res): void {
-    this.searchSub.next(res);
+    if (res.length) {
+      this.searchSub.next(res);
+    } else {
+      this.isSuccessful = true;
+      this.results$ = this.queryService.initAdvanced();
+    }
   }
 
   ngOnInit(): void {
+    this.results$ = this.queryService.initAdvanced();
     this.searchSub.subscribe({
       next: (searchVals: number[]) => {
         debounceTime(300);
@@ -29,6 +36,10 @@ export class AdvancedSearchComponent implements OnInit {
         this.results$ = this.queryService.advancedSearch(searchVals);
         this.results$.subscribe((x) => {
           console.log(x);
+          if (!x.length) {
+            this.isSuccessful = false;
+            this.results$ = this.queryService.getRandom();
+          } else this.isSuccessful = true;
         });
       },
     });

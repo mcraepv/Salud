@@ -1,7 +1,3 @@
-<button
-  *ngIf="authService.isLoggedIn()"
-  class="btn btn-lg btn-secondary"
-  (click)="authService.logout()"
->
+<button class="btn btn-lg" (click)="authService.logout()">
   Sign Out
 </button>

@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RecipeIngredientsInfoComponent implements OnInit {
   @Input() cocktail: Cocktail;
-  ingredientsArray: object[];
+  ingredientsArray: Array<Object>;
 
   constructor() {}
 
@@ -17,27 +17,27 @@ export class RecipeIngredientsInfoComponent implements OnInit {
   }
 
   ngOnChanges(): void {
-    this.getIngredients();
+    // this.getIngredients();
   }
 
-  getIngredients() {
-    if (this.cocktail) {
-      // console.log(this.cocktail.Ingredients);
-      // for (var i = 0; i < this.cocktail.Ingredients.length; i++) {
-      //   let ingredientObj = {
-      //     name: this.cocktail.Ingredients[i].name,
-      //     amount: this.cocktail.Ingredients[i].CocktailIngredient.amount,
-      //     measure: this.cocktail.Measures[i].name,
-      //   };
-      //   console.log(this);
-      //   console.log(ingredientObj);
-      //   this.ingredientsArray.push(ingredientObj);
-      // }
-      // // var number = {
-      // //   name: 6,
-      // // };
-      // // this.ingredientsArray.push(number);
-      // console.log(this.ingredientsArray);
-    }
-  }
+  // getIngredients() {
+  //   if (this.cocktail) {
+  //     console.log(this.cocktail.Ingredients);
+  //     for (var i = 0; i < this.cocktail.Ingredients.length; i++) {
+  //       let ingredientObj = {
+  //         name: this.cocktail.Ingredients[i].name,
+  //         amount: this.cocktail.Ingredients[i].CocktailIngredient.amount,
+  //         measure: this.cocktail.Measures[i].name,
+  //       };
+  //       console.log(this);
+  //       console.log(ingredientObj);
+  //       this.ingredientsArray.push(ingredientObj);
+  //     }
+  //     // var number = {
+  //     //   name: 6,
+  //     // };
+  //     // this.ingredientsArray.push(number);
+  //     console.log(this.ingredientsArray);
+  //   }
+  // }
 }

@@ -5,3 +5,11 @@ body {
   color: black;
   background-color: #f1f4f5;
 }
+
+.card {
+  transition: transform 100ms;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}

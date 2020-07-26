@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SidenavTogglerService } from './sidenav-toggler.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +6,6 @@ import { SidenavTogglerService } from './sidenav-toggler.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor(public sidenavTogglerService: SidenavTogglerService) {}
+  constructor() {}
   title = 'client';
 }
