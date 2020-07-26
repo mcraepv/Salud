@@ -63,14 +63,13 @@ module.exports = function (app) {
     selectedIngredients.forEach((ing) => {
       queryParams.push({ ingredientId: ing });
     });
-    // const hasIngredients = selectedIngredients.length === 0;
     db.CocktailIngredient.findAll({
       include: [db.Ingredient, db.Cocktail],
       where: {
         [sequelize.Op.or]: queryParams,
       },
     }).then(function (results) {
-      // const final = [];
+      console.log(results);
       const cocktails = {};
       const count = {};
       results.forEach((result) => {
@@ -90,7 +89,6 @@ module.exports = function (app) {
         }
       });
       for (cocktail in count) {
-
         if (count[cocktail] < selectedIngredients.length) {
           delete cocktails[cocktail];
         }
