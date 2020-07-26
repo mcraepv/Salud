@@ -17,10 +17,10 @@ export class RecipeStepsComponent implements OnInit {
   }
 
   ngOnChanges(): void {
-    this.getCocktail();
+    this.getInstructions();
   }
 
-  getCocktail() {
+  getInstructions() {
     if (this.cocktail) {
       this.instructions = this.cocktail.instructions;
     }

@@ -15,10 +15,10 @@ export class RecipeTitleComponent implements OnInit {
   ngOnInit(): void {}
 
   ngOnChanges(): void {
-    this.getCocktail();
+    this.getName();
   }
 
-  getCocktail() {
+  getName() {
     if (this.cocktail) {
       this.name = this.cocktail.name;
     }

@@ -2,3 +2,8 @@ ul {
   padding: 0;
   list-style-type: none;
 }
+
+.steps {
+  padding-left: 15px;
+  padding-right: 15px;
+}
