@@ -12,13 +12,17 @@ export class RecipeIngredientsInfoComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // console.log(typeOf ingredients);
+  }
+
   ngOnChanges(): void {
     this.getIngredients();
   }
 
   getIngredients() {
     if (this.cocktail) {
+      //THIS BREAKS IT
       // console.log(this.cocktail.Ingredients?.length);
       // for (var i = 0; i < this.cocktail.Ingredients?.length; i++) {
       //   let ingredient = {
