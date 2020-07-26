@@ -22,16 +22,16 @@ export class RecipeIngredientsInfoComponent implements OnInit {
 
   getIngredients() {
     if (this.cocktail) {
-      for (var i = 0; i < this.cocktail.Ingredients?.length; i++) {
-        // let ingredientObj = {
-        // name: this.cocktail.Ingredients[i].name,
-        // amount: this.cocktail.Ingredients[i].CocktailIngredient.amount,
-        // measure: this.cocktail.Measures[i].name,
-        // };
-        // this.ingredientsArray.push(ingredientObj);
-        console.log(this.cocktail.Ingredients);
-        console.log(this.cocktail.Ingredients[i]);
-        // console.log(this.cocktail.Ingredients[i].CocktailIngredient);
+      console.log(this.cocktail.Ingredients);
+      for (var i = 0; i < this.cocktail.Ingredients.length; i++) {
+        let ingredientObj = {
+          name: this.cocktail.Ingredients[i].name,
+          amount: this.cocktail.Ingredients[i].CocktailIngredient.amount,
+          measure: this.cocktail.Measures[i].name,
+        };
+        console.log(this);
+        console.log(ingredientObj);
+        this.ingredientsArray.push(ingredientObj);
       }
       // var number = {
       //   name: 6,

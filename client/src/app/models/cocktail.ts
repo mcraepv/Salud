@@ -1,5 +1,5 @@
 import { Measures } from './measure';
-import { Ingredient } from './../ingredient';
+import { Ingredient } from './ingredient';
 
 export interface Cocktail {
   id: number;
