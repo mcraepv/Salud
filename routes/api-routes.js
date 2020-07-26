@@ -50,8 +50,8 @@ module.exports = function (app) {
 
   //recipe page
   app.get('/api/cocktail', function (req, res) {
-    db.CocktailIngredient.findAll({
-      include: [db.Ingredient, db.Cocktail],
+    db.Cocktail.findAll({
+      include: [db.Ingredient, db.CocktailIngredient],
     }).then(function (result) {
       res.json(result);
     });
