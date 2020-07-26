@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RecipeIngredientsInfoComponent implements OnInit {
   @Input() cocktail: Cocktail;
-  ingredientsArray: object[];
+  ingredientsArray: Array<Object> = [];
 
   constructor() {}
 
@@ -26,8 +26,8 @@ export class RecipeIngredientsInfoComponent implements OnInit {
           measure: this.cocktail.Ingredients[i].measure,
           name: this.cocktail.Ingredients[i].name,
         };
-        console.log(ingredientObj);
-        // this.ingredientsArray.push(ingredientObj);
+        // console.log(ingredientObj);
+        this.ingredientsArray.push(ingredientObj);
       }
       console.log(this.ingredientsArray);
     }
