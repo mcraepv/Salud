@@ -30,15 +30,15 @@ export class RecipeExtraInfoComponent implements OnInit {
     }
   }
 
-  getNutrition() {
-    // console.log(this.name);
-    this.queryService.getNutritionFacts(this.name).subscribe((data) => {
-      console.log(data);
-    });
-  }
+  // getNutrition() {
+  //   console.log(this.name);
+  //   this.queryService.getNutritionFacts(this.name).subscribe((data) => {
+  //     console.log(data);
+  //   });
+  // }
 
   open(): void {
     const modalRef = this.modalService.open(RecipeNutritionModalComponent);
-    modalRef.componentInstance.name = 'Nutrition';
+    modalRef.componentInstance.name = this.name;
   }
 }

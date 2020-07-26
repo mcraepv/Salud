@@ -5,3 +5,7 @@ body {
   color: black;
   background-color: #f1f4f5;
 }
+
+.card:hover {
+  cursor: pointer;
+}
