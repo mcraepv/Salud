@@ -49,10 +49,9 @@ module.exports = function (app) {
   });
 
   //recipe page
-  app.get('/api/cocktail/', function (req, res) {
-    console.log('called');
-    db.Cocktail.findAll({
-      include: [db.Ingredient, db.Measure],
+  app.get('/api/cocktail', function (req, res) {
+    db.CocktailIngredient.findAll({
+      include: [db.Ingredient, db.Cocktail],
     }).then(function (result) {
       res.json(result);
     });
@@ -60,7 +59,9 @@ module.exports = function (app) {
 
   app.get('/recipe/:cocktailname', function (req, res) {
     db.Cocktail.findOne({
-      include: [db.Ingredient, db.Measure],
+      include: {
+        model: db.Ingredient,
+      },
       where: {
         name: req.params.cocktailname,
       },
