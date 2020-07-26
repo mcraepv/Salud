@@ -68,20 +68,43 @@ module.exports = function (app) {
   });
   // Results Page
   app.get('/api/advanced-search/:ingredients', function (req, res) {
-    let selectedIngredients = req.params.ingredients.split(',');
-    const hasIngredients = selectedIngredients.length === 0;
-    db.Cocktail.findAll({
-      attributes: ['id', 'name', 'imageUrl'],
-      include: [db.Ingredient, db.Measure],
+    const selectedIngredients = req.params.ingredients.split(',');
+    const queryParams = [];
+    selectedIngredients.forEach((ing) => {
+      queryParams.push({ ingredientId: ing });
+    });
+    db.CocktailIngredient.findAll({
+      include: [db.Ingredient, db.Cocktail],
       where: {
-        [sequelize.Op.or]: [
-          { '$Ingredients.name$': selectedIngredients },
-          sequelize.literal('TRUE = ' + hasIngredients),
-        ],
+        [sequelize.Op.or]: queryParams,
       },
-    }).then(function (result) {
-      console.log(result);
-      res.json(result);
+    }).then(function (results) {
+      console.log(results);
+      const cocktails = {};
+      const count = {};
+      results.forEach((result) => {
+        const cocktail = result.Cocktail;
+        if (!cocktails[cocktail.name]) {
+          cocktails[cocktail.name] = {
+            name: cocktail.name,
+            id: cocktail.id,
+            instructions: cocktail.instructions,
+            imageUrl: cocktail.imageUrl,
+          };
+        }
+        if (count[cocktail.name]) {
+          count[cocktail.name] += 1;
+        } else {
+          count[cocktail.name] = 1;
+        }
+      });
+      for (cocktail in count) {
+        if (count[cocktail] < selectedIngredients.length) {
+          delete cocktails[cocktail];
+        }
+      }
+      console.log(cocktails);
+      res.send(cocktails);
     });
   });
 };
