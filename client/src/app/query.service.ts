@@ -18,7 +18,7 @@ export class QueryService {
   advancedSearchURL = 'http://localhost:3000/api/advanced-search';
   nutritionURL =
     'https://api.nal.usda.gov/fdc/v1/foods/search?api_key=vhvEbrN6AYcz02VcLyMWAbIG6qhOQngRIPjqz5Ia&query=';
-
+  randomURL = 'http://localhost:3000/api/random';
   constructor(private http: HttpClient) {}
 
   getIngredients(): Observable<Ingredient[]> {
@@ -44,7 +44,6 @@ export class QueryService {
   }
 
   advancedSearch(searchArr: Array<number>): Observable<Drink[]> {
-    console.log('query');
     const customURL = `${this.advancedSearchURL}/${searchArr.toString()}`;
     return this.http.get<any>(customURL).pipe(
       tap((x) => {
@@ -53,6 +52,15 @@ export class QueryService {
           : console.log("didn't find drinks");
       }),
       catchError(this.handleError<Drink[]>('advancedSearch', []))
+    );
+  }
+
+  getRandom(): Observable<Drink[]> {
+    return this.http.get<any>(this.randomURL).pipe(
+      tap((x) => {
+        console.log(x);
+      }),
+      catchError(this.handleError<Drink[]>('randomSearch', []))
     );
   }
 }

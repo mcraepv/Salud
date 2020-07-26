@@ -4,12 +4,11 @@
 }
 
 .navbar {
-  background-color: white;
+  background-color: #f1f4f5;
 }
 
 .btn {
-  /* background-color: #f8f9fa; */
-  background-color: #f1f4f5;
+  background-color: white;
   color: black;
 }
 

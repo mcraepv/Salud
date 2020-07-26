@@ -11,6 +11,10 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false,
         defaultValue: 'Other',
       },
+      measure: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
     {
       freezeTableName: true,

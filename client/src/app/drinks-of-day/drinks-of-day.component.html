@@ -1,15 +1,17 @@
-<div class="container">
+<div *ngIf="results$ | async as drinks" class="container">
   <div class="row">
     <div
       *ngFor="let drink of drinks"
       class="col-lg-3 col-md-6 col-12 mt-4 text-center"
     >
-      <div class="card" (click)="goRecipe(drink.name)">
+      <div class="card" routerLink="/recipe/{{ drink.name }}">
+        <img
+          class="card-img-top"
+          src="{{ drink.imageUrl }}"
+          alt="{{ drink.source }}"
+        />
         <div class="card-body">
           <h5 class="card-title text-center">{{ drink.name }}</h5>
-          <img
-            src="https://images.unsplash.com/photo-1550234699-2ebb2d96dfa7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80"
-          />
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ const sequelize = require('sequelize');
 // const passport = require('passport');
 
 module.exports = function (app) {
+  //Auth
   app.post('/api/login', (req, res) => {
     db.User.findOne({ where: { email: req.body.email } })
       .then((user) => {
@@ -47,6 +48,7 @@ module.exports = function (app) {
     res.redirect('/');
   });
 
+  //recipe page
   app.get('/api/cocktail/', function (req, res) {
     console.log('called');
     db.Cocktail.findAll({
@@ -66,6 +68,13 @@ module.exports = function (app) {
       res.json(result);
     });
   });
+
+  //Home Page
+  // app.get('/api/random', function (req, res) {
+  //   for (let i = 0; i < 8; i++) {
+  //     Math.floor(Math.random)
+  //   }
+  // });
 
   // Results Page
   app.get('/api/ingredient', function (req, res) {
@@ -96,6 +105,7 @@ module.exports = function (app) {
             id: cocktail.id,
             instructions: cocktail.instructions,
             imageUrl: cocktail.imageUrl,
+            source: cocktail.source,
           };
         }
         if (count[cocktail.name]) {
@@ -113,7 +123,6 @@ module.exports = function (app) {
       for (cocktail in cocktails) {
         final.push(cocktails[cocktail]);
       }
-      console.log(final);
       res.send(final);
     });
   });
