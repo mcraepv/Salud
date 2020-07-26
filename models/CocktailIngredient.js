@@ -1,7 +1,13 @@
 module.exports = function (sequelize, DataTypes) {
-  var CocktailIngredient = sequelize.define(
+  const CocktailIngredient = sequelize.define(
     'CocktailIngredient',
+
     {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
       amount: {
         type: DataTypes.FLOAT,
         allowNull: true,
@@ -10,32 +16,12 @@ module.exports = function (sequelize, DataTypes) {
     {
       freezeTableName: true,
       timestamps: false,
-    },
-    {
-      freezeTableName: true,
-      timestamps: false,
     }
   );
 
   CocktailIngredient.associate = function (models) {
-    CocktailIngredient.belongsTo(models.Cocktail, {
-      onDelete: 'cascade',
-      foreignKey: {
-        allowNull: false,
-      },
-    });
-    CocktailIngredient.belongsTo(models.Ingredient, {
-      onDelete: 'cascade',
-      foreignKey: {
-        allowNull: false,
-      },
-    });
-    CocktailIngredient.belongsTo(models.Measure, {
-      onDelete: 'cascade',
-      foreignKey: {
-        allowNull: false,
-      },
-    });
+    CocktailIngredient.belongsTo(models.Cocktail);
+    CocktailIngredient.belongsTo(models.Ingredient);
   };
 
   return CocktailIngredient;

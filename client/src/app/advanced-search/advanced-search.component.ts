@@ -17,10 +17,6 @@ export class AdvancedSearchComponent implements OnInit {
 
   results$: Observable<Drink[]>;
 
-  // drinksTop: Array<Object>;
-
-  // drinksBottom: Array<Object>;
-
   getResults(res): void {
     this.searchSub.next(res);
   }
@@ -32,18 +28,11 @@ export class AdvancedSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.drinkData.subscribe((data) => {
-    //   this.drinksTop = data.splice(0, 4);
-    //   this.drinksBottom = data.splice(0, 4);
-    // });
     this.searchSub.subscribe({
       next: (searchVals: number[]) => {
         debounceTime(300);
 
         this.results$ = this.queryService.advancedSearch(searchVals);
-        // this.results$.subscribe((res) => {
-        //   console.log('Parent: ', res);
-        // });
       },
     });
   }

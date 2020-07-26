@@ -14,6 +14,10 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.TEXT,
         allowNull: true,
       },
+      source: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+      },
     },
     {
       freezeTableName: true,
@@ -22,22 +26,10 @@ module.exports = function (sequelize, DataTypes) {
   );
 
   Cocktail.associate = function (models) {
-    Cocktail.hasMany(models.CocktailIngredient, {
-      onDelete: 'cascade',
-      foreignKey: 'CocktailId',
-    });
-
-    // Uncomment Below After Creating the Database
     Cocktail.belongsToMany(models.Ingredient, {
       through: 'CocktailIngredient',
-      onDelete: 'cascade',
-      foreignKey: 'CocktailId',
     });
-    Cocktail.belongsToMany(models.Measure, {
-      through: 'CocktailIngredient',
-      onDelete: 'cascade',
-      foreignKey: 'CocktailId',
-    });
+    Cocktail.hasMany(models.CocktailIngredient);
   };
 
   return Cocktail;

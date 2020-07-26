@@ -134,6 +134,7 @@ module.exports = function (app) {
     }).then(function (result) {
       console.log(result);
       res.json(result);
+
     });
   });
 

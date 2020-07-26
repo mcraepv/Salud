@@ -20,10 +20,10 @@ export class RecipeComponent implements OnInit {
     const cocktailName: string = this.route.snapshot.paramMap.get(
       'cocktailName'
     );
-    console.log(cocktailName);
+    // console.log(cocktailName);
     this.queryService.getCocktail(cocktailName).subscribe((data) => {
       this.cocktail = data;
-      console.log(data);
+      // console.log(data);
     });
   }
 

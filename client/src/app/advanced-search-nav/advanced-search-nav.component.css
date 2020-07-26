@@ -2,3 +2,18 @@
   max-height: 30vh;
   overflow-y: auto;
 }
+
+.navbar {
+  background-color: white;
+}
+
+.btn {
+  /* background-color: #f8f9fa; */
+  background-color: #f1f4f5;
+  color: black;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
+}
