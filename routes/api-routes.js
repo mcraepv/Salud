@@ -48,22 +48,6 @@ module.exports = function (app) {
     res.redirect('/');
   });
 
-<<<<<<< HEAD
-  app.get('/recipe/:cocktailname', function (req, res) {
-    db.Cocktail.findOne({
-      include: {
-        model: db.Ingredient,
-      },
-      where: {
-        name: req.params.cocktailname,
-      },
-    }).then(function (result) {
-      res.json(result);
-    });
-  });
-
-=======
->>>>>>> 2011fee173a55a9b91c4672fc540b1f037046f3d
   //Home Page
   app.get('/api/random', function (req, res) {
     const randomArr = [];
@@ -86,41 +70,36 @@ module.exports = function (app) {
     });
   });
 
-<<<<<<< HEAD
-  // Advanced Search Page
-  app.get('/api/cocktail', function (req, res) {
-    db.Cocktail.findAll({}).then(function (result) {
-      res.json(result);
-    });
-  });
-
-  app.get('/api/ingredient', function (req, res) {
-    db.Ingredient.findAll({}).then((data) => {
-      res.json(data);
-=======
   // Advanced Search
   app.get('/api/advanced-search/:ingredientids', function (req, res) {
-    let selectedIngredients = req.params.ingredientids.split(',').map(id => parseInt(id));
+    let selectedIngredients = req.params.ingredientids
+      .split(',')
+      .map((id) => parseInt(id));
     db.Cocktail.findAll({
-      attributes: ['name'],
-      include: [{
-        model: db.CocktailIngredient,
-        attributes: [],
-        include: [{
-          model: db.Ingredient,
+      attributes: ['name', 'imageUrl'],
+      include: [
+        {
+          model: db.CocktailIngredient,
           attributes: [],
-          required: true
-        }],
-        required: true
-      }],
+          include: [
+            {
+              model: db.Ingredient,
+              attributes: [],
+              required: true,
+            },
+          ],
+          required: true,
+        },
+      ],
       where: {
-        '$CocktailIngredients->Ingredient.id$': selectedIngredients
+        '$CocktailIngredients->Ingredient.id$': selectedIngredients,
       },
       group: ['Cocktail.name'],
-      having: sequelize.literal('count(Cocktail.name) =' + selectedIngredients.length)
+      having: sequelize.literal(
+        'count(Cocktail.name) =' + selectedIngredients.length
+      ),
     }).then(function (result) {
       res.json(result);
->>>>>>> 2011fee173a55a9b91c4672fc540b1f037046f3d
     });
   });
 
@@ -129,10 +108,10 @@ module.exports = function (app) {
     db.Cocktail.findAll({
       attributes: ['id', 'name', 'imageUrl'],
       where: {
-        'name': {
-          [sequelize.Op.like]: req.params.cocktail + '%'
-        }
-      }
+        name: {
+          [sequelize.Op.like]: req.params.cocktail + '%',
+        },
+      },
     }).then(function (result) {
       res.json(result);
     });
@@ -142,19 +121,23 @@ module.exports = function (app) {
   app.get('/api/results/:cocktail', function (req, res) {
     db.Cocktail.findOne({
       attributes: ['name', 'instructions', 'imageUrl'],
-      include: [{
-        model: db.CocktailIngredient,
-        attributes: ['amount', 'measure'],
-        include: [{
-          model: db.Ingredient,
-          attributes: ['name'],
-          required: true
-        }],
-        required: true,
-      }],
+      include: [
+        {
+          model: db.CocktailIngredient,
+          attributes: ['amount', 'measure'],
+          include: [
+            {
+              model: db.Ingredient,
+              attributes: ['name'],
+              required: true,
+            },
+          ],
+          required: true,
+        },
+      ],
       where: {
-        'name': req.params.cocktail
-      }
+        name: req.params.cocktail,
+      },
     }).then(function (result) {
       res.json(result);
     });
@@ -164,7 +147,7 @@ module.exports = function (app) {
   app.post('api/favorite', function (req, res) {
     db.FavoriteRecipe.create({
       CocktailId: req.body.CocktailId,
-      UserId: req.body.UserId
+      UserId: req.body.UserId,
     })
       .then(() => {
         res.status(200);
@@ -179,8 +162,8 @@ module.exports = function (app) {
     db.FavoriteRecipe.destroy({
       where: {
         CocktailId: parseInt(req.params.CocktailId),
-        UserId: req.body.UserId
-      }
+        UserId: req.body.UserId,
+      },
     })
       .then(() => {
         res.status(200);
