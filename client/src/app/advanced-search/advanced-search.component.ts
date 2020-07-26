@@ -21,12 +21,6 @@ export class AdvancedSearchComponent implements OnInit {
     this.searchSub.next(res);
   }
 
-  goRecipe(cocktail) {
-    this.router.navigate(['/recipe'], {
-      queryParams: { cocktailName: cocktail },
-    });
-  }
-
   ngOnInit(): void {
     this.searchSub.subscribe({
       next: (searchVals: number[]) => {
