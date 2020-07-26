@@ -20,22 +20,22 @@ export class RecipeExtraInfoComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // ngOnChanges(): void {
-  //   this.getName();
-  // }
+  ngOnChanges(): void {
+    this.getName();
+  }
 
-  // getName() {
-  //   if (this.cocktail) {
-  //     this.name = this.cocktail.name;
-  //   }
-  // }
+  getName() {
+    if (this.cocktail) {
+      this.name = this.cocktail.name;
+    }
+  }
 
-  // getNutrition() {
-  //   // console.log(this.name);
-  //   this.queryService.getNutritionFacts(this.name).subscribe((data) => {
-  //     console.log(data);
-  //   });
-  // }
+  getNutrition() {
+    // console.log(this.name);
+    this.queryService.getNutritionFacts(this.name).subscribe((data) => {
+      console.log(data);
+    });
+  }
 
   open(): void {
     const modalRef = this.modalService.open(RecipeNutritionModalComponent);
