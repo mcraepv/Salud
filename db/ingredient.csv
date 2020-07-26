@@ -1,163 +1,163 @@
-name,category,measureId
-brandy/cognac,spirits,1
-whiskey,spirits,1
-rye whiskey,spirits,1
-irish whiskey,spirits,1
-bourbon,spirits,1
-scotch,spirits,1
-light rum,spirits,1
-gold rum,spirits,1
-dark rum,spirits,1
-spiced rum,spirits,1
-overproof rum,spirits,1
-coconut rum,spirits,1
-cachaça,spirits,1
-gin,spirits,1
-tequila blanco,spirits,1
-tequila reposado,spirits,1
-tequila añejo,spirits,1
-mezcal,spirits,1
-sake,spirits,1
-soju,spirits,1
-vodka,spirits,1
-absinthe,spirits,1
-Kahlua (coffee liqueur),liqueurs,1
-Bailey's (irish cream liqueur),liqueurs,1
-crème de cassis (black currant liqueur),liqueurs,1
-crème de menthe (mint liqueur),liqueurs,1
-crème de banane (banana liqueur),liqueurs,1
-white crème de cacao (chocolate liqueur),liqueurs,1
-dark crème de cacao (chocolate liqueur),liqueurs,1
-crème de mûre (blackberry liqueur),liqueurs,1
-St-Germaine (elderflower liqueur),liqueurs,1
-Grand Marnier (orange brandy liqueur),liqueurs,1
-Limoncello (lemon liqueur),liqueurs,1
-Triple Sec/Cointreau (orange liqueur),liqueurs,1
-Licor 43 (herb liqueur),liqueurs,1
-Midori (melon liqueur),liqueurs,1
-Sambuca (anise liqueur),liqueurs,1
-Chartreuse (herb liqueur),liqueurs,1
-Disaronno (amaretto liqueur),liqueurs,1
-Fireball (cinnamon whisky),liqueurs,1
-Campari,liqueurs,1
-Aperol,liqueurs,1
-peach schnapps (peach liqueur),liqueurs,1
-Chambord (raspberry liqueur),liqueurs,1
-orange curaçao,liqueurs,1
-blue curaçao,liqueurs,1
-Rumple Minze (peppermint liqueur),liqueurs,1
-Frangelico (hazelnut liqueur),liqueurs,1
-Jagermeister (herb liqueur),liqueurs,1
-Goldschlager (cinnamon liqueur),liqueurs,1
-Pimm's No. 1 Cup,liqueurs,1
-Lillet blanc,liqueurs,1
-Luxardo (maraschino liqueur),liqueurs,1
-rosé,wines,1
-pinot grigio,wines,1
-pinot noir,wines,1
-chardonnay,wines,1
-champagne,wines,1
-port,wines,1
-merlot,wines,1
-sherry,wines,1
-dry vermouth,wines,1
-sweet vermouth,wines,1
-prosecco,wines,1
-moscato,wines,1
-white wine,wines,1
-red wine,wines,1
-sparkling wine,wines,1
-riesling,wines,1
-cabernet sauvignon,wines,1
-sauvignon blanc,wines,1
-malbec,wines,1
-white zinfandel,wines,1
-pale ale,beers,1
-pilsner,beers,1
-lager,beers,1
-stout,beers,1
-ale,beers,1
-porter,beers,1
-bock,beers,1
-pale lager,beers,1
-cider,beers,1
-Angostura bitters,mixers,1
-Peychaud's bitters,mixers,1
-grenadine,mixers,1
-sweet and sour mix,mixers,1
-cranberry juice,mixers,1
-orange juice,mixers,1
-grapefruit juice,mixers,1
-grapefruit soda,mixers,1
-lime juice,mixers,1
-lemon juice,mixers,1
-mango juice,mixers,1
-pineapple juice,mixers,1
-passionfruit juice,mixers,1
-tomato juice,mixers,1
-cream of coconut,mixers,1
-coke,mixers,1
-club soda,mixers,1
-tonic,mixers,1
-ginger ale,mixers,1
-ginger beer,mixers,1
-sprite (lemon lime soda),mixers,1
-red bull,mixers,1
-soda water,mixers,1
-mineral water,mixers,1
-sparkling water,mixers,1
-sugar,others,4
-brown sugar,others,4
-hot sauce,others,4
-worcestershire sauce,others,4
-horseradish,others,4
-salt,others,4
-pepper,others,4
-tabasco sauce,others,4
-bunch of mint,others,5
-bunch of rosemary,others,5
-egg white,others,5
-milk,others,1
-coffee,others,8
-agave nectar,others,1
-honey syrup,others,1
-simple syrup,others,1
-maple syrup,others,1
-orgeat syrup,others,1
-banana,others,5
-lemon,others,5
-lime,others,5
-orange,others,5
-pineapple,others,5
-strawberry,others,5
-celery,others,5
-blackberries,others,5
-cucumber,others,5
-grapefruit,others,5
-lime wedge,garnish,5
-lemon wedge,garnish,5
-orange wedge,garnish,5
-grapefruit wedge,garnish,5
-lime peel,garnish,5
-lemon peel,garnish,5
-orange peel,garnish,5
-grapefruit slice,garnish,5
-lime slice,garnish,5
-orange slice,garnish,5
-pineapple slice,garnish,5
-peach slice,garnish,5
-Tajin,garnish,5
-sugar (rim),garnish,5
-salt (rim),garnish,5
-olives,garnish,5
-cocktail onions,garnish,5
-sprig of mint,garnish,5
-sprig of rosemary,garnish,5
-maraschino cherry,garnish,5
-cinnamon,garnish,5
-nutmeg,garnish,5
-whipped cream,garnish,5
-heavy cream,others,5
-lemon slice,garnish,5
-chocolate syrup,others,1
-peach puree,others,1
+name,category,measure
+brandy/cognac,spirits,oz
+whiskey,spirits,oz
+rye whiskey,spirits,oz
+irish whiskey,spirits,oz
+bourbon,spirits,oz
+scotch,spirits,oz
+light rum,spirits,oz
+gold rum,spirits,oz
+dark rum,spirits,oz
+spiced rum,spirits,oz
+overproof rum,spirits,oz
+coconut rum,spirits,oz
+cachaça,spirits,oz
+gin,spirits,oz
+tequila blanco,spirits,oz
+tequila reposado,spirits,oz
+tequila añejo,spirits,oz
+mezcal,spirits,oz
+sake,spirits,oz
+soju,spirits,oz
+vodka,spirits,oz
+absinthe,spirits,oz
+Kahlua (coffee liqueur),liqueurs,oz
+Bailey's (irish cream liqueur),liqueurs,oz
+crème de cassis (black currant liqueur),liqueurs,oz
+crème de menthe (mint liqueur),liqueurs,oz
+crème de banane (banana liqueur),liqueurs,oz
+white crème de cacao (chocolate liqueur),liqueurs,oz
+dark crème de cacao (chocolate liqueur),liqueurs,oz
+crème de mûre (blackberry liqueur),liqueurs,oz
+St-Germaine (elderflower liqueur),liqueurs,oz
+Grand Marnier (orange brandy liqueur),liqueurs,oz
+Limoncello (lemon liqueur),liqueurs,oz
+Triple Sec/Cointreau (orange liqueur),liqueurs,oz
+Licor 43 (herb liqueur),liqueurs,oz
+Midori (melon liqueur),liqueurs,oz
+Sambuca (anise liqueur),liqueurs,oz
+Chartreuse (herb liqueur),liqueurs,oz
+Disaronno (amaretto liqueur),liqueurs,oz
+Fireball (cinnamon whisky),liqueurs,oz
+Campari,liqueurs,oz
+Aperol,liqueurs,oz
+peach schnapps (peach liqueur),liqueurs,oz
+Chambord (raspberry liqueur),liqueurs,oz
+orange curaçao,liqueurs,oz
+blue curaçao,liqueurs,oz
+Rumple Minze (peppermint liqueur),liqueurs,oz
+Frangelico (hazelnut liqueur),liqueurs,oz
+Jagermeister (herb liqueur),liqueurs,oz
+Goldschlager (cinnamon liqueur),liqueurs,oz
+Pimm's No. 1 Cup,liqueurs,oz
+Lillet blanc,liqueurs,oz
+Luxardo (maraschino liqueur),liqueurs,oz
+rosé,wines,oz
+pinot grigio,wines,oz
+pinot noir,wines,oz
+chardonnay,wines,oz
+champagne,wines,oz
+port,wines,oz
+merlot,wines,oz
+sherry,wines,oz
+dry vermouth,wines,oz
+sweet vermouth,wines,oz
+prosecco,wines,oz
+moscato,wines,oz
+white wine,wines,oz
+red wine,wines,oz
+sparkling wine,wines,oz
+riesling,wines,oz
+cabernet sauvignon,wines,oz
+sauvignon blanc,wines,oz
+malbec,wines,oz
+white zinfandel,wines,oz
+pale ale,beers,oz
+pilsner,beers,oz
+lager,beers,oz
+stout,beers,oz
+ale,beers,oz
+porter,beers,oz
+bock,beers,oz
+pale lager,beers,oz
+cider,beers,oz
+Angostura bitters,mixers,oz
+Peychaud's bitters,mixers,oz
+grenadine,mixers,oz
+sweet and sour mix,mixers,oz
+cranberry juice,mixers,oz
+orange juice,mixers,oz
+grapefruit juice,mixers,oz
+grapefruit soda,mixers,oz
+lime juice,mixers,oz
+lemon juice,mixers,oz
+mango juice,mixers,oz
+pineapple juice,mixers,oz
+passionfruit juice,mixers,oz
+tomato juice,mixers,oz
+cream of coconut,mixers,oz
+coke,mixers,oz
+club soda,mixers,oz
+tonic,mixers,oz
+ginger ale,mixers,oz
+ginger beer,mixers,oz
+sprite (lemon lime soda),mixers,oz
+red bull,mixers,oz
+soda water,mixers,oz
+mineral water,mixers,oz
+sparkling water,mixers,oz
+sugar,others,tsp
+brown sugar,others,tsp
+hot sauce,others,tsp
+worcestershire sauce,others,tsp
+horseradish,others,tsp
+salt,others,tsp
+pepper,others,tsp
+tabasco sauce,others,tsp
+bunch of mint,others,garnish
+bunch of rosemary,others,garnish
+egg white,others,garnish
+milk,others,oz
+coffee,others,cup
+agave nectar,others,oz
+honey syrup,others,oz
+simple syrup,others,oz
+maple syrup,others,oz
+orgeat syrup,others,oz
+banana,others,garnish
+lemon,others,garnish
+lime,others,garnish
+orange,others,garnish
+pineapple,others,garnish
+strawberry,others,garnish
+celery,others,garnish
+blackberries,others,garnish
+cucumber,others,garnish
+grapefruit,others,garnish
+lime wedge,garnish,garnish
+lemon wedge,garnish,garnish
+orange wedge,garnish,garnish
+grapefruit wedge,garnish,garnish
+lime peel,garnish,garnish
+lemon peel,garnish,garnish
+orange peel,garnish,garnish
+grapefruit slice,garnish,garnish
+lime slice,garnish,garnish
+orange slice,garnish,garnish
+pineapple slice,garnish,garnish
+peach slice,garnish,garnish
+Tajin,garnish,garnish
+sugar (rim),garnish,garnish
+salt (rim),garnish,garnish
+olives,garnish,garnish
+cocktail onions,garnish,garnish
+sprig of mint,garnish,garnish
+sprig of rosemary,garnish,garnish
+maraschino cherry,garnish,garnish
+cinnamon,garnish,garnish
+nutmeg,garnish,garnish
+whipped cream,garnish,garnish
+heavy cream,others,garnish
+lemon slice,garnish,garnish
+chocolate syrup,others,oz
+peach puree,others,oz
