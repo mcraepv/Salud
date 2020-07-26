@@ -47,7 +47,7 @@ module.exports = function (app) {
     req.logout();
     res.redirect('/');
   });
-  
+
   //Home Page
   app.get('/api/random', function (req, res) {
     const randomArr = [];
@@ -70,7 +70,7 @@ module.exports = function (app) {
     });
   });
 
-    // Advanced Search
+  // Advanced Search
   app.get('/api/advanced-search/:ingredientids', function (req, res) {
     let selectedIngredients = req.params.ingredientids.split(',').map(id => parseInt(id));
     db.Cocktail.findAll({
