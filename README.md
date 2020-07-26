@@ -85,6 +85,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 Jumbotron cocktail image
 Photo by Kobby Mendez on Unsplash
 
+cheers icon
+
+<div>Icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
 ## Questions
 
 Reach out to me through email or on GitHub!
