@@ -107,8 +107,3 @@ dist
 user-story.txt
 
 id_rsa_priv.pem
-
-ingredient.csv
-cocktail.csv
-measure.csv
-recipe.csv
