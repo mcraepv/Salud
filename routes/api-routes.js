@@ -71,11 +71,26 @@ module.exports = function (app) {
   });
 
   //Home Page
-  // app.get('/api/random', function (req, res) {
-  //   for (let i = 0; i < 8; i++) {
-  //     Math.floor(Math.random)
-  //   }
-  // });
+  app.get('/api/random', function (req, res) {
+    const randomArr = [];
+    while (randomArr.length < 8) {
+      const random = Math.floor(Math.random() * Math.floor(51)) + 1;
+      if (randomArr.indexOf(random) === -1) {
+        randomArr.push(random);
+      }
+    }
+    const randomQuery = [];
+    randomArr.forEach((num) => {
+      randomQuery.push({ id: num });
+    });
+    db.Cocktail.findAll({
+      where: {
+        [sequelize.Op.or]: randomQuery,
+      },
+    }).then(function (results) {
+      res.json(results);
+    });
+  });
 
   // Results Page
   app.get('/api/ingredient', function (req, res) {
