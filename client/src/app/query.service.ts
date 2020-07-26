@@ -39,8 +39,8 @@ export class QueryService {
     return this.http.get<Cocktail[]>(`${this.cocktailURL}${cocktailName}`);
   }
 
-  getNutritionFacts(cocktailName: String): Observable<any[]> {
-    return this.http.get<any[]>(`${this.nutritionURL}${cocktailName}`);
+  getNutritionFacts(cocktailName: String): Observable<any> {
+    return this.http.get<any>(`${this.nutritionURL}${cocktailName}`);
   }
 
   advancedSearch(searchArr: Array<number>): Observable<Drink[]> {
