@@ -16,7 +16,8 @@ export class QueryService {
   ingredientURL = 'http://localhost:3000/api/ingredient';
   cocktailURL = 'http://localhost:3000/recipe/';
   advancedSearchURL = 'http://localhost:3000/api/advanced-search';
-  testURL = 'https://jsonplaceholder.typicode.com/comments';
+  nutritionURL =
+    'https://api.nal.usda.gov/fdc/v1/foods/search?api_key=vhvEbrN6AYcz02VcLyMWAbIG6qhOQngRIPjqz5Ia&query=';
 
   constructor(private http: HttpClient) {}
 
@@ -36,6 +37,10 @@ export class QueryService {
 
   getCocktail(cocktailName: String): Observable<Cocktail[]> {
     return this.http.get<Cocktail[]>(`${this.cocktailURL}${cocktailName}`);
+  }
+
+  getNutritionFacts(cocktailName: String): Observable<any[]> {
+    return this.http.get<any[]>(`${this.nutritionURL}${cocktailName}`);
   }
 
   advancedSearch(searchArr: Array<number>): Observable<Drink[]> {
