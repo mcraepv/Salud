@@ -1,9 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { QueryService } from '../query.service';
 import { Ingredient } from '../ingredient';
-import { Observable, Subject, ObservableInput } from 'rxjs';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { Drink } from '../drink';
 
 @Component({
   selector: 'app-advanced-search-nav',
@@ -19,21 +16,20 @@ export class AdvancedSearchNavComponent implements OnInit {
     wines: [],
     beers: [],
     mixers: [],
-    others: [],
   };
-  private searchSub = new Subject();
-  results$: Observable<Drink[]>;
-  searchVals: Array<string> = [];
+  // private searchSub = new Subject();
+  // searchVals: Array<string> = [];
+  @Input() searchVals: Array<Object> = [];
+  // results$: Observable<Drink[]>;
+  @Output() sendToParent = new EventEmitter<Array<Object>>();
 
-  onCheck(ingredient, event) {
-    console.log(event.target.checked);
+  onCheck(ingredientID, event) {
     if (event.target.checked) {
-      this.searchVals.push(ingredient);
-      console.log(this.searchVals);
-      this.searchSub.next(this.searchVals);
+      this.searchVals.push(ingredientID);
+      // this.searchSub.next(this.searchVals);
+      this.sendToParent.emit(this.searchVals);
     } else {
-      this.searchVals = this.searchVals.filter((el) => el !== ingredient);
-      console.log(this.searchVals);
+      this.searchVals = this.searchVals.filter((el) => el !== ingredientID);
     }
   }
 
@@ -42,7 +38,7 @@ export class AdvancedSearchNavComponent implements OnInit {
 
     for (let i = 0; i < this.ingredients.length; i++) {
       const check = this.ingredients[i].category;
-      const ingredient = this.ingredients[i].name;
+      const ingredient = this.ingredients[i];
       const propArr = Object.getOwnPropertyNames(this.categoriesObj);
       for (let x = 0; x < propArr.length; x++) {
         if (check === propArr[x]) {
@@ -61,14 +57,16 @@ export class AdvancedSearchNavComponent implements OnInit {
   ngOnInit(): void {
     this.getIngredients();
 
-    this.searchSub.subscribe({
-      next: (searchVals: string[]) => {
-        console.log(`observerA: ${typeof searchVals}`);
-        debounceTime(300);
+    // this.searchSub.subscribe({
+    //   next: (searchVals: string[]) => {
+    //     debounceTime(300);
 
-        console.log(searchVals);
-        this.queryService.advancedSearch(searchVals);
-      },
-    });
+    //     this.results$ = this.queryService.advancedSearch(searchVals);
+    //     this.results$.subscribe((res) => {
+    //       console.log('Nav: ', res);
+    //       this.sendToParent.emit(res);
+    //     });
+    //   },
+    // });
   }
 }

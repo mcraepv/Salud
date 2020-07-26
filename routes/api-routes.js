@@ -47,7 +47,7 @@ module.exports = function (app) {
     res.redirect('/');
   });
 
-  app.get('/api/cocktail', function (req, res) {
+  app.get('/api/cocktail/', function (req, res) {
     console.log('called');
     db.Cocktail.findAll({
       include: [{
@@ -111,7 +111,7 @@ module.exports = function (app) {
 
   // Results Page
   app.get('/api/results/:cocktail', function (req, res) {
-    db.Cocktail.findAll({
+    db.Cocktail.findOne({
       attributes: ['name', 'instructions', 'imageUrl'],
       include: [{
         model: db.CocktailIngredient,
@@ -132,6 +132,7 @@ module.exports = function (app) {
         'name': req.params.cocktail
       }
     }).then(function (result) {
+      console.log(result);
       res.json(result);
     });
   });

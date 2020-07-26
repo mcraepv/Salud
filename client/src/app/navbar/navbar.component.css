@@ -1,12 +1,16 @@
 .navbar-brand {
-  font-size: xx-large;
-  font-family: "Crushed", cursive;
+  font-size: 36px;
+  font-family: "Pacifico", cursive;
+  /* font-family: "Satisfy", cursive;
+  font-weight: 600; */
+  padding: 0;
+  /* height: 50px; */
 }
 
 .navbar {
   background-color: white;
 }
 
-.logo {
+/* .logo {
   height: 40px;
-}
+} */

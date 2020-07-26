@@ -1,4 +1,3 @@
-import { Test } from './models/test';
 import { Cocktail } from './models/cocktail';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -15,7 +14,7 @@ const httpOptions = {
 })
 export class QueryService {
   ingredientURL = 'http://localhost:3000/api/ingredient';
-  cocktailURL = 'http://localhost:3000/api/cocktail';
+  cocktailURL = 'http://localhost:3000/recipe/';
   advancedSearchURL = 'http://localhost:3000/api/advanced-search';
   testURL = 'https://jsonplaceholder.typicode.com/comments';
 
@@ -35,10 +34,14 @@ export class QueryService {
     };
   }
 
-  advancedSearch(searchArr: Array<string>): Observable<Drink[]> {
+  getCocktail(cocktailName: String): Observable<Cocktail[]> {
+    return this.http.get<Cocktail[]>(`${this.cocktailURL}${cocktailName}`);
+  }
+
+  advancedSearch(searchArr: Array<number>): Observable<Drink[]> {
     console.log('query');
-    const customURL = `${this.advancedSearchURL}/:${searchArr.toString()}`;
-    return this.http.get<Drink[]>(customURL).pipe(
+    const customURL = `${this.advancedSearchURL}/${searchArr.toString()}`;
+    return this.http.get<any>(customURL).pipe(
       tap((x) => {
         x.length
           ? console.log('Found drinks')
@@ -46,9 +49,5 @@ export class QueryService {
       }),
       catchError(this.handleError<Drink[]>('advancedSearch', []))
     );
-  }
-
-  getCocktails(): Observable<Test[]> {
-    return this.http.get<Test[]>(this.testURL);
   }
 }
