@@ -8,7 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RecipeImgComponent implements OnInit {
   @Input() cocktail: Cocktail;
-  itemImageUrl: string = 'https://via.placeholder.com/400x500ij';
+  itemImageUrl: string =
+    'https://images.unsplash.com/photo-1573957065303-110b23048d68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60';
   url: string;
   constructor() {}
 
