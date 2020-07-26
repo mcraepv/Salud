@@ -96,6 +96,7 @@ module.exports = function (app) {
             id: cocktail.id,
             instructions: cocktail.instructions,
             imageUrl: cocktail.imageUrl,
+            source: cocktail.source,
           };
         }
         if (count[cocktail.name]) {
@@ -113,7 +114,6 @@ module.exports = function (app) {
       for (cocktail in cocktails) {
         final.push(cocktails[cocktail]);
       }
-      console.log(final);
       res.send(final);
     });
   });

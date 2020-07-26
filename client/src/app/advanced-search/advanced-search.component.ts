@@ -33,6 +33,9 @@ export class AdvancedSearchComponent implements OnInit {
         debounceTime(300);
 
         this.results$ = this.queryService.advancedSearch(searchVals);
+        this.results$.subscribe((x) => {
+          console.log(x);
+        });
       },
     });
   }
