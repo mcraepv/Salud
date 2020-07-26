@@ -1,6 +1,5 @@
 import { Cocktail } from './../models/cocktail';
 import { Component, OnInit, Input } from '@angular/core';
-import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 
 @Component({
   selector: 'app-recipe-ingredients-info',
@@ -9,7 +8,7 @@ import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 })
 export class RecipeIngredientsInfoComponent implements OnInit {
   @Input() cocktail: Cocktail;
-  ingredientsArray: object[];
+  ingredientsArray: Array<Object> = [];
 
   constructor() {}
 
@@ -27,8 +26,8 @@ export class RecipeIngredientsInfoComponent implements OnInit {
           measure: this.cocktail.Ingredients[i].measure,
           name: this.cocktail.Ingredients[i].name,
         };
-        console.log(ingredientObj);
-        // this.ingredientsArray.push(ingredientObj);
+        // console.log(ingredientObj);
+        this.ingredientsArray.push(ingredientObj);
       }
       console.log(this.ingredientsArray);
     }
