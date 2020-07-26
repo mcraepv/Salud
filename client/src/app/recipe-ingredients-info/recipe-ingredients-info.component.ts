@@ -13,7 +13,7 @@ export class RecipeIngredientsInfoComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    // console.log(typeOf ingredients);
+    console.log(this.ingredients);
   }
 
   ngOnChanges(): void {
