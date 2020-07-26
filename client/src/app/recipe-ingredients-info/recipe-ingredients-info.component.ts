@@ -1,6 +1,5 @@
 import { Cocktail } from './../models/cocktail';
 import { Component, OnInit, Input } from '@angular/core';
-import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 
 @Component({
   selector: 'app-recipe-ingredients-info',
