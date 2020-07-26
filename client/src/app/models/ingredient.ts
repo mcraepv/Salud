@@ -5,5 +5,4 @@ export interface Ingredient {
   category: string;
   id: string;
   name: string;
-  length: number;
 }
