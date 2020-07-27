@@ -15,23 +15,23 @@ export class RecipeIngredientsInfoComponent implements OnInit {
   ngOnInit(): void {}
 
   ngOnChanges(): void {
-    this.getIngredients();
+    // this.getIngredients();
   }
 
-  getIngredients() {
-    if (this.cocktail) {
-      for (var i = 0; i < this.cocktail.Ingredients.length; i++) {
-        let ingredientObj = {
-          amount: this.cocktail.Ingredients[i].CocktailIngredient.amount,
-          measure: this.cocktail.Ingredients[i].measure,
-          name: this.cocktail.Ingredients[i].name,
-        };
-        if (ingredientObj.measure !== 'garnish') {
-          this.ingredients.push(ingredientObj);
-        } else {
-          this.garnishes.push(ingredientObj);
-        }
-      }
-    }
-  }
+  // getIngredients() {
+  //   if (this.cocktail) {
+  //     for (var i = 0; i < this.cocktail.Ingredients.length; i++) {
+  //       let ingredientObj = {
+  //         amount: this.cocktail.Ingredients[i].CocktailIngredient.amount,
+  //         measure: this.cocktail.Ingredients[i].measure,
+  //         name: this.cocktail.Ingredients[i].name,
+  //       };
+  //       if (ingredientObj.measure !== 'garnish') {
+  //         this.ingredients.push(ingredientObj);
+  //       } else {
+  //         this.garnishes.push(ingredientObj);
+  //       }
+  //     }
+  //   }
+  // }
 }

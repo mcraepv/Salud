@@ -1,17 +1,46 @@
-<div *ngIf="results$ | async as drinks" class="container">
-  <div class="row mb-5">
-    <div
-      *ngFor="let drink of drinks"
-      class="col-lg-3 col-md-6 col-12 mt-4 text-center"
-    >
-      <div class="card" routerLink="/recipe/{{ drink.name }}">
-        <img
-          class="card-img-top"
-          src="{{ drink.imageUrl }}"
-          alt="{{ drink.source }}"
-        />
-        <div class="card-body">
-          <h5 class="card-title text-center">{{ drink.name }}</h5>
+<div *ngIf="homeSearchService.drinksGotten">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12">
+        <h2 class="text-center">Search Results</h2>
+      </div>
+      <div
+        *ngFor="let drink of homeSearchService.drinks"
+        class="col-lg-3 col-md-6 col-12 mt-4 text-center"
+      >
+        <div class="card" routerLink="/recipe/{{ drink.name }}">
+          <img
+            class="card-img-top"
+            src="{{ drink.imageUrl }}"
+            alt="{{ drink.source }}"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-center">{{ drink.name }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!homeSearchService.drinksGotten">
+  <div *ngIf="results$ | async as drinks" class="container">
+    <div class="row mb-5">
+      <div class="col-12">
+        <h2 class="text-center">Try These!</h2>
+      </div>
+      <div
+        *ngFor="let drink of drinks"
+        class="col-lg-3 col-md-6 col-12 mt-4 text-center"
+      >
+        <div class="card" routerLink="/recipe/{{ drink.name }}">
+          <img
+            class="card-img-top"
+            src="{{ drink.imageUrl }}"
+            alt="{{ drink.source }}"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-center">{{ drink.name }}</h5>
+          </div>
         </div>
       </div>
     </div>
