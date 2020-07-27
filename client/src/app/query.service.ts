@@ -13,7 +13,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class QueryService {
-  //FINAL QUERIES
+  //FINAL QUERIES for heroku deploy
   //================================
   // ingredientURL = 'api/ingredient';
   // cocktailURL = 'api/results/';
