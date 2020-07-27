@@ -13,16 +13,17 @@
 }
 
 .btn {
-  background-color: transparent;
+  /* background-color: transparent;
   border-color: transparent;
-  color: black;
+  color: black; */
+  padding: 0;
 }
 
-.btn:hover {
+/* .btn:hover {
   background-color: black;
   color: white;
-}
-
-/* .logo {
-  height: 40px;
 } */
+
+.logo {
+  height: 45px;
+}

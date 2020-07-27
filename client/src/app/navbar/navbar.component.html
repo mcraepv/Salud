@@ -1,28 +1,36 @@
-<nav class="navbar navbar-light d-flex align-items-center">
-  <a routerLink="/home" class="navbar-brand mr-auto">
-    Salud!
-  </a>
-  <button
-    *ngIf="authService.isLoggedIn()"
-    class="btn btn-lg btn-secondary ml-auto"
-    routerLink="/favorites"
-  >
-    Favorites
-  </button>
-  <button
-    *ngIf="authService.isLoggedIn()"
-    class="btn btn-lg btn-secondary"
-    (click)="open()"
-  >
-    About
-  </button>
-  <button
-    *ngIf="authService.isLoggedOut()"
-    class="btn btn-lg btn-secondary ml-auto"
-    (click)="open()"
-  >
-    About
-  </button>
-  <app-sign-in *ngIf="authService.isLoggedOut()"></app-sign-in>
-  <app-sign-out *ngIf="authService.isLoggedIn()"></app-sign-out>
-</nav>
+  <nav class="navbar navbar-light d-flex">
+    <button
+      class="btn mr-auto"
+      routerLink="/home"
+    >
+      <img src="../../assets/cheers.png" class="logo" />
+      <a class="navbar-brand mr-auto">
+        Salud!
+      </a>
+    </button>
+    <button
+      *ngIf="authService.isLoggedIn()"
+      class="btn btn-lg btn-secondary ml-auto"
+      routerLink="/favorites"
+    >
+      Favorites
+    </button>
+    <button
+      *ngIf="authService.isLoggedIn()"
+      class="btn btn-lg btn-secondary"
+      title="Click here to learn about and contact the team!"
+      (click)="open()"
+    >
+      About
+    </button>
+    <button
+      *ngIf="authService.isLoggedOut()"
+      class="btn btn-lg btn-secondary ml-auto"
+      (click)="open()"
+    >
+      About
+    </button>
+    <app-sign-in *ngIf="authService.isLoggedOut()"></app-sign-in>
+    <app-sign-out *ngIf="authService.isLoggedIn()"></app-sign-out>
+  </nav>
+</a>

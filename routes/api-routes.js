@@ -166,7 +166,7 @@ module.exports = function (app) {
   // Results Page
   app.get('/api/results/:cocktail', function (req, res) {
     db.Cocktail.findAll({
-      attributes: ['name', 'instructions', 'imageUrl'],
+      attributes: ['name', 'instructions', 'imageUrl', 'source'],
       include: [
         {
           model: db.CocktailIngredient,
