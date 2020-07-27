@@ -13,7 +13,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class QueryService {
-  //FINAL QUERIES
+  //FINAL QUERIES for heroku deploy
   //================================
   // ingredientURL = 'api/ingredient';
   // cocktailURL = 'api/results/';
@@ -22,7 +22,7 @@ export class QueryService {
   // randomURL = 'api/random';
   // initAdvancedURL = 'api/cocktail';
   // cocktailSearchURL = 'api/cocktail-search/';
-  // //==============================================
+  //==============================================
 
   nutritionURL =
     'https://api.nal.usda.gov/fdc/v1/foods/search?api_key=vhvEbrN6AYcz02VcLyMWAbIG6qhOQngRIPjqz5Ia&query=';

@@ -1308,15 +1308,27 @@ const httpOptions = {
     headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({ 'Content-Type': 'application/json' }),
 };
 class QueryService {
+    //TEST QUERIES
+    //=========================================
+    // ingredientURL = 'http://localhost:3000/api/ingredient';
+    // cocktailURL = 'http://localhost:3000/api/results/';
+    // advancedSearchURL = 'http://localhost:3000/api/advanced-search';
+    // randomURL = 'http://localhost:3000/api/random';
+    // initAdvancedURL = 'http://localhost:3000/api/cocktail';
+    // cocktailSearchURL = 'http://localhost:3000/api/cocktail-search/';
+    //=============================================================
     constructor(http) {
         this.http = http;
+        //FINAL QUERIES
+        //================================
         this.ingredientURL = 'api/ingredient';
         this.cocktailURL = 'api/results/';
         this.advancedSearchURL = 'api/advanced-search';
-        this.nutritionURL = 'https://api.nal.usda.gov/fdc/v1/foods/search?api_key=vhvEbrN6AYcz02VcLyMWAbIG6qhOQngRIPjqz5Ia&query=';
         this.randomURL = 'api/random';
         this.initAdvancedURL = 'api/cocktail';
         this.cocktailSearchURL = 'api/cocktail-search/';
+        //==============================================
+        this.nutritionURL = 'https://api.nal.usda.gov/fdc/v1/foods/search?api_key=vhvEbrN6AYcz02VcLyMWAbIG6qhOQngRIPjqz5Ia&query=';
     }
     getIngredients() {
         return this.http.get(this.ingredientURL).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])((x) => { }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(this.handleError('getIngredients', [])));
@@ -1791,7 +1803,8 @@ class RecipeComponent {
     ngOnInit() {
         const cocktailName = this.route.snapshot.paramMap.get('cocktailName');
         this.queryService.getCocktail(cocktailName).subscribe((data) => {
-            this.cocktail = data;
+            console.log(data);
+            this.cocktail = data[0];
         });
     }
 }
