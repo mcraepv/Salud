@@ -13,15 +13,15 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class QueryService {
-  //FINAL QUERIES
+  //FINAL QUERIES for heroku deploy
   //================================
-  ingredientURL = 'api/ingredient';
-  cocktailURL = 'api/results/';
-  advancedSearchURL = 'api/advanced-search';
+  // ingredientURL = 'api/ingredient';
+  // cocktailURL = 'api/results/';
+  // advancedSearchURL = 'api/advanced-search';
 
-  randomURL = 'api/random';
-  initAdvancedURL = 'api/cocktail';
-  cocktailSearchURL = 'api/cocktail-search/';
+  // randomURL = 'api/random';
+  // initAdvancedURL = 'api/cocktail';
+  // cocktailSearchURL = 'api/cocktail-search/';
   //==============================================
 
   nutritionURL =
@@ -29,12 +29,12 @@ export class QueryService {
 
   //TEST QUERIES
   //=========================================
-  // ingredientURL = 'http://localhost:3000/api/ingredient';
-  // cocktailURL = 'http://localhost:3000/api/results/';
-  // advancedSearchURL = 'http://localhost:3000/api/advanced-search';
-  // randomURL = 'http://localhost:3000/api/random';
-  // initAdvancedURL = 'http://localhost:3000/api/cocktail';
-  // cocktailSearchURL = 'http://localhost:3000/api/cocktail-search/';
+  ingredientURL = 'http://localhost:3000/api/ingredient';
+  cocktailURL = 'http://localhost:3000/api/results/';
+  advancedSearchURL = 'http://localhost:3000/api/advanced-search';
+  randomURL = 'http://localhost:3000/api/random';
+  initAdvancedURL = 'http://localhost:3000/api/cocktail';
+  cocktailSearchURL = 'http://localhost:3000/api/cocktail-search/';
   //=============================================================
 
   constructor(private http: HttpClient) {}
