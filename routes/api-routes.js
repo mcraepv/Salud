@@ -72,24 +72,32 @@ module.exports = function (app) {
 
   // Advanced Search
   app.get('/api/advanced-search/:ingredientids', function (req, res) {
-    let selectedIngredients = req.params.ingredientids.split(',').map(id => parseInt(id));
+    let selectedIngredients = req.params.ingredientids
+      .split(',')
+      .map((id) => parseInt(id));
     db.Cocktail.findAll({
-      attributes: ['name'],
-      include: [{
-        model: db.CocktailIngredient,
-        attributes: [],
-        include: [{
-          model: db.Ingredient,
+      attributes: ['name', 'imageUrl'],
+      include: [
+        {
+          model: db.CocktailIngredient,
           attributes: [],
-          required: true
-        }],
-        required: true
-      }],
+          include: [
+            {
+              model: db.Ingredient,
+              attributes: [],
+              required: true,
+            },
+          ],
+          required: true,
+        },
+      ],
       where: {
-        '$CocktailIngredients->Ingredient.id$': selectedIngredients
+        '$CocktailIngredients->Ingredient.id$': selectedIngredients,
       },
       group: ['Cocktail.name'],
-      having: sequelize.literal('count(Cocktail.name) =' + selectedIngredients.length)
+      having: sequelize.literal(
+        'count(Cocktail.name) =' + selectedIngredients.length
+      ),
     }).then(function (result) {
       res.json(result);
     });
@@ -100,10 +108,10 @@ module.exports = function (app) {
     db.Cocktail.findAll({
       attributes: ['id', 'name', 'imageUrl'],
       where: {
-        'name': {
-          [sequelize.Op.like]: req.params.cocktail + '%'
-        }
-      }
+        name: {
+          [sequelize.Op.like]: req.params.cocktail + '%',
+        },
+      },
     }).then(function (result) {
       res.json(result);
     });
@@ -124,8 +132,8 @@ module.exports = function (app) {
         required: true,
       }],
       where: {
-        'name': req.params.cocktail
-      }
+        name: req.params.cocktail,
+      },
     }).then(function (result) {
       res.json(result);
     });
@@ -135,7 +143,7 @@ module.exports = function (app) {
   app.post('api/favorite', function (req, res) {
     db.FavoriteRecipe.create({
       CocktailId: req.body.CocktailId,
-      UserId: req.body.UserId
+      UserId: req.body.UserId,
     })
       .then(() => {
         res.status(200);
@@ -150,8 +158,8 @@ module.exports = function (app) {
     db.FavoriteRecipe.destroy({
       where: {
         CocktailId: parseInt(req.params.CocktailId),
-        UserId: req.body.UserId
-      }
+        UserId: req.body.UserId,
+      },
     })
       .then(() => {
         res.status(200);

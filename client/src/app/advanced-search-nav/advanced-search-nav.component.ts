@@ -17,19 +17,16 @@ export class AdvancedSearchNavComponent implements OnInit {
     beers: [],
     mixers: [],
   };
-  // private searchSub = new Subject();
-  // searchVals: Array<string> = [];
   @Input() searchVals: Array<Object> = [];
-  // results$: Observable<Drink[]>;
   @Output() sendToParent = new EventEmitter<Array<Object>>();
 
   onCheck(ingredientID, event) {
     if (event.target.checked) {
       this.searchVals.push(ingredientID);
-      // this.searchSub.next(this.searchVals);
       this.sendToParent.emit(this.searchVals);
     } else {
       this.searchVals = this.searchVals.filter((el) => el !== ingredientID);
+      this.sendToParent.emit(this.searchVals);
     }
   }
 
@@ -56,17 +53,5 @@ export class AdvancedSearchNavComponent implements OnInit {
 
   ngOnInit(): void {
     this.getIngredients();
-
-    // this.searchSub.subscribe({
-    //   next: (searchVals: string[]) => {
-    //     debounceTime(300);
-
-    //     this.results$ = this.queryService.advancedSearch(searchVals);
-    //     this.results$.subscribe((res) => {
-    //       console.log('Nav: ', res);
-    //       this.sendToParent.emit(res);
-    //     });
-    //   },
-    // });
   }
 }
