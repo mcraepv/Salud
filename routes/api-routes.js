@@ -115,10 +115,10 @@ module.exports = function (app) {
       attributes: ['name', 'instructions', 'imageUrl'],
       include: [{
         model: db.CocktailIngredient,
-        attributes: ['amount', 'measure'],
+        attributes: ['amount'],
         include: [{
           model: db.Ingredient,
-          attributes: ['name'],
+          attributes: ['name', 'measure'],
           required: true
         }],
         required: true,
