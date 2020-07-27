@@ -30,6 +30,10 @@ export class RecipeExtraInfoComponent implements OnInit {
     }
   }
 
+  addFavorite() {
+    // this.queryService.addFavorite(this.cocktail);
+  }
+
   // getNutrition() {
   //   console.log(this.name);
   //   this.queryService.getNutritionFacts(this.name).subscribe((data) => {

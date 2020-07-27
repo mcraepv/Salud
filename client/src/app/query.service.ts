@@ -22,6 +22,7 @@ export class QueryService {
   // randomURL = 'api/random';
   // initAdvancedURL = 'api/cocktail';
   // cocktailSearchURL = 'api/cocktail-search/';
+  // favoriteURL = 'api/favorite/';
   //==============================================
 
   nutritionURL =
@@ -35,6 +36,7 @@ export class QueryService {
   randomURL = 'http://localhost:3000/api/random';
   initAdvancedURL = 'http://localhost:3000/api/cocktail';
   cocktailSearchURL = 'http://localhost:3000/api/cocktail-search/';
+  favoriteURL = 'http://localhost:3000/api/favorite/';
   //=============================================================
 
   constructor(private http: HttpClient) {}
@@ -100,5 +102,9 @@ export class QueryService {
     return this.http
       .get<any>(`${this.cocktailSearchURL}${term}`)
       .pipe(tap((x) => {}));
+  }
+
+  addFavorite(id: number): void {
+    this.http.post(this.favoriteURL, id);
   }
 }
