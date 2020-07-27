@@ -13,14 +13,14 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class QueryService {
-  ingredientURL = 'http://localhost:3000/api/ingredient';
-  cocktailURL = 'http://localhost:3000/recipe/';
-  advancedSearchURL = 'http://localhost:3000/api/advanced-search';
+  ingredientURL = 'api/ingredient';
+  cocktailURL = 'api/results/';
+  advancedSearchURL = 'api/advanced-search';
   nutritionURL =
     'https://api.nal.usda.gov/fdc/v1/foods/search?api_key=vhvEbrN6AYcz02VcLyMWAbIG6qhOQngRIPjqz5Ia&query=';
-  randomURL = 'http://localhost:3000/api/random';
-  initAdvancedURL = 'http://localhost:3000/api/cocktail';
-  cocktailSearchURL = 'http://localhost:3000/api/cocktail-search/';
+  randomURL = 'api/random';
+  initAdvancedURL = 'api/cocktail';
+  cocktailSearchURL = 'api/cocktail-search/';
   constructor(private http: HttpClient) {}
 
   getIngredients(): Observable<Ingredient[]> {
@@ -38,7 +38,11 @@ export class QueryService {
   }
 
   getCocktail(cocktailName: String): Observable<Cocktail[]> {
-    return this.http.get<Cocktail[]>(`${this.cocktailURL}${cocktailName}`);
+    return this.http.get<Cocktail[]>(`${this.cocktailURL}${cocktailName}`).pipe(
+      tap((x) => {
+        console.log(x);
+      })
+    );
   }
 
   getNutritionFacts(cocktailName: String): Observable<any> {
