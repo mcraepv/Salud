@@ -10,6 +10,7 @@ module.exports = function (sequelize, DataTypes) {
       },
       amount: {
         type: DataTypes.FLOAT,
+        allowNull: true
       }
     },
     {
