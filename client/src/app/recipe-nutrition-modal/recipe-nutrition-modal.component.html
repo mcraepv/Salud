@@ -1,9 +1,18 @@
 <div class="modal-header">
   <h4 class="modal-title text-center">Nutrition Facts</h4>
 </div>
-<div class="modal-body">
-  <p>Protein: {{ protein }}</p>
-  <p>Carbohydrates: {{ carbs }}</p>
-  <p>Fats: {{ fats }}</p>
-  <p>Sugars: {{ sugars }}</p>
+<div class="modal-body" *ngIf="nutritionFacts; else elseBlock">
+  <div class="nutritionalFacts">
+    <p>Protein: {{ protein }}</p>
+    <p>Carbohydrates: {{ carbs }}</p>
+    <p>Fats: {{ fats }}</p>
+    <p>Sugars: {{ sugars }}</p>
+  </div>
+  <p class="text-center">Data provided by:</p>
+  <div class="justify-content-center d-flex">
+    <img src="../../assets/usda.png" />
+  </div>
 </div>
+<ng-template #elseBlock
+  ><p class="none">No nutritional facts found :(</p></ng-template
+>
