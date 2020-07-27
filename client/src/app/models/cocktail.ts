@@ -5,4 +5,5 @@ export interface Cocktail {
   instructions: string;
   imageUrl: string;
   CocktailIngredients: Array<CocktailIngredient>;
+  source: string;
 }
