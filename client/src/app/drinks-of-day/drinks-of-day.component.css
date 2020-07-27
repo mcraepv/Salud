@@ -5,9 +5,9 @@ img {
   border-radius: 10px 10px 0px 0px;
 }
 
-h2 {
+/* h2 {
   font-family: "Pacifico", cursive;
-}
+} */
 
 .card {
   filter: drop-shadow(5px 8px 4px lightgrey);
