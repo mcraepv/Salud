@@ -128,7 +128,7 @@ module.exports = function (app) {
           include: [
             {
               model: db.Ingredient,
-              attributes: [],
+              attributes: ['name', 'measure'],
               required: true,
             },
           ],
