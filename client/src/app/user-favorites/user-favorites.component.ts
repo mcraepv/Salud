@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
+import { Drink } from '../drink';
+import { QueryService } from '../query.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-favorites',
@@ -7,9 +12,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserFavoritesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private queryService: QueryService, private router: Router) { }
+
+  results$: Observable<Drink[]>;
+  isSuccessful: boolean = true;
 
   ngOnInit(): void {
+    this.results$ = this.queryService.getFavorites();
+    this.results$.subscribe((x) => {
+      console.log(x);
+      if (!x.length) {
+        this.isSuccessful = false;
+      }
+    })
   }
 
 }
