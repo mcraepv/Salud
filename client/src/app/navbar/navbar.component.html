@@ -5,6 +5,13 @@
   <a routerLink="/home" class="navbar-brand mx-auto">
     Salud!
   </a>
+  <button
+    *ngIf="authService.isLoggedIn()"
+    class="btn btn-lg btn-secondary"
+    routerLink="/favorites"
+  >
+    Favorites
+  </button>
   <app-sign-in *ngIf="authService.isLoggedOut()" class="ml-auto"></app-sign-in>
   <app-sign-out *ngIf="authService.isLoggedIn()" class="ml-auto"></app-sign-out>
 </nav>
