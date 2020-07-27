@@ -58,7 +58,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(true);
 // Module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\nbody {\n  font-family: \"Mulish\", sans-serif;\n  color: black;\n  background-color: #f1f4f5;\n}\n.card {\n  transition: transform 100ms;\n}\n.btn:focus,\n.btn:active {\n  outline: none !important;\n  box-shadow: none;\n}\n", "",{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAAA,8EAA8E;AAC9E;EACE,iCAAiC;EACjC,YAAY;EACZ,yBAAyB;AAC3B;AAEA;EACE,2BAA2B;AAC7B;AAEA;;EAEE,wBAAwB;EACxB,gBAAgB;AAClB","file":"styles.css","sourcesContent":["/* You can add global styles to this file, and also import other style files */\nbody {\n  font-family: \"Mulish\", sans-serif;\n  color: black;\n  background-color: #f1f4f5;\n}\n\n.card {\n  transition: transform 100ms;\n}\n\n.btn:focus,\n.btn:active {\n  outline: none !important;\n  box-shadow: none;\n}\n"]}]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\nbody {\n  font-family: \"Mulish\", sans-serif;\n  color: black;\n  background-color: #f1f4f5;\n}\n.card {\n  transition: transform 100ms;\n}\n.card:hover {\n  transform: scale(1.1);\n  cursor: pointer;\n}\n", "",{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAAA,8EAA8E;AAC9E;EACE,iCAAiC;EACjC,YAAY;EACZ,yBAAyB;AAC3B;AAEA;EACE,2BAA2B;AAC7B;AAEA;EACE,qBAAqB;EACrB,eAAe;AACjB","file":"styles.css","sourcesContent":["/* You can add global styles to this file, and also import other style files */\nbody {\n  font-family: \"Mulish\", sans-serif;\n  color: black;\n  background-color: #f1f4f5;\n}\n\n.card {\n  transition: transform 100ms;\n}\n\n.card:hover {\n  transform: scale(1.1);\n  cursor: pointer;\n}\n"]}]);
 // Exports
 module.exports = exports;
 
@@ -486,8 +486,8 @@ module.exports = content.locals || {};
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\mcrae\projects\Salud\client\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
-module.exports = __webpack_require__(/*! C:\Users\mcrae\projects\Salud\client\src\styles.css */"./src/styles.css");
+__webpack_require__(/*! /Users/brandongatlin/GitHub/teaching/grading/03_2020/p2/Salud/client/node_modules/bootstrap/dist/css/bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
+module.exports = __webpack_require__(/*! /Users/brandongatlin/GitHub/teaching/grading/03_2020/p2/Salud/client/src/styles.css */"./src/styles.css");
 
 
 /***/ })
