@@ -1,4 +1,9 @@
+import { CocktailIngredient } from './cocktailingredient';
+
 export interface Ingredient {
-  name: string;
+  CocktailIngredient: CocktailIngredient;
+  category: string;
+  id: string;
   measure: string;
+  name: string;
 }

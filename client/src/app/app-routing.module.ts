@@ -1,4 +1,3 @@
-import { AboutComponent } from './about/about.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -8,7 +7,6 @@ import { AdvancedSearchComponent } from './advanced-search/advanced-search.compo
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomepageComponent },
-  { path: 'about', component: AboutComponent },
   { path: 'advanced-search', component: AdvancedSearchComponent },
   { path: 'recipe/:cocktailName', component: RecipeComponent },
   { path: '**', component: HomepageComponent },
