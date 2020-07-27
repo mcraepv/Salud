@@ -21,7 +21,7 @@ export class RecipeImgComponent implements OnInit {
   getUrl() {
     if (this.cocktail) {
       this.url = this.cocktail.imageUrl;
-      this.source = this.cocktail.source;
+      // this.source = this.cocktail.source;
     }
   }
 }
