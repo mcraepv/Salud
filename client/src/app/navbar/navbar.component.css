@@ -13,16 +13,15 @@
 }
 
 .btn {
-  /* background-color: transparent;
+  background-color: transparent;
   border-color: transparent;
-  color: black; */
-  padding: 0;
+  color: black;
 }
 
-/* .btn:hover {
+.btn:hover {
   background-color: black;
   color: white;
-} */
+}
 
 .logo {
   height: 45px;

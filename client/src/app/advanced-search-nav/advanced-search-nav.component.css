@@ -3,13 +3,8 @@
   overflow-y: auto;
 }
 
-.navbar {
-  background-color: white;
-}
-
 .btn {
-  background-color: white;
-  background-color: #f1f4f5;
+  background-color: white !important;
   color: black;
 }
 

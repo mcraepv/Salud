@@ -8,23 +8,21 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-user-favorites',
   templateUrl: './user-favorites.component.html',
-  styleUrls: ['./user-favorites.component.css']
+  styleUrls: ['./user-favorites.component.css'],
 })
 export class UserFavoritesComponent implements OnInit {
-
-  constructor(private queryService: QueryService, private router: Router) { }
+  constructor(private queryService: QueryService, private router: Router) {}
 
   results$: Observable<Drink[]>;
   isSuccessful: boolean = true;
 
   ngOnInit(): void {
-    this.results$ = this.queryService.getFavorites();
+    // this.results$ = this.queryService.getFavorites();
     this.results$.subscribe((x) => {
       console.log(x);
       if (!x.length) {
         this.isSuccessful = false;
       }
-    })
+    });
   }
-
 }
