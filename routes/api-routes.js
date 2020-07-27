@@ -119,24 +119,33 @@ module.exports = function (app) {
 
   // Results Page
   app.get('/api/results/:cocktail', function (req, res) {
-    db.Cocktail.findOne({
+    db.Cocktail.findAll({
       attributes: ['name', 'instructions', 'imageUrl'],
-      include: [{
-        model: db.CocktailIngredient,
-        attributes: ['amount'],
-        include: [{
-          model: db.Ingredient,
-          attributes: ['name', 'measure'],
-          required: true
-        }],
-        required: true,
-      }],
+      include: [
+        {
+          model: db.CocktailIngredient,
+          attributes: ['amount'],
+          include: [
+            {
+              model: db.Ingredient,
+              attributes: ['name', 'measure'],
+              required: true,
+            },
+          ],
+          required: true,
+        },
+      ],
       where: {
         name: req.params.cocktail,
       },
-    }).then(function (result) {
-      res.json(result);
-    });
+    })
+      .then(function (result) {
+        console.log(result);
+        res.json(result);
+      })
+      .catch((err) => {
+        throw err;
+      });
   });
 
   // Add Favorite Cocktail
