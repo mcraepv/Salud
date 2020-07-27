@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./recipe.component.css'],
 })
 export class RecipeComponent implements OnInit {
-  cocktail: Cocktail[];
+  cocktail: Cocktail;
 
   constructor(
     private queryService: QueryService,
@@ -21,7 +21,8 @@ export class RecipeComponent implements OnInit {
       'cocktailName'
     );
     this.queryService.getCocktail(cocktailName).subscribe((data) => {
-      this.cocktail = data;
+      console.log(data);
+      this.cocktail = data[0];
     });
   }
 }

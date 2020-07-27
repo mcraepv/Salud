@@ -13,14 +13,30 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class QueryService {
-  ingredientURL = 'api/ingredient';
-  cocktailURL = 'api/results/';
-  advancedSearchURL = 'api/advanced-search';
+  //FINAL QUERIES
+  //================================
+  // ingredientURL = 'api/ingredient';
+  // cocktailURL = 'api/results/';
+  // advancedSearchURL = 'api/advanced-search';
+
+  // randomURL = 'api/random';
+  // initAdvancedURL = 'api/cocktail';
+  // cocktailSearchURL = 'api/cocktail-search/';
+  //==============================================
+
   nutritionURL =
     'https://api.nal.usda.gov/fdc/v1/foods/search?api_key=vhvEbrN6AYcz02VcLyMWAbIG6qhOQngRIPjqz5Ia&query=';
-  randomURL = 'api/random';
-  initAdvancedURL = 'api/cocktail';
-  cocktailSearchURL = 'api/cocktail-search/';
+
+  //TEST QUERIES
+  //=========================================
+  ingredientURL = 'http://localhost:3000/api/ingredient';
+  cocktailURL = 'http://localhost:3000/api/results/';
+  advancedSearchURL = 'http://localhost:3000/api/advanced-search';
+  randomURL = 'http://localhost:3000/api/random';
+  initAdvancedURL = 'http://localhost:3000/api/cocktail';
+  cocktailSearchURL = 'http://localhost:3000/api/cocktail-search/';
+  //=============================================================
+
   constructor(private http: HttpClient) {}
 
   getIngredients(): Observable<Ingredient[]> {
