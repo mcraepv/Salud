@@ -2,4 +2,6 @@
   class="form-control form-control-lg mt-3 mx-auto"
   type="text"
   placeholder=""
+  #searchBox
+  (input)="homeSearchService.getDrinks(searchBox.value)"
 />
