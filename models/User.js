@@ -8,6 +8,8 @@ const pathToKey = path.join(__dirname, '../', 'id_rsa_priv.pem');
 //wrong path?
 const PRIV_KEY = process.env.SSH_KEY || fs.readFileSync(pathToKey, 'utf8');
 
+//hello!
+
 module.exports = function (sequelize, DataTypes) {
   const User = sequelize.define(
     'User',
