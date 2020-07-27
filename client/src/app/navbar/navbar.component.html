@@ -7,14 +7,14 @@
   </a>
   <button
     *ngIf="authService.isLoggedIn()"
-    class="btn btn-lg btn-secondary ml-auto"
+    class="btn btn-lg ml-auto"
     routerLink="/favorites"
   >
     Favorites
   </button>
   <button
     *ngIf="authService.isLoggedIn()"
-    class="btn btn-lg btn-secondary"
+    class="btn btn-lg"
     title="Click here to learn about and contact the team!"
     (click)="open()"
   >
@@ -22,7 +22,7 @@
   </button>
   <button
     *ngIf="authService.isLoggedOut()"
-    class="btn btn-lg btn-secondary ml-auto"
+    class="btn btn-lg ml-auto"
     (click)="open()"
   >
     About

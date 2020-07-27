@@ -13,6 +13,7 @@ export class RecipeNutritionModalComponent implements OnInit {
   carbs: string;
   fats: string;
   sugars: string;
+  nutritionFacts: boolean;
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -32,6 +33,7 @@ export class RecipeNutritionModalComponent implements OnInit {
         this.carbs = `${data.foods[0].foodNutrients[1].value} ${data.foods[0].foodNutrients[1].unitName}`;
         this.fats = `${data.foods[0].foodNutrients[2].value} ${data.foods[0].foodNutrients[2].unitName}`;
         this.sugars = `${data.foods[0].foodNutrients[8].value} ${data.foods[0].foodNutrients[8].unitName}`;
+        this.nutritionFacts = true;
       }
     });
   }
