@@ -104,7 +104,7 @@ module.exports = function (app) {
   //   });
   // });
 
-  //New Advanced search
+  //New Advanced search query
   app.get('/api/advanced-search/:ingredients', function (req, res) {
     const selectedIngredients = req.params.ingredients.split(',');
     const queryParams = [];
