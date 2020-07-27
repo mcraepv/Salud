@@ -117,9 +117,9 @@ module.exports = function (app) {
     });
   });
 
-  // Results Page
+  // Recipe Page
   app.get('/api/results/:cocktail', function (req, res) {
-    db.Cocktail.findOne({
+    db.Cocktail.findAll({
       attributes: ['name', 'instructions', 'imageUrl'],
       include: [{
         model: db.CocktailIngredient,
