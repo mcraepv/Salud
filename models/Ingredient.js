@@ -10,11 +10,7 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false,
         defaultValue: 'Other',
-      },
-      measure: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+      }
     },
     {
       freezeTableName: true,

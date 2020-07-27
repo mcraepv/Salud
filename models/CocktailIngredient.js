@@ -12,6 +12,10 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.FLOAT,
         allowNull: true,
       },
+      measure: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      }
     },
     {
       freezeTableName: true,
