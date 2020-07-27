@@ -9,7 +9,8 @@ body {
   transition: transform 100ms;
 }
 
-.card:hover {
-  transform: scale(1.1);
-  cursor: pointer;
+.btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none;
 }

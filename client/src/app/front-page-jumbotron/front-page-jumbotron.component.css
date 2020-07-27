@@ -1,6 +1,6 @@
 .jumbotron {
   height: 40vh;
-  background-image: url(../../assets/cocktails.jpg);
+  background-image: url(/assets/cocktails.jpg);
   background-size: cover;
   background-position-y: center;
   color: white;
