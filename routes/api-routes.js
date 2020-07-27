@@ -163,7 +163,7 @@ module.exports = function (app) {
     });
   });
 
-  // Results Page
+  // Recipe Page
   app.get('/api/results/:cocktail', function (req, res) {
     db.Cocktail.findAll({
       attributes: ['name', 'instructions', 'imageUrl', 'source'],
@@ -192,6 +192,23 @@ module.exports = function (app) {
       .catch((err) => {
         throw err;
       });
+  });
+
+  // User Favorite Cocktails
+  app.get('/api/favorites/:username', function (req, res) {
+    db.Cocktail.findAll({
+      attributes: ['name', 'instructions', 'imageUrl'],
+      include: [{
+        model: db.User,
+        attributes: [],
+        required: true,
+      }],
+      where: {
+        'Users.username': req.params.username,
+      },
+    }).then(function (result) {
+      res.json(result);
+    });
   });
 
   // Add Favorite Cocktail
