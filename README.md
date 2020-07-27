@@ -90,7 +90,7 @@ cheers icon
 <div>Icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
 salud photo on about me section
-<span>Photo by <a href="https://unsplash.com/@lensilium?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Maid Milinkic</a> on <a href="https://unsplash.com/s/photos/cheers?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+Photo by Maid Milinkicon Unsplash
 
 ## Questions
 
