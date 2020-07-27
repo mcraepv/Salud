@@ -86,8 +86,7 @@ Jumbotron cocktail image
 Photo by Kobby Mendez on Unsplash
 
 cheers icon
-
-<div>Icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+Icons made by Kiranshastry from www.flaticon.com
 
 salud photo on about me section
 Photo by Maid Milinkicon Unsplash
