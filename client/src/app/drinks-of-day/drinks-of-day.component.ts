@@ -14,15 +14,17 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 export class DrinksOfDayComponent implements OnInit {
   constructor(
     private queryService: QueryService,
-    private homeSearchService: HomeSearchService
+    public homeSearchService: HomeSearchService
   ) {}
 
   results$: Observable<Drink[]>;
 
+  console() {
+    console.log(this.homeSearchService.results$);
+  }
+
   ngOnInit(): void {
-    if (this.homeSearchService.results$) {
-      this.results$ = this.homeSearchService.results$;
-    } else this.results$ = this.queryService.getRandom();
+    this.results$ = this.queryService.getRandom();
   }
 }
 

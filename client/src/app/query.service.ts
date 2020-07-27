@@ -20,7 +20,7 @@ export class QueryService {
     'https://api.nal.usda.gov/fdc/v1/foods/search?api_key=vhvEbrN6AYcz02VcLyMWAbIG6qhOQngRIPjqz5Ia&query=';
   randomURL = 'http://localhost:3000/api/random';
   initAdvancedURL = 'http://localhost:3000/api/cocktail';
-  likelyURL = 'http://localhost:3000/api/likely';
+  cocktailSearchURL = 'http://localhost:3000/api/cocktail-search/';
   constructor(private http: HttpClient) {}
 
   getIngredients(): Observable<Ingredient[]> {
@@ -42,7 +42,7 @@ export class QueryService {
   }
 
   getNutritionFacts(cocktailName: String): Observable<any> {
-    return this.http.get<any>(`${this.nutritionURL}${cocktailName}`);
+    return this.http.get<any[]>(`${this.nutritionURL}${cocktailName}`);
   }
 
   advancedSearch(searchArr: Array<number>): Observable<Drink[]> {
@@ -76,10 +76,9 @@ export class QueryService {
   }
 
   getLikely(term: string): Observable<Drink[]> {
-    return this.http.get<any>(`${this.likelyURL}/term`).pipe(
-      tap((x) => {
-        console.log(x);
-      })
-    );
+    console.log('getLikely');
+    return this.http
+      .get<any>(`${this.cocktailSearchURL}${term}`)
+      .pipe(tap((x) => {}));
   }
 }
