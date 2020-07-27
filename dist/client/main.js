@@ -1650,29 +1650,29 @@ const httpOptions = {
     headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({ 'Content-Type': 'application/json' }),
 };
 class QueryService {
+    //TEST QUERIES
+    //=========================================
+    // ingredientURL = 'http://localhost:3000/api/ingredient';
+    // cocktailURL = 'http://localhost:3000/api/results/';
+    // advancedSearchURL = 'http://localhost:3000/api/advanced-search';
+    // randomURL = 'http://localhost:3000/api/random';
+    // initAdvancedURL = 'http://localhost:3000/api/cocktail';
+    // cocktailSearchURL = 'http://localhost:3000/api/cocktail-search/';
+    // favoriteURL = 'http://localhost:3000/api/favorite/';
     //=============================================================
     constructor(http) {
         this.http = http;
         //FINAL QUERIES for heroku deploy
         //================================
-        // ingredientURL = 'api/ingredient';
-        // cocktailURL = 'api/results/';
-        // advancedSearchURL = 'api/advanced-search';
-        // randomURL = 'api/random';
-        // initAdvancedURL = 'api/cocktail';
-        // cocktailSearchURL = 'api/cocktail-search/';
-        // favoriteURL = 'api/favorite/';
+        this.ingredientURL = 'api/ingredient';
+        this.cocktailURL = 'api/results/';
+        this.advancedSearchURL = 'api/advanced-search';
+        this.randomURL = 'api/random';
+        this.initAdvancedURL = 'api/cocktail';
+        this.cocktailSearchURL = 'api/cocktail-search/';
+        this.favoriteURL = 'api/favorite/';
         //==============================================
         this.nutritionURL = 'https://api.nal.usda.gov/fdc/v1/foods/search?api_key=vhvEbrN6AYcz02VcLyMWAbIG6qhOQngRIPjqz5Ia&query=';
-        //TEST QUERIES
-        //=========================================
-        this.ingredientURL = 'http://localhost:3000/api/ingredient';
-        this.cocktailURL = 'http://localhost:3000/api/results/';
-        this.advancedSearchURL = 'http://localhost:3000/api/advanced-search';
-        this.randomURL = 'http://localhost:3000/api/random';
-        this.initAdvancedURL = 'http://localhost:3000/api/cocktail';
-        this.cocktailSearchURL = 'http://localhost:3000/api/cocktail-search/';
-        this.favoriteURL = 'http://localhost:3000/api/favorite/';
     }
     getIngredients() {
         return this.http.get(this.ingredientURL).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])((x) => { }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(this.handleError('getIngredients', [])));
