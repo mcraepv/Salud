@@ -1,0 +1,11 @@
+img {
+    height: 20vh;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.card {
+    filter: drop-shadow(5px 8px 4px lightgrey);
+    border-radius: 10px;
+}

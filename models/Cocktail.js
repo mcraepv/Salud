@@ -30,6 +30,9 @@ module.exports = function (sequelize, DataTypes) {
       through: 'CocktailIngredient',
     });
     Cocktail.hasMany(models.CocktailIngredient);
+    Cocktail.belongsToMany(models.User, {
+      through: 'FavoriteRecipe'
+    });
   };
 
   return Cocktail;
