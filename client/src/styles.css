@@ -9,6 +9,8 @@ body {
   transition: transform 100ms;
 }
 
-a {
-  outline: none;
+.btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none;
 }
