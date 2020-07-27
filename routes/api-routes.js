@@ -121,20 +121,16 @@ module.exports = function (app) {
   app.get('/api/results/:cocktail', function (req, res) {
     db.Cocktail.findOne({
       attributes: ['name', 'instructions', 'imageUrl'],
-      include: [
-        {
-          model: db.CocktailIngredient,
-          attributes: ['amount', 'measure'],
-          include: [
-            {
-              model: db.Ingredient,
-              attributes: ['name'],
-              required: true,
-            },
-          ],
-          required: true,
-        },
-      ],
+      include: [{
+        model: db.CocktailIngredient,
+        attributes: ['amount'],
+        include: [{
+          model: db.Ingredient,
+          attributes: ['name', 'measure'],
+          required: true
+        }],
+        required: true,
+      }],
       where: {
         name: req.params.cocktail,
       },
