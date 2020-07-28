@@ -12,8 +12,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'advanced-search', component: AdvancedSearchComponent },
   { path: 'recipe/:cocktailName', component: RecipeComponent },
-  { path: '**', component: HomepageComponent },
   { path: 'favorites', component: UserFavoritesComponent },
+  { path: '**', component: HomepageComponent },
 ];
 
 @NgModule({

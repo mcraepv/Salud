@@ -24,6 +24,7 @@ export class QueryService {
   // cocktailSearchURL = 'api/cocktail-search/';
   // userFavoritesURL = 'api/favorites/';
   // favoriteURL = 'api/favorite/';
+
   //==============================================
 
   nutritionURL =
@@ -39,7 +40,6 @@ export class QueryService {
   cocktailSearchURL = 'http://localhost:3000/api/cocktail-search/';
   userFavoritesURL = 'http://localhost:3000/api/favorites/';
   favoriteURL = 'http://localhost:3000/api/favorite/';
-  //=============================================================
 
   constructor(private http: HttpClient) {}
 

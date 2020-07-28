@@ -8,8 +8,17 @@ import * as moment from 'moment';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  private loginUrl = 'http://localhost:3000/api/login';
-  private registerUrl = 'http://localhost:3000/api/register';
+  //TEST URLS
+  //===========================================================
+  // private loginUrl = 'http://localhost:3000/api/login';
+  // private registerUrl = 'http://localhost:3000/api/register';
+  //===========================================================
+
+  //PROD URLS
+  //======================================
+  private loginUrl = 'api/login';
+  private registerUrl = 'api/register';
+  //======================================
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
