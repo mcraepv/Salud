@@ -28,6 +28,8 @@ import { AboutComponent } from './about/about.component';
 import { AboutDevsComponent } from './about-devs/about-devs.component';
 import { AboutInfoComponent } from './about-info/about-info.component';
 import { AboutResourcesComponent } from './about-resources/about-resources.component';
+import { AboutImgComponent } from './about-img/about-img.component';
+import { AboutTitleComponent } from './about-title/about-title.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { AboutResourcesComponent } from './about-resources/about-resources.compo
     AboutDevsComponent,
     AboutInfoComponent,
     AboutResourcesComponent,
+    AboutImgComponent,
+    AboutTitleComponent,
   ],
   imports: [
     BrowserModule,
