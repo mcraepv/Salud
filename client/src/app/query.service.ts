@@ -15,15 +15,13 @@ const httpOptions = {
 export class QueryService {
   //FINAL QUERIES for heroku deploy
   //================================
-  // ingredientURL = 'api/ingredient';
-  // cocktailURL = 'api/results/';
-  // advancedSearchURL = 'api/advanced-search';
-
-  // randomURL = 'api/random';
-  // initAdvancedURL = 'api/cocktail';
-  // cocktailSearchURL = 'api/cocktail-search/';
-  // userFavoritesURL = 'api/favorites/';
-  // favoriteURL = 'api/favorite/';
+  ingredientURL = 'api/ingredient';
+  cocktailURL = 'api/results/';
+  advancedSearchURL = 'api/advanced-search';
+  randomURL = 'api/random';
+  initAdvancedURL = 'api/cocktail';
+  cocktailSearchURL = 'api/cocktail-search/';
+  favoriteURL = 'api/favorite/';
   //==============================================
 
   nutritionURL =
