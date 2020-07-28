@@ -46,7 +46,6 @@ module.exports = function (app) {
   });
 
   app.post('/api/register', (req, res) => {
-    console.log(req);
     db.User.create({
       email: req.body.email,
       password: req.body.password,
@@ -168,7 +167,6 @@ module.exports = function (app) {
       },
     })
       .then(function (result) {
-        console.log(result);
         res.json(result);
       })
       .catch((err) => {
@@ -177,26 +175,29 @@ module.exports = function (app) {
   });
 
   // User Favorite Cocktail
-  app.get('/api/favorites/:username', (req, res) => {
-    console.log(req);
-    db.Cocktail.findAll({
-      attributes: ['name', 'instructions', 'imageUrl'],
-      include: [
-        {
-          model: db.User,
-          attributes: [],
-          required: true,
+  app.get(
+    '/api/favorites/:username',
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+      db.Cocktail.findAll({
+        attributes: ['name', 'instructions', 'imageUrl'],
+        include: [
+          {
+            model: db.User,
+            attributes: [],
+            required: true,
+          },
+        ],
+        where: {
+          '$Users.email$': req.params.username,
         },
-      ],
-      where: {
-        '$Users.email$': req.params.username,
-      },
-    }).then(function (result) {
-      if (result) {
-        res.json(result);
-      } else res.send('No favorites');
-    });
-  });
+      }).then(function (result) {
+        if (result) {
+          res.json(result);
+        } else res.send('No favorites');
+      });
+    }
+  );
 
   // Add Favorite Cocktail
   app.post('/api/favorite', function (req, res) {

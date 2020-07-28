@@ -32,7 +32,6 @@ export class RecipeExtraInfoComponent implements OnInit {
 
   addFavorite() {
     const userID = parseInt(localStorage.getItem('userID'));
-    console.log('click', userID);
     this.queryService.addFavorite(this.cocktail.id, userID);
   }
 

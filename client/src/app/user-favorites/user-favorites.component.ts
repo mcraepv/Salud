@@ -19,7 +19,6 @@ export class UserFavoritesComponent implements OnInit {
   ngOnInit(): void {
     this.results$ = this.queryService.getFavorites(this.user);
     this.results$.subscribe((x) => {
-      console.log(x);
       if (!x.length) {
         this.isSuccessful = false;
       }
