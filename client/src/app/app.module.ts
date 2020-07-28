@@ -58,12 +58,9 @@ import { UserFavoritesComponent } from './user-favorites/user-favorites.componen
     AboutDevsComponent,
     AboutInfoComponent,
     AboutResourcesComponent,
-<<<<<<< HEAD
     AboutImgComponent,
     AboutTitleComponent,
-=======
     UserFavoritesComponent,
->>>>>>> 997362e15a035c3cb227cd955afa3d5372b1d8d2
   ],
   imports: [
     BrowserModule,

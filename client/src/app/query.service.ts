@@ -34,10 +34,7 @@ export class QueryService {
   initAdvancedURL = 'http://localhost:3000/api/cocktail';
   cocktailSearchURL = 'http://localhost:3000/api/cocktail-search/';
   favoriteURL = 'http://localhost:3000/api/favorite/';
-<<<<<<< HEAD
-=======
   userFavoritesURL = 'http://localhost:3000/api/favorites/';
->>>>>>> 997362e15a035c3cb227cd955afa3d5372b1d8d2
   //=============================================================
 
   constructor(private http: HttpClient) {}
