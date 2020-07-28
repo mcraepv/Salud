@@ -22,6 +22,7 @@ export class QueryService {
   // randomURL = 'api/random';
   // initAdvancedURL = 'api/cocktail';
   // cocktailSearchURL = 'api/cocktail-search/';
+  // userFavoritesURL = 'api/favorites/';
   // favoriteURL = 'api/favorite/';
   //==============================================
 
@@ -36,6 +37,7 @@ export class QueryService {
   randomURL = 'http://localhost:3000/api/random';
   initAdvancedURL = 'http://localhost:3000/api/cocktail';
   cocktailSearchURL = 'http://localhost:3000/api/cocktail-search/';
+  userFavoritesURL = 'http://localhost:3000/api/favorites/';
   favoriteURL = 'http://localhost:3000/api/favorite/';
   //=============================================================
 
@@ -95,6 +97,10 @@ export class QueryService {
       }),
       catchError(this.handleError<Drink[]>('randomSearch', []))
     );
+  }
+
+  getFavorites(username: String): Observable<Cocktail[]> {
+    return this.http.get<Cocktail[]>(`${this.userFavoritesURL}/${username}`);
   }
 
   getLikely(term: string): Observable<Drink[]> {
