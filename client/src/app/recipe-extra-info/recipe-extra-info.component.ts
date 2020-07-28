@@ -4,6 +4,7 @@ import { QueryService } from './../query.service';
 import { Cocktail } from './../models/cocktail';
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { AppToastService } from '../app-toast.service';
 
 @Component({
   selector: 'app-recipe-extra-info',
@@ -16,7 +17,8 @@ export class RecipeExtraInfoComponent implements OnInit {
 
   constructor(
     private queryService: QueryService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private toastService: AppToastService
   ) {}
 
   isFavorite = false;
@@ -51,12 +53,14 @@ export class RecipeExtraInfoComponent implements OnInit {
     const userID = parseInt(localStorage.getItem('userID'));
     this.queryService.addFavorite(this.cocktail.id, userID);
     this.isFavorite = true;
+    this.toastService.show('Added to Favorites!');
   }
 
   removeFavorite() {
     const userID = parseInt(localStorage.getItem('userID'));
     this.queryService.removeFavorite(this.cocktail.id, userID);
     this.isFavorite = false;
+    this.toastService.show('Removed from Favorites!');
   }
 
   open(): void {
