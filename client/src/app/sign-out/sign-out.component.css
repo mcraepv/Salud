@@ -3,12 +3,21 @@ a {
 }
 
 a:hover {
-  /* background-color: black; */
-  /* color: rgba(0, 0, 0, 0.5) !important; */
-  /* border-radius: 0.25rem; */
-  text-decoration: underline;
+  background-color: black;
+  border-radius: 0.25rem;
+  color: white !important;
+  /* text-decoration: underline; */
 }
 
 .nav-item {
   text-align: right;
+}
+
+@media (max-width: 991px) {
+  a:hover {
+    background-color: transparent;
+    color: black !important;
+    border-radius: 0;
+    text-decoration: underline;
+  }
 }
