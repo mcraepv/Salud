@@ -1,32 +1,45 @@
-<nav class="navbar navbar-light d-flex">
-  <a class="mr-auto" routerLink="/home">
-    <img src="../../assets/cheers.png" class="logo mb-3" />
-    <a class="navbar-brand ml-2 mt-1">
-      Salud!
-    </a>
-  </a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <img src="../../assets/cheers.png" class="logo" alt="two drink glasses" />
+  <a class="navbar-brand" routerLink="/home">Salud!</a>
   <button
-    *ngIf="authService.isLoggedIn()"
-    class="btn btn-lg ml-auto"
-    routerLink="/favorites"
+    class="btn navbar-toggler"
+    type="button"
+    (click)="isMenuCollapsed = !isMenuCollapsed"
   >
-    Favorites
+    &#9776;
   </button>
-  <button
-    *ngIf="authService.isLoggedIn()"
-    class="btn btn-lg"
-    title="Click here to learn about and contact the team!"
-    (click)="open()"
-  >
-    About
-  </button>
-  <button
-    *ngIf="authService.isLoggedOut()"
-    class="btn btn-lg ml-auto"
-    (click)="open()"
-  >
-    About
-  </button>
-  <app-sign-in *ngIf="authService.isLoggedOut()"></app-sign-in>
-  <app-sign-out *ngIf="authService.isLoggedIn()"></app-sign-out>
+
+  <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+    <ul class="navbar-nav ml-auto nav">
+      <li class="nav-item active">
+        <a
+          class="nav-link"
+          routerLink="/favorites"
+          (click)="isMenuCollapsed = true"
+          *ngIf="authService.isLoggedIn()"
+          >Favorites</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/about"
+          (click)="isMenuCollapsed = true"
+          *ngIf="authService.isLoggedIn()"
+          >About</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/about"
+          (click)="isMenuCollapsed = true"
+          *ngIf="authService.isLoggedOut()"
+          >About</a
+        >
+      </li>
+      <app-sign-in *ngIf="authService.isLoggedOut()"></app-sign-in>
+      <app-sign-out *ngIf="authService.isLoggedIn()"></app-sign-out>
+    </ul>
+  </div>
 </nav>

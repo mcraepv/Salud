@@ -3,12 +3,12 @@
   overflow-y: auto;
 }
 
-.btn {
-  background-color: white;
+.btn:hover {
+  background-color: transparent;
   color: black;
 }
 
-.btn:hover {
+.btn {
   background-color: black;
   color: white;
 }

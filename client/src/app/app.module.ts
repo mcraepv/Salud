@@ -27,6 +27,8 @@ import { RecipeNutritionModalComponent } from './recipe-nutrition-modal/recipe-n
 import { AboutComponent } from './about/about.component';
 import { AboutDevsComponent } from './about-devs/about-devs.component';
 import { AboutInfoComponent } from './about-info/about-info.component';
+import { AboutTitleComponent } from './about-title/about-title.component';
+import { AboutImgComponent } from './about-img/about-img.component';
 import { AboutResourcesComponent } from './about-resources/about-resources.component';
 import { UserFavoritesComponent } from './user-favorites/user-favorites.component';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
@@ -59,6 +61,8 @@ import { AuthService } from './auth.service';
     AboutDevsComponent,
     AboutInfoComponent,
     AboutResourcesComponent,
+    AboutImgComponent,
+    AboutTitleComponent,
     UserFavoritesComponent,
   ],
   imports: [
