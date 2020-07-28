@@ -12,14 +12,14 @@ import { Drink } from './drink';
 export class QueryService {
   //FINAL QUERIES for heroku deploy
   //================================
-  // ingredientURL = 'api/ingredient';
-  // cocktailURL = 'api/results/';
-  // advancedSearchURL = 'api/advanced-search';
-  // randomURL = 'api/random';
-  // initAdvancedURL = 'api/cocktail';
-  // cocktailSearchURL = 'api/cocktail-search/';
-  // userFavoritesURL = 'api/favorites/';
-  // favoriteURL = 'api/favorite/';
+  ingredientURL = 'api/ingredient';
+  cocktailURL = 'api/results/';
+  advancedSearchURL = 'api/advanced-search';
+  randomURL = 'api/random';
+  initAdvancedURL = 'api/cocktail';
+  cocktailSearchURL = 'api/cocktail-search/';
+  favoriteURL = 'api/favorite/';
+  userFavoritesURL = 'api/favorites/';
   //==============================================
 
   nutritionURL =
@@ -27,14 +27,15 @@ export class QueryService {
 
   //TEST QUERIES
   //=========================================
-  ingredientURL = 'http://localhost:3000/api/ingredient';
-  cocktailURL = 'http://localhost:3000/api/results/';
-  advancedSearchURL = 'http://localhost:3000/api/advanced-search';
-  randomURL = 'http://localhost:3000/api/random';
-  initAdvancedURL = 'http://localhost:3000/api/cocktail';
-  cocktailSearchURL = 'http://localhost:3000/api/cocktail-search/';
-  userFavoritesURL = 'http://localhost:3000/api/favorites/';
-  favoriteURL = 'http://localhost:3000/api/favorite/';
+  // ingredientURL = 'http://localhost:3000/api/ingredient';
+  // cocktailURL = 'http://localhost:3000/api/results/';
+  // advancedSearchURL = 'http://localhost:3000/api/advanced-search';
+  // randomURL = 'http://localhost:3000/api/random';
+  // initAdvancedURL = 'http://localhost:3000/api/cocktail';
+  // cocktailSearchURL = 'http://localhost:3000/api/cocktail-search/';
+  // favoriteURL = 'http://localhost:3000/api/favorite/';
+  // userFavoritesURL = 'http://localhost:3000/api/favorites/';
+  //=============================================================
 
   constructor(private http: HttpClient) {}
   httpOptions = {
@@ -56,11 +57,9 @@ export class QueryService {
   }
 
   getCocktail(cocktailName: String): Observable<Cocktail[]> {
-    return this.http.get<Cocktail[]>(`${this.cocktailURL}${cocktailName}`).pipe(
-      tap((x) => {
-        console.log(x);
-      })
-    );
+    return this.http
+      .get<Cocktail[]>(`${this.cocktailURL}${cocktailName}`)
+      .pipe(tap((x) => {}));
   }
 
   getNutritionFacts(cocktailName: String): Observable<any> {
@@ -81,30 +80,23 @@ export class QueryService {
 
   initAdvanced(): Observable<Drink[]> {
     return this.http.get<any>(this.initAdvancedURL).pipe(
-      tap((x) => {
-        console.log(x);
-      }),
+      tap((x) => {}),
       catchError(this.handleError<Drink[]>('advancedSearch', []))
     );
   }
 
   getRandom(): Observable<Drink[]> {
     return this.http.get<any>(this.randomURL).pipe(
-      tap((x) => {
-        console.log(x);
-      }),
+      tap((x) => {}),
       catchError(this.handleError<Drink[]>('randomSearch', []))
     );
   }
 
   getFavorites(username: String): Observable<any> {
-    const token = localStorage.getItem('id_token');
-    const header = { headers: new HttpHeaders({ Authentication: token }) };
-    return this.http.get<any>(`${this.userFavoritesURL}${username}`, header);
+    return this.http.get<any>(`${this.userFavoritesURL}${username}`);
   }
 
   getLikely(term: string): Observable<Drink[]> {
-    console.log('getLikely');
     return this.http
       .get<any>(`${this.cocktailSearchURL}${term}`)
       .pipe(tap((x) => {}));
@@ -115,11 +107,8 @@ export class QueryService {
       userID: userID,
       cocktailID: cocktailID,
     };
-    console.log(reqObj);
     this.http
       .post<any>(this.favoriteURL, reqObj, this.httpOptions)
-      .subscribe((res) => {
-        console.log('it worked');
-      });
+      .subscribe((res) => {});
   }
 }

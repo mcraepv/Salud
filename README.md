@@ -38,6 +38,8 @@ THEN I am presented with an option to save recipes
 
 - [License](#license)
 
+- [Credits](#credits)
+
 - [Questions](#questions)
 
 ## Installation
@@ -47,17 +49,19 @@ app.
 
 ## Technologies
 
-https://angular.io/
+Angular: https://angular.io/
 
-https://getbootstrap.com/
+Boostrap: https://getbootstrap.com/
 
-https://expressjs.com/
+Express.js: https://expressjs.com/
 
-https://www.mysql.com/
+MySQL: https://www.mysql.com/
 
-https://nodejs.org/en/
+Node.js: https://nodejs.org/en/
 
-https://ng-bootstrap.github.io/#/home
+NG Bootstrap: https://ng-bootstrap.github.io/#/home
+
+USDA FoodData Central API: https://fdc.nal.usda.gov/api-guide.html
 
 ## License
 
@@ -82,23 +86,23 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ### Credits
 
-Jumbotron cocktail image
-Photo by Kobby Mendez on Unsplash
-
-cheers icon
-Icons made by Kiranshastry from www.flaticon.com
-
-salud photo on about me section
-Photo by Maid Milinkicon Unsplash
+- Jumbotron cocktail image photo by Kobby Mendez on Unsplash.
+- Salud icon made by Kiranshastry from www.flaticon.com.
+- Drinks photo on About page by Maid Milinkicon on Unsplash.
+- Credits and sources for individual cocktail images are located in their alt tags.
 
 ## Questions
 
-Reach out to me through email or on GitHub!
+Reach out to us through email or on GitHub!
 
 ### Github
 
 https://github.com/mcraepv
+https://github.com/iescandon
+https://github.com/ta05
 
 ### Email
 
 mcraepv@gmail.com
+iescan4@gmail.com
+tolualimi05@gmail.com

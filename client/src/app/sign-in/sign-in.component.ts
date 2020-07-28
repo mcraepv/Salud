@@ -9,6 +9,8 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./sign-in.component.css'],
 })
 export class SignInComponent implements OnInit {
+  isMenuCollapsed: boolean;
+
   constructor(
     private modalService: NgbModal,
     public authService: AuthService

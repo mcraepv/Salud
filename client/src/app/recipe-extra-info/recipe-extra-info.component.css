@@ -11,12 +11,12 @@ ul.card-text {
   padding: none;
 }
 
-.btn {
-  background-color: #f1f4f5;
+.btn:hover {
+  background-color: white;
   color: black;
 }
 
-.btn:hover {
+.btn {
   background-color: black;
   color: white;
 }
@@ -27,12 +27,13 @@ ul.card-text {
 
 .nutrition {
   background-color: transparent;
-  text-decoration: underline;
-  color: rgb(35, 12, 240);
+  color: #007bff;
   padding-top: 0;
 }
 
 .nutrition:hover {
-  color: black;
+  /* color: black; */
+  color: #007bff;
   background-color: transparent;
+  text-decoration: underline;
 }

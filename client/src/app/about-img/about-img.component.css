@@ -1,7 +1,12 @@
 img {
   width: 100%;
   object-fit: contain;
-  /* border-radius: 75px; */
   padding-left: 20px;
   padding-right: 20px;
+}
+
+@media (max-width: 992px) {
+  .drinksImg {
+    display: none;
+  }
 }

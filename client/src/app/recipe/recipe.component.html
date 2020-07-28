@@ -1,17 +1,40 @@
-<div class="container">
+<!-- <div class="container">
+  <app-recipe-title [cocktail]="cocktail"></app-recipe-title>
   <div class="recipe row">
-    <section class="col-5 mt-5 mb-5 justify-content-center d-flex my-auto">
+    <section class="col-lg-5 col-md-12 justify-content-center d-flex my-auto">
       <app-recipe-img [cocktail]="cocktail"></app-recipe-img>
     </section>
-    <aside class="col-7 mt-5 mb-5">
-      <app-recipe-title [cocktail]="cocktail"></app-recipe-title>
-      <div class="info row mt-5">
-        <div class="col-6 my-auto">
+    <aside class="col-lg-7 col-md-12">
+      <div class="info row">
+        <div class="col-lg-6 col-md-12 my-auto">
           <app-recipe-ingredients-info
             [cocktail]="cocktail"
           ></app-recipe-ingredients-info>
         </div>
-        <div class="col-6 my-auto">
+        <div class="col-lg-6 col-md-12 my-auto">
+          <app-recipe-extra-info [cocktail]="cocktail"></app-recipe-extra-info>
+        </div>
+      </div>
+      <app-recipe-steps [cocktail]="cocktail"></app-recipe-steps>
+    </aside>
+  </div>
+</div> -->
+
+<div class="container">
+  <div class="recipe row">
+    <section class="col-lg-5 col-md-12 justify-content-center d-flex my-auto">
+      <app-recipe-img [cocktail]="cocktail"></app-recipe-img>
+    </section>
+    <!-- Add my-auto to class below if I want the rows vertically centered to the image-->
+    <aside class="col-lg-7 col-md-12 my-auto">
+      <app-recipe-title [cocktail]="cocktail"></app-recipe-title>
+      <div class="info row">
+        <div class="col-lg-6 col-md-12 my-auto">
+          <app-recipe-ingredients-info
+            [cocktail]="cocktail"
+          ></app-recipe-ingredients-info>
+        </div>
+        <div class="col-lg-6 col-md-12 my-auto">
           <app-recipe-extra-info [cocktail]="cocktail"></app-recipe-extra-info>
         </div>
       </div>

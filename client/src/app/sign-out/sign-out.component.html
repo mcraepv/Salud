@@ -1,3 +1,9 @@
-<button class="btn btn-lg" (click)="authService.logout()">
-  Sign Out
-</button>
+<li class="nav-item">
+  <a
+    class="nav-link"
+    (click)="authService.logout()"
+    (click)="isMenuCollapsed = true"
+    routerLink="/home"
+    >Sign Out</a
+  >
+</li>
