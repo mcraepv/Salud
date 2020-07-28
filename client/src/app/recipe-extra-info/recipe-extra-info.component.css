@@ -27,12 +27,13 @@ ul.card-text {
 
 .nutrition {
   background-color: transparent;
-  text-decoration: underline;
   color: #007bff;
   padding-top: 0;
 }
 
 .nutrition:hover {
-  color: black;
+  /* color: black; */
+  color: #007bff;
   background-color: transparent;
+  text-decoration: underline;
 }
