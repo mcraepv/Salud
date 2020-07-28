@@ -8,8 +8,12 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+  isMenuCollapsed: boolean;
+
   constructor(public authService: AuthService, private router: Router) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isMenuCollapsed = true;
+  }
 
   open() {
     this.router.navigateByUrl('/about');
