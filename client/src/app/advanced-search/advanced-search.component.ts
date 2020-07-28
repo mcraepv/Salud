@@ -35,7 +35,6 @@ export class AdvancedSearchComponent implements OnInit {
 
         this.results$ = this.queryService.advancedSearch(searchVals);
         this.results$.subscribe((x) => {
-          console.log(x);
           if (!x.length) {
             this.isSuccessful = false;
             this.results$ = this.queryService.getRandom();
