@@ -1,7 +1,12 @@
 <div *ngIf="results$ | async as drinks" class="container">
-  <div *ngIf="!isSuccessful" class="row mt-3">
+  <div *ngIf="!isSuccessful" class="row mt-5">
     <div class="col-12">
-      <h2 class="text-center">No Favorite Cocktails</h2>
+      <h1 class="text-center">No Favorite Cocktails</h1>
+    </div>
+  </div>
+  <div *ngIf="isSuccessful" class="row mt-5">
+    <div class="col-12">
+      <h1 class="text-center">Favorites</h1>
     </div>
   </div>
   <div class="row mb-5">
