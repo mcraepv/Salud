@@ -7,9 +7,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-user-favorites',
   templateUrl: './user-favorites.component.html',
-  styleUrls: ['./user-favorites.component.css']
+  styleUrls: ['./user-favorites.component.css'],
 })
-
 export class UserFavoritesComponent implements OnInit {
   constructor(private queryService: QueryService, private router: Router) {}
 
@@ -24,6 +23,6 @@ export class UserFavoritesComponent implements OnInit {
       if (!x.length) {
         this.isSuccessful = false;
       }
-    })
+    });
   }
 }

@@ -6,22 +6,20 @@ import { catchError, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Drink } from './drink';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-};
 @Injectable({
   providedIn: 'root',
 })
 export class QueryService {
   //FINAL QUERIES for heroku deploy
   //================================
-  ingredientURL = 'api/ingredient';
-  cocktailURL = 'api/results/';
-  advancedSearchURL = 'api/advanced-search';
-  randomURL = 'api/random';
-  initAdvancedURL = 'api/cocktail';
-  cocktailSearchURL = 'api/cocktail-search/';
-  favoriteURL = 'api/favorite/';
+  // ingredientURL = 'api/ingredient';
+  // cocktailURL = 'api/results/';
+  // advancedSearchURL = 'api/advanced-search';
+  // randomURL = 'api/random';
+  // initAdvancedURL = 'api/cocktail';
+  // cocktailSearchURL = 'api/cocktail-search/';
+  // favoriteURL = 'api/favorite/';
+  // userFavoritesURL = 'api/favorites/';
   //==============================================
 
   nutritionURL =
@@ -29,16 +27,20 @@ export class QueryService {
 
   //TEST QUERIES
   //=========================================
-  // ingredientURL = 'http://localhost:3000/api/ingredient';
-  // cocktailURL = 'http://localhost:3000/api/results/';
-  // advancedSearchURL = 'http://localhost:3000/api/advanced-search';
-  // randomURL = 'http://localhost:3000/api/random';
-  // initAdvancedURL = 'http://localhost:3000/api/cocktail';
-  // cocktailSearchURL = 'http://localhost:3000/api/cocktail-search/';
-  // favoriteURL = 'http://localhost:3000/api/favorite/';
+  ingredientURL = 'http://localhost:3000/api/ingredient';
+  cocktailURL = 'http://localhost:3000/api/results/';
+  advancedSearchURL = 'http://localhost:3000/api/advanced-search';
+  randomURL = 'http://localhost:3000/api/random';
+  initAdvancedURL = 'http://localhost:3000/api/cocktail';
+  cocktailSearchURL = 'http://localhost:3000/api/cocktail-search/';
+  favoriteURL = 'http://localhost:3000/api/favorite/';
+  userFavoritesURL = 'http://localhost:3000/api/favorites/';
   //=============================================================
 
   constructor(private http: HttpClient) {}
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
 
   getIngredients(): Observable<Ingredient[]> {
     return this.http.get<Ingredient[]>(this.ingredientURL).pipe(
@@ -96,6 +98,12 @@ export class QueryService {
     );
   }
 
+  getFavorites(username: String): Observable<any> {
+    const token = localStorage.getItem('id_token');
+    const header = { headers: new HttpHeaders({ Authentication: token }) };
+    return this.http.get<any>(`${this.userFavoritesURL}${username}`, header);
+  }
+
   getLikely(term: string): Observable<Drink[]> {
     console.log('getLikely');
     return this.http
@@ -103,7 +111,16 @@ export class QueryService {
       .pipe(tap((x) => {}));
   }
 
-  addFavorite(id: number): void {
-    this.http.post(this.favoriteURL, id);
+  addFavorite(cocktailID: number, userID: number) {
+    const reqObj = {
+      userID: userID,
+      cocktailID: cocktailID,
+    };
+    console.log(reqObj);
+    this.http
+      .post<any>(this.favoriteURL, reqObj, this.httpOptions)
+      .subscribe((res) => {
+        console.log('it worked');
+      });
   }
 }

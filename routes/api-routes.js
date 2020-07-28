@@ -2,6 +2,8 @@ const db = require('../models');
 const sequelize = require('sequelize');
 const passport = require('passport');
 
+require('../config/passport')(passport);
+
 module.exports = function (app) {
   //Auth
   app.post('/api/login', (req, res) => {
@@ -19,7 +21,8 @@ module.exports = function (app) {
             success: true,
             token: tokenObj.token,
             expiresIn: tokenObj.expires,
-            email: user.email
+            email: user.email,
+            id: user.id,
           });
         } else {
           res.status(401).json({ success: false, msg: 'wrong password' });
@@ -28,6 +31,18 @@ module.exports = function (app) {
       .catch((err) => {
         console.log(err);
       });
+  });
+
+  app.get('/api/cocktail', function (req, res) {
+    db.Cocktail.findAll({}).then(function (result) {
+      res.json(result);
+    });
+  });
+
+  app.get('/api/ingredient', function (req, res) {
+    db.Ingredient.findAll({}).then(function (result) {
+      res.json(result);
+    });
   });
 
   app.post('/api/register', (req, res) => {
@@ -133,7 +148,7 @@ module.exports = function (app) {
   // Recipe Page
   app.get('/api/results/:cocktail', function (req, res) {
     db.Cocktail.findAll({
-      attributes: ['name', 'instructions', 'imageUrl', 'source'],
+      attributes: ['name', 'instructions', 'imageUrl', 'source', 'id'],
       include: [
         {
           model: db.CocktailIngredient,
@@ -162,7 +177,8 @@ module.exports = function (app) {
   });
 
   // User Favorite Cocktails
-  app.get('/api/favorites/:username', passport.authenticate('jwt', { session: false }), (req, res) => {
+  app.get('/api/favorites/:username', (req, res) => {
+    console.log(req);
     db.Cocktail.findAll({
       attributes: ['name', 'instructions', 'imageUrl'],
       include: [
@@ -173,18 +189,20 @@ module.exports = function (app) {
         },
       ],
       where: {
-        'Users.email': req.params.username,
+        '$Users.email$': req.params.username,
       },
     }).then(function (result) {
-      res.json(result);
+      if (result) {
+        res.json(result);
+      } else res.send('No favorites');
     });
   });
 
   // Add Favorite Cocktail
-  app.post('api/favorite', function (req, res) {
+  app.post('/api/favorite', function (req, res) {
     db.FavoriteRecipe.create({
-      CocktailId: req.body.CocktailId,
-      UserId: req.body.UserId,
+      CocktailId: req.body.cocktailID,
+      UserId: req.body.userID,
     })
       .then(() => {
         res.status(200);

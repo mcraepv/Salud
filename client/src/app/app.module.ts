@@ -28,6 +28,7 @@ import { AboutComponent } from './about/about.component';
 import { AboutDevsComponent } from './about-devs/about-devs.component';
 import { AboutInfoComponent } from './about-info/about-info.component';
 import { AboutResourcesComponent } from './about-resources/about-resources.component';
+import { UserFavoritesComponent } from './user-favorites/user-favorites.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { AboutResourcesComponent } from './about-resources/about-resources.compo
     AboutDevsComponent,
     AboutInfoComponent,
     AboutResourcesComponent,
+    UserFavoritesComponent,
   ],
   imports: [
     BrowserModule,
