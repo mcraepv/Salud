@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
 import { Drink } from '../drink';
 import { QueryService } from '../query.service';
 import { Router } from '@angular/router';
@@ -15,9 +14,10 @@ export class UserFavoritesComponent implements OnInit {
 
   results$: Observable<Drink[]>;
   isSuccessful: boolean = true;
+  user: String = localStorage.getItem('email');
 
   ngOnInit(): void {
-    // this.results$ = this.queryService.getFavorites();
+    // this.results$ = this.queryService.getFavorites(this.user);
     // this.results$.subscribe((x) => {
     //   console.log(x);
     //   if (!x.length) {

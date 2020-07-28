@@ -13,6 +13,7 @@ body {
 .btn:active {
   outline: none !important;
   box-shadow: none;
+  cursor: pointer !important;
 }
 
 button:hover,
