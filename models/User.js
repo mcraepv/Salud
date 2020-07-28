@@ -4,9 +4,9 @@ const path = require('path');
 const fs = require('fs');
 require('dotenv').config();
 const pathToKey = path.join(__dirname, '../', 'id_rsa_priv.pem');
-const PRIV_KEY = fs.readFileSync(pathToKey, 'utf8');
+// const PRIV_KEY = fs.readFileSync(pathToKey, 'utf8');
 //wrong path?
-// const PRIV_KEY = process.env.SSH_KEY || fs.readFileSync(pathToKey, 'utf8');
+const PRIV_KEY = process.env.SSH_KEY || fs.readFileSync(pathToKey, 'utf8');
 
 //hello!
 
@@ -50,12 +50,12 @@ module.exports = function (sequelize, DataTypes) {
     const expiresIn = '1d';
 
     const payload = {
-      sub: id,
-      iat: Date.now(),
+      id: id,
+      // iat: Date.now(),
     };
 
     const signedToken = jwt.sign(payload, PRIV_KEY, {
-      expiresIn: expiresIn,
+      // expiresIn: expiresIn,
       algorithm: 'RS256',
     });
 

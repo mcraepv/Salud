@@ -16,7 +16,6 @@ export class HomeSearchService {
   private searchTerms = new Subject<string>();
 
   getDrinks(term: string) {
-    console.log('calling');
     if (!term) {
       this.drinksGotten = false;
       return;
@@ -24,9 +23,9 @@ export class HomeSearchService {
     this.searchTerms.next(term);
     this.results$ = this.searchTerms.pipe(
       debounceTime(300),
-      // ignore new term if same as previous term
+
       distinctUntilChanged(),
-      // switch to new search observable each time the term changes
+
       switchMap((term) => this.queryService.getLikely(term))
     );
     this.results$.subscribe((x) => {

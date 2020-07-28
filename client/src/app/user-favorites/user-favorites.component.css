@@ -10,6 +10,11 @@ img {
   border-radius: 10px;
 }
 
+.card:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
 .card-title {
   margin: 0;
 }
@@ -62,4 +67,3 @@ img {
     margin-bottom: 0;
     font-size: 14px;
   }
-}

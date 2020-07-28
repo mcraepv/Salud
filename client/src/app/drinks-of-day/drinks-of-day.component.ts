@@ -17,10 +17,6 @@ export class DrinksOfDayComponent implements OnInit {
 
   results$: Observable<Drink[]>;
 
-  console() {
-    console.log(this.homeSearchService.results$);
-  }
-
   ngOnInit(): void {
     this.results$ = this.queryService.getRandom();
   }
