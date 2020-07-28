@@ -28,14 +28,12 @@ export class RecipeExtraInfoComponent implements OnInit {
     const favs$: Observable<any> = this.queryService.getFavorites(user);
 
     favs$.subscribe((drinks) => {
-      console.log(drinks);
       drinks.forEach((drink) => {
         if (this.name === drink.name) {
           this.isFavorite = true;
           return;
         }
       });
-      console.log(this.isFavorite);
     });
   }
 

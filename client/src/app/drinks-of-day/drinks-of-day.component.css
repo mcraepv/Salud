@@ -36,9 +36,7 @@ img {
   h2 {
     font-size: 24px;
   }
-  .card-img-top {
-    display: none;
-  }
+
   .card-body {
     padding: 10px;
   }
@@ -51,9 +49,7 @@ img {
   h2 {
     font-size: 20px;
   }
-  .card-img-top {
-    display: none;
-  }
+
   .card-body {
     padding: 7px;
   }
