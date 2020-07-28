@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { QueryService } from './../query.service';
 import { Cocktail } from './../models/cocktail';
 import { Component, OnInit, Input } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-recipe-extra-info',
@@ -18,7 +19,23 @@ export class RecipeExtraInfoComponent implements OnInit {
     private modalService: NgbModal
   ) {}
 
-  ngOnInit(): void {}
+  isFavorite = false;
+
+  checkFavs() {
+    const user: String = localStorage.getItem('email');
+    const favs$: Observable<any> = this.queryService.getFavorites(user);
+
+    favs$.subscribe((drinks) => {
+      console.log(drinks);
+      drinks.forEach((drink) => {
+        if (this.name === drink.name) {
+          this.isFavorite = true;
+          return;
+        }
+      });
+      console.log(this.isFavorite);
+    });
+  }
 
   ngOnChanges(): void {
     this.getName();
@@ -33,10 +50,21 @@ export class RecipeExtraInfoComponent implements OnInit {
   addFavorite() {
     const userID = parseInt(localStorage.getItem('userID'));
     this.queryService.addFavorite(this.cocktail.id, userID);
+    this.isFavorite = true;
+  }
+
+  removeFavorite() {
+    const userID = parseInt(localStorage.getItem('userID'));
+    this.queryService.removeFavorite(this.cocktail.id, userID);
+    this.isFavorite = false;
   }
 
   open(): void {
     const modalRef = this.modalService.open(RecipeNutritionModalComponent);
     modalRef.componentInstance.name = this.name;
+  }
+
+  ngOnInit(): void {
+    this.checkFavs();
   }
 }
