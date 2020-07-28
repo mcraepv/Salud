@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SignInModalComponent } from '../sign-in-modal/sign-in-modal.component';
 import { AuthService } from '../auth.service';

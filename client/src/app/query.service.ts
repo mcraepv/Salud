@@ -6,9 +6,6 @@ import { catchError, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Drink } from './drink';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-};
 @Injectable({
   providedIn: 'root',
 })
@@ -22,6 +19,7 @@ export class QueryService {
   // initAdvancedURL = 'api/cocktail';
   // cocktailSearchURL = 'api/cocktail-search/';
   // favoriteURL = 'api/favorite/';
+  // userFavoritesURL = 'api/favorites/';
   //==============================================
 
   nutritionURL =
@@ -36,9 +34,16 @@ export class QueryService {
   initAdvancedURL = 'http://localhost:3000/api/cocktail';
   cocktailSearchURL = 'http://localhost:3000/api/cocktail-search/';
   favoriteURL = 'http://localhost:3000/api/favorite/';
+<<<<<<< HEAD
+=======
+  userFavoritesURL = 'http://localhost:3000/api/favorites/';
+>>>>>>> 997362e15a035c3cb227cd955afa3d5372b1d8d2
   //=============================================================
 
   constructor(private http: HttpClient) {}
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
 
   getIngredients(): Observable<Ingredient[]> {
     return this.http.get<Ingredient[]>(this.ingredientURL).pipe(
@@ -96,6 +101,12 @@ export class QueryService {
     );
   }
 
+  getFavorites(username: String): Observable<any> {
+    const token = localStorage.getItem('id_token');
+    const header = { headers: new HttpHeaders({ Authentication: token }) };
+    return this.http.get<any>(`${this.userFavoritesURL}${username}`, header);
+  }
+
   getLikely(term: string): Observable<Drink[]> {
     console.log('getLikely');
     return this.http
@@ -103,7 +114,16 @@ export class QueryService {
       .pipe(tap((x) => {}));
   }
 
-  addFavorite(id: number): void {
-    this.http.post(this.favoriteURL, id);
+  addFavorite(cocktailID: number, userID: number) {
+    const reqObj = {
+      userID: userID,
+      cocktailID: cocktailID,
+    };
+    console.log(reqObj);
+    this.http
+      .post<any>(this.favoriteURL, reqObj, this.httpOptions)
+      .subscribe((res) => {
+        console.log('it worked');
+      });
   }
 }

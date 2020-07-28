@@ -31,15 +31,10 @@ export class RecipeExtraInfoComponent implements OnInit {
   }
 
   addFavorite() {
-    // this.queryService.addFavorite(this.cocktail);
+    const userID = parseInt(localStorage.getItem('userID'));
+    console.log('click', userID);
+    this.queryService.addFavorite(this.cocktail.id, userID);
   }
-
-  // getNutrition() {
-  //   console.log(this.name);
-  //   this.queryService.getNutritionFacts(this.name).subscribe((data) => {
-  //     console.log(data);
-  //   });
-  // }
 
   open(): void {
     const modalRef = this.modalService.open(RecipeNutritionModalComponent);

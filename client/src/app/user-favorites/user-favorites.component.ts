@@ -17,12 +17,12 @@ export class UserFavoritesComponent implements OnInit {
   user: String = localStorage.getItem('email');
 
   ngOnInit(): void {
-    // this.results$ = this.queryService.getFavorites(this.user);
-    // this.results$.subscribe((x) => {
-    //   console.log(x);
-    //   if (!x.length) {
-    //     this.isSuccessful = false;
-    //   }
-    // })
+    this.results$ = this.queryService.getFavorites(this.user);
+    this.results$.subscribe((x) => {
+      console.log(x);
+      if (!x.length) {
+        this.isSuccessful = false;
+      }
+    });
   }
 }

@@ -27,9 +27,10 @@ import { RecipeNutritionModalComponent } from './recipe-nutrition-modal/recipe-n
 import { AboutComponent } from './about/about.component';
 import { AboutDevsComponent } from './about-devs/about-devs.component';
 import { AboutInfoComponent } from './about-info/about-info.component';
-import { AboutResourcesComponent } from './about-resources/about-resources.component';
-import { AboutImgComponent } from './about-img/about-img.component';
 import { AboutTitleComponent } from './about-title/about-title.component';
+import { AboutImgComponent } from './about-img/about-img.component';
+import { AboutResourcesComponent } from './about-resources/about-resources.component';
+import { UserFavoritesComponent } from './user-favorites/user-favorites.component';
 
 @NgModule({
   declarations: [
@@ -57,8 +58,12 @@ import { AboutTitleComponent } from './about-title/about-title.component';
     AboutDevsComponent,
     AboutInfoComponent,
     AboutResourcesComponent,
+<<<<<<< HEAD
     AboutImgComponent,
     AboutTitleComponent,
+=======
+    UserFavoritesComponent,
+>>>>>>> 997362e15a035c3cb227cd955afa3d5372b1d8d2
   ],
   imports: [
     BrowserModule,

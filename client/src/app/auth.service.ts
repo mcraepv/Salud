@@ -10,14 +10,14 @@ export class AuthService {
 
   //TEST URLS
   //===========================================================
-  // private loginUrl = 'http://localhost:3000/api/login';
-  // private registerUrl = 'http://localhost:3000/api/register';
+  private loginUrl = 'http://localhost:3000/api/login';
+  private registerUrl = 'http://localhost:3000/api/register';
   //===========================================================
 
   //PROD URLS
   //======================================
-  private loginUrl = 'api/login';
-  private registerUrl = 'api/register';
+  // private loginUrl = 'api/login';
+  // private registerUrl = 'api/register';
   //======================================
 
   httpOptions = {
@@ -30,6 +30,8 @@ export class AuthService {
 
     localStorage.setItem('id_token', resObj.token);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+    localStorage.setItem('email', resObj.email);
+    localStorage.setItem('userID', resObj.id);
   }
 
   login(email: string, password: string) {
@@ -53,6 +55,8 @@ export class AuthService {
   logout() {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
+    localStorage.removeItem('email');
+    localStorage.removeItem('userID');
   }
 
   public isLoggedIn() {
