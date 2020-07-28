@@ -176,7 +176,7 @@ module.exports = function (app) {
       });
   });
 
-  // User Favorite Cocktails
+  // User Favorite Cocktail
   app.get('/api/favorites/:username', (req, res) => {
     console.log(req);
     db.Cocktail.findAll({
