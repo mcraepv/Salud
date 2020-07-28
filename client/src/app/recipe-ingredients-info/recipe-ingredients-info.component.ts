@@ -32,8 +32,6 @@ export class RecipeIngredientsInfoComponent implements OnInit {
           this.garnishes.push(ingredientObj);
         }
       }
-      // console.log(this.ingredients);
-      // console.log(this.garnishes);
     }
   }
 }

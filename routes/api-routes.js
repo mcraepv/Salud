@@ -70,40 +70,6 @@ module.exports = function (app) {
     });
   });
 
-  //Old advanced search
-  // Advanced Search
-  // app.get('/api/advanced-search/:ingredientids', function (req, res) {
-  //   let selectedIngredients = req.params.ingredientids
-  //     .split(',')
-  //     .map((id) => parseInt(id));
-  //   db.Cocktail.findAll({
-  //     attributes: ['name', 'imageUrl'],
-  //     include: [
-  //       {
-  //         model: db.CocktailIngredient,
-  //         attributes: [],
-  //         include: [
-  //           {
-  //             model: db.Ingredient,
-  //             attributes: [],
-  //             required: true,
-  //           },
-  //         ],
-  //         required: true,
-  //       },
-  //     ],
-  //     where: {
-  //       '$CocktailIngredients->Ingredient.id$': selectedIngredients,
-  //     },
-  //     group: ['Cocktail.name'],
-  //     having: sequelize.literal(
-  //       'count(Cocktail.name) =' + selectedIngredients.length
-  //     ),
-  //   }).then(function (result) {
-  //     res.json(result);
-  //   });
-  // });
-
   //New Advanced search query
   app.get('/api/advanced-search/:ingredients', function (req, res) {
     const selectedIngredients = req.params.ingredients.split(',');
@@ -198,11 +164,13 @@ module.exports = function (app) {
   app.get('/api/favorites/:username', function (req, res) {
     db.Cocktail.findAll({
       attributes: ['name', 'instructions', 'imageUrl'],
-      include: [{
-        model: db.User,
-        attributes: [],
-        required: true,
-      }],
+      include: [
+        {
+          model: db.User,
+          attributes: [],
+          required: true,
+        },
+      ],
       where: {
         'Users.username': req.params.username,
       },

@@ -17,9 +17,6 @@ const options = {
 module.exports = (passport) => {
   passport.use(
     new JwtStrategy(options, function (jwtPayload, done) {
-      console.log(jwtPayload);
-
-      //may need to change the _id prop to whatever is in our user model
       db.User.findOne({ _id: jwtPayload.sub }, function (err, user) {
         if (err) {
           return done(err, false);
