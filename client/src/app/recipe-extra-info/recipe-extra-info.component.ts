@@ -53,14 +53,14 @@ export class RecipeExtraInfoComponent implements OnInit {
     const userID = parseInt(localStorage.getItem('userID'));
     this.queryService.addFavorite(this.cocktail.id, userID);
     this.isFavorite = true;
-    this.toastService.show('Added to Favorites!');
+    this.toastService.show(`Added ${this.name} to Favorites!`);
   }
 
   removeFavorite() {
     const userID = parseInt(localStorage.getItem('userID'));
     this.queryService.removeFavorite(this.cocktail.id, userID);
     this.isFavorite = false;
-    this.toastService.show('Removed from Favorites!');
+    this.toastService.show(`Removed ${this.name} from Favorites!`);
   }
 
   open(): void {
