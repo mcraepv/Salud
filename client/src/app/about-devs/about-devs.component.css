@@ -1,6 +1,8 @@
 .dev-pic {
   width: 75%;
+  height: auto;
   border-radius: 50%;
+  object-fit: contain;
 }
 
 ul {
@@ -11,8 +13,21 @@ ul {
 .card {
   margin-bottom: 10px;
 }
-/* 
-.info-row {
-  border: solid black 2px;
-  outline: solid black 2px;
-} */
+
+@media (max-width: 992px) {
+  h4 {
+    font-size: 18px;
+  }
+  li {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  h4 {
+    font-size: 24px;
+  }
+  li {
+    font-size: 16px;
+  }
+}

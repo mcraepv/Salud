@@ -11,6 +11,9 @@
 .btn {
   background-color: black;
   color: white;
+  width: 102px;
+  padding: 10px;
+  margin: 15px;
 }
 
 /* width */
@@ -31,4 +34,31 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@media (max-width: 768px) {
+  button {
+    font-size: 14px;
+    padding: 7px;
+    width: 85px !important;
+    margin: 8px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  button {
+    font-size: 10px;
+    padding: 4px !important;
+    width: 65px !important;
+    margin: 3px !important;
+  }
+}
+
+@media (max-width: 386px) {
+  button {
+    font-size: 9px;
+    padding: 3px !important;
+    width: 56px !important;
+    margin: 2px !important;
+  }
 }
