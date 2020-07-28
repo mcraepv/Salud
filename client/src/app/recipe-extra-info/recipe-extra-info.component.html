@@ -1,10 +1,21 @@
-<!-- <h5 class="col text-center">Extra</h5> -->
 <div class="card mb-5">
   <div class="card-body">
-    <!-- <h5 class="card-title text-center">{{ drink.name }}</h5> -->
     <ul class="card-text extra text-center">
-      <button class="btn favorite mb-4" (click)="addFavorite()">
-        Add to Favorites <i class="fa fa-heart" aria-hidden="true"></i>
+      <button
+        *ngIf="!isFavorite"
+        class="btn favorite mb-4"
+        (click)="addFavorite()"
+      >
+        Add to Favorites
+        <i class="fa fa-plus-circle ml-1" aria-hidden="true"></i>
+      </button>
+      <button
+        *ngIf="isFavorite"
+        class="btn favorite mb-4"
+        (click)="removeFavorite()"
+      >
+        Remove from Favorites
+        <i class="fa fa-minus-circle ml-1" aria-hidden="true"></i>
       </button>
       <br />
       <li>Servings: 1 cocktail</li>
@@ -15,5 +26,3 @@
     </ul>
   </div>
 </div>
-
-<!-- (click)="getNutrition()"  -->

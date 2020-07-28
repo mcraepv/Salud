@@ -46,9 +46,7 @@ export class AuthService {
       (err) => {
         console.log(err);
       },
-      () => {
-        console.log('successfully logged in');
-      }
+      () => {}
     );
   }
 
@@ -78,9 +76,7 @@ export class AuthService {
       password: password,
     };
     this.http.post(this.registerUrl, reqObj, this.httpOptions).subscribe(
-      (res) => {
-        console.log(res);
-      },
+      (res) => {},
       (err) => {
         console.log(err);
       },

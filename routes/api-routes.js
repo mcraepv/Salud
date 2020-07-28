@@ -200,32 +200,42 @@ module.exports = function (app) {
   );
 
   // Add Favorite Cocktail
-  app.post('/api/favorite', function (req, res) {
-    db.FavoriteRecipe.create({
-      CocktailId: req.body.cocktailID,
-      UserId: req.body.userID,
-    })
-      .then(() => {
-        res.status(200);
+  app.post(
+    '/api/favorite',
+    passport.authenticate('jwt', { session: false }),
+    function (req, res) {
+      db.FavoriteRecipe.create({
+        CocktailId: req.body.cocktailID,
+        UserId: req.body.userID,
       })
-      .catch((err) => {
-        res.status(401).json(err);
-      });
-  });
+        .then(() => {
+          res.status(200);
+        })
+        .catch((err) => {
+          res.status(401).json(err);
+        });
+    }
+  );
 
   // Remove Favorite Cocktail
-  app.delete('api/favorite/:CocktailId', function (req, res) {
-    db.FavoriteRecipe.destroy({
-      where: {
-        CocktailId: parseInt(req.params.CocktailId),
-        UserId: req.body.UserId,
-      },
-    })
-      .then(() => {
-        res.status(200);
+  app.delete(
+    '/api/favorite/:details',
+    passport.authenticate('jwt', { session: false }),
+    function (req, res) {
+      console.log(req.params.details);
+      const detailsArr = req.params.details.split(',');
+      db.FavoriteRecipe.destroy({
+        where: {
+          CocktailId: detailsArr[0],
+          UserId: detailsArr[1],
+        },
       })
-      .catch((err) => {
-        res.status(401).json(err);
-      });
-  });
+        .then(() => {
+          res.status(200);
+        })
+        .catch((err) => {
+          res.status(401).json(err);
+        });
+    }
+  );
 };

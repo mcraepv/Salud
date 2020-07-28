@@ -34,6 +34,7 @@ import { UserFavoritesComponent } from './user-favorites/user-favorites.componen
 import { AuthInterceptor } from './interceptors/auth-interceptor';
 import { QueryService } from './query.service';
 import { AuthService } from './auth.service';
+import { ToastsComponent } from './toasts/toasts.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { AuthService } from './auth.service';
     AboutImgComponent,
     AboutTitleComponent,
     UserFavoritesComponent,
+    ToastsComponent,
   ],
   imports: [
     BrowserModule,

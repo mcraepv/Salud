@@ -17,12 +17,16 @@ ul.card-text {
 }
 
 .btn {
-  background-color: black;
-  color: white;
+  background-color: lightgray;
+  color: black;
 }
 
-.fa {
-  color: pink;
+.fa-plus-circle {
+  color: green;
+}
+
+.fa-minus-circle {
+  color: red;
 }
 
 .nutrition {
