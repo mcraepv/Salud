@@ -5,25 +5,43 @@
 .navbar-brand {
   font-size: 36px;
   font-family: "Pacifico", cursive;
-  /* font-family: "Satisfy", cursive;
-  font-weight: 600; */
   padding: 0;
-  z-index: 10;
-  /* height: 50px; */
+  width: 90px;
 }
+
+.navbar-brand:hover {
+  background-color: transparent;
+  color: black !important;
+  text-decoration: none;
+}
+
 .navbar {
   background-color: white;
 }
-.btn {
-  background-color: transparent;
-  border-color: transparent;
-  color: black;
+
+a {
+  color: black !important;
 }
 
-.btn:hover {
-  background-color: black;
-  color: white;
+a:hover {
+  /* background-color: black; */
+  /* color: rgba(0, 0, 0, 0.5) !important; */
+  /* border-radius: 0.25rem; */
+  text-decoration: underline;
 }
+
 .logo {
   height: 45px;
+}
+
+.nav-item {
+  text-align: right;
+}
+
+@media (min-width: 992px) {
+  .navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }

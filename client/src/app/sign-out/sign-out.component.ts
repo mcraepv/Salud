@@ -7,6 +7,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./sign-out.component.css'],
 })
 export class SignOutComponent implements OnInit {
+  isMenuCollapsed: boolean;
   constructor(public authService: AuthService) {}
 
   ngOnInit(): void {}

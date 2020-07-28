@@ -1,10 +1,14 @@
-.btn {
-  background-color: transparent;
-  border-color: transparent;
-  color: black;
+a {
+  color: black !important;
 }
 
-.btn:hover {
-  background-color: black;
-  color: white;
+a:hover {
+  /* background-color: black; */
+  /* color: rgba(0, 0, 0, 0.5) !important; */
+  /* border-radius: 0.25rem; */
+  text-decoration: underline;
+}
+
+.nav-item {
+  text-align: right;
 }
