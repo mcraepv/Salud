@@ -6,6 +6,10 @@
   color: white;
   text-shadow: 2px 2px 4px #000000;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 766f69d7ad75de4065011721b7fd2a4518df8086
 .btn {
   background-color: transparent;
   color: black;
@@ -14,6 +18,32 @@
   -webkit-text-stroke-width: 0.15px;
   -webkit-text-stroke-color: white;
 }
+<<<<<<< HEAD
 .btn:hover {
   text-decoration: underline black;
+=======
+
+.btn:hover {
+  text-decoration: underline black;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 38px;
+  }
+  button {
+    font-size: 14px;
+    text-shadow: 0 0 10px white;
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 36px;
+  }
+  button {
+    font-size: 12px;
+    text-shadow: 0 0 12px white;
+  }
+>>>>>>> 766f69d7ad75de4065011721b7fd2a4518df8086
 }

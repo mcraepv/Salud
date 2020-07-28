@@ -14,3 +14,51 @@ img {
   transform: scale(1.1);
   cursor: pointer;
 }
+
+.card-title {
+  margin: 0;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+@media (max-width: 992px) {
+  .card-body {
+    padding: 12.5px;
+  }
+  .card-title {
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 24px;
+  }
+  .card-img-top {
+    display: none;
+  }
+  .card-body {
+    padding: 10px;
+  }
+  h5 {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  h2 {
+    font-size: 20px;
+  }
+  .card-img-top {
+    display: none;
+  }
+  .card-body {
+    padding: 7px;
+  }
+  h5 {
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+}

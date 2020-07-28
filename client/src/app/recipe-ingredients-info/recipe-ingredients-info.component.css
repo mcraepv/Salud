@@ -10,3 +10,21 @@ li {
   list-style-type: none;
   padding: none;
 }
+
+@media (max-width: 992px) {
+  h5 {
+    font-size: 18px;
+  }
+  li {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  h5 {
+    font-size: 20px;
+  }
+  li {
+    font-size: 16px;
+  }
+}
