@@ -10,14 +10,14 @@ export class AuthService {
 
   //TEST URLS
   //===========================================================
-  // private loginUrl = 'http://localhost:3000/api/login';
-  // private registerUrl = 'http://localhost:3000/api/register';
+  private loginUrl = 'http://localhost:3000/api/login';
+  private registerUrl = 'http://localhost:3000/api/register';
   //===========================================================
 
   //PROD URLS
   //======================================
-  private loginUrl = 'api/login';
-  private registerUrl = 'api/register';
+  // private loginUrl = 'api/login';
+  // private registerUrl = 'api/register';
   //======================================
 
   httpOptions = {
