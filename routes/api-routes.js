@@ -46,7 +46,6 @@ module.exports = function (app) {
   });
 
   app.post('/api/register', (req, res) => {
-    console.log(req);
     db.User.create({
       email: req.body.email,
       password: req.body.password,
@@ -168,7 +167,6 @@ module.exports = function (app) {
       },
     })
       .then(function (result) {
-        console.log(result);
         res.json(result);
       })
       .catch((err) => {
@@ -181,7 +179,6 @@ module.exports = function (app) {
     '/api/favorites/:username',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-      console.log(req);
       db.Cocktail.findAll({
         attributes: ['name', 'instructions', 'imageUrl'],
         include: [

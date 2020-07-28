@@ -18,14 +18,10 @@ module.exports = (passport) => {
   passport.use(
     new JwtStrategy(options, async function (jwtPayload, done) {
       try {
-        console.log(jwtPayload);
-        console.log('firing');
         const user = await db.User.findOne({
           where: { id: jwtPayload.id },
         });
-        console.log(user);
         if (user) {
-          console.log(user);
           return done(null, user);
         } else {
           console.log('else');
