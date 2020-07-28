@@ -14,7 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors());
-// We need to use sessions to keep track of our user's login status
 app.use(
   session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })
 );
