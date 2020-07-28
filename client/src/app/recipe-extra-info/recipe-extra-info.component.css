@@ -11,12 +11,12 @@ ul.card-text {
   padding: none;
 }
 
-.btn {
-  background-color: #f1f4f5;
+.btn:hover {
+  background-color: white;
   color: black;
 }
 
-.btn:hover {
+.btn {
   background-color: black;
   color: white;
 }
