@@ -1,6 +1,6 @@
 const db = require('../models');
 const sequelize = require('sequelize');
-// const passport = require('passport');
+const passport = require('passport');
 
 module.exports = function (app) {
   //Auth
@@ -19,6 +19,7 @@ module.exports = function (app) {
             success: true,
             token: tokenObj.token,
             expiresIn: tokenObj.expires,
+            email: user.email
           });
         } else {
           res.status(401).json({ success: false, msg: 'wrong password' });
@@ -161,7 +162,7 @@ module.exports = function (app) {
   });
 
   // User Favorite Cocktails
-  app.get('/api/favorites/:username', function (req, res) {
+  app.get('/api/favorites/:username', passport.authenticate('jwt', { session: false }), (req, res) => {
     db.Cocktail.findAll({
       attributes: ['name', 'instructions', 'imageUrl'],
       include: [
@@ -172,7 +173,7 @@ module.exports = function (app) {
         },
       ],
       where: {
-        'Users.username': req.params.username,
+        'Users.email': req.params.username,
       },
     }).then(function (result) {
       res.json(result);
