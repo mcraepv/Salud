@@ -9,24 +9,31 @@ const pathToKey = path.join(__dirname, '..', 'id_rsa_pub.pem');
 const PUB_KEY = fs.readFileSync(pathToKey, 'utf8');
 
 const options = {
-  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('Bearer'),
   secretOrKey: PUB_KEY,
   algorithms: ['RS256'],
 };
 
 module.exports = (passport) => {
   passport.use(
-    new JwtStrategy(options, function (jwtPayload, done) {
-      db.User.findOne({ _id: jwtPayload.sub }, function (err, user) {
-        if (err) {
-          return done(err, false);
-        }
+    new JwtStrategy(options, async function (jwtPayload, done) {
+      try {
+        console.log(jwtPayload);
+        console.log('firing');
+        const user = await db.User.findOne({
+          where: { id: jwtPayload.id },
+        });
+        console.log(user);
         if (user) {
+          console.log(user);
           return done(null, user);
         } else {
+          console.log('else');
           return done(null, false);
         }
-      });
+      } catch (err) {
+        return done(err, false);
+      }
     })
   );
 };

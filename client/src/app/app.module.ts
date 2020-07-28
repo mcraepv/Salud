@@ -12,7 +12,7 @@ import { FrontPageJumbotronComponent } from './front-page-jumbotron/front-page-j
 import { FrontPageSearchBarComponent } from './front-page-search-bar/front-page-search-bar.component';
 import { DrinksOfDayComponent } from './drinks-of-day/drinks-of-day.component';
 import { RegisterModalComponent } from './register-modal/register-modal.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SignOutComponent } from './sign-out/sign-out.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
@@ -29,6 +29,9 @@ import { AboutDevsComponent } from './about-devs/about-devs.component';
 import { AboutInfoComponent } from './about-info/about-info.component';
 import { AboutResourcesComponent } from './about-resources/about-resources.component';
 import { UserFavoritesComponent } from './user-favorites/user-favorites.component';
+import { AuthInterceptor } from './interceptors/auth-interceptor';
+import { QueryService } from './query.service';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -65,7 +68,15 @@ import { UserFavoritesComponent } from './user-favorites/user-favorites.componen
     HttpClientModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    QueryService,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

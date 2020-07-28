@@ -99,9 +99,7 @@ export class QueryService {
   }
 
   getFavorites(username: String): Observable<any> {
-    const token = localStorage.getItem('id_token');
-    const header = { headers: new HttpHeaders({ Authentication: token }) };
-    return this.http.get<any>(`${this.userFavoritesURL}${username}`, header);
+    return this.http.get<any>(`${this.userFavoritesURL}${username}`);
   }
 
   getLikely(term: string): Observable<Drink[]> {

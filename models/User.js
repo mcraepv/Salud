@@ -50,12 +50,12 @@ module.exports = function (sequelize, DataTypes) {
     const expiresIn = '1d';
 
     const payload = {
-      sub: id,
-      iat: Date.now(),
+      id: id,
+      // iat: Date.now(),
     };
 
     const signedToken = jwt.sign(payload, PRIV_KEY, {
-      expiresIn: expiresIn,
+      // expiresIn: expiresIn,
       algorithm: 'RS256',
     });
 
