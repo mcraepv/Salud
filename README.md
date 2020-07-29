@@ -1,12 +1,10 @@
 # Salud! [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Salud! was a labor of love for its creators. We had about a week and a half to
-build it, and in that time we learned and implemented Angular and JSON Web Token
-authentication. We also built our database from scratch using MySQL and
-Sequelize, and used ngBootstrap for front-end styling. The idea grew from a
-desire to have a lightweight, unintrusive way to find and save our favorite
-cocktail recipes. We hope that this app makes the good times better for all who
-use it!
+Salud! was a labor of love for its creators. In the week and a half we had to build Salud!, 
+we learned and implemented both Angular and JSON Web Tokens. We built our database from 
+scratch using MySQL and Sequelize, and used ngBootstrap for front-end styling. The idea grew 
+from a desire to have a lightweight, unintrusive way to find and save our favorite
+cocktail recipes. We hope this app makes the good times better for anyone who uses it!
 
 ## Live Site
 
