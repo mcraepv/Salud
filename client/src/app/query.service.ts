@@ -25,7 +25,7 @@ export class QueryService {
   nutritionURL =
     'https://api.nal.usda.gov/fdc/v1/foods/search?api_key=vhvEbrN6AYcz02VcLyMWAbIG6qhOQngRIPjqz5Ia&query=';
 
-  //TEST QUERIES!
+  //TEST QUERIES
   //=========================================
   // ingredientURL = 'http://localhost:3000/api/ingredient';
   // cocktailURL = 'http://localhost:3000/api/results/';
