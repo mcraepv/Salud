@@ -5,6 +5,7 @@ const cors = require('cors');
 const http = require('http');
 const path = require('path');
 const bodyParser = require('body-parser');
+const compression = require('compression');
 
 const PORT = process.env.PORT || 3000;
 const db = require('./models');
@@ -20,6 +21,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(__dirname + '/dist/client'));
+app.use(compression());
 
 require('./routes/api-routes.js')(app);
 
