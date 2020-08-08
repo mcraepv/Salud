@@ -3,9 +3,10 @@ a {
 }
 
 a:hover {
-  background-color: black;
-  border-radius: 0.25rem;
-  color: white !important;
+  background-color: transparent;
+  color: black !important;
+  border-radius: 0;
+  text-decoration: underline;
   /* text-decoration: underline; */
 }
 
@@ -44,12 +45,12 @@ a:hover {
     left: 50%;
     transform: translateX(-50%);
   }
-  a:hover {
+  /* a:hover {
     background-color: transparent;
     color: black !important;
     border-radius: 0;
     text-decoration: underline;
-  }
+  } */
 }
 
 @media (max-width: 768px) {
