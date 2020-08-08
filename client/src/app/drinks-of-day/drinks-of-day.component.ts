@@ -16,8 +16,22 @@ export class DrinksOfDayComponent implements OnInit {
   ) {}
 
   results$: Observable<Drink[]>;
+  observer = new IntersectionObserver(this.onIntersection);
+  imagesToLoad = document.querySelectorAll('img[data-src]');
+
+  onIntersection(imageEntities): void {
+    imageEntities.forEach((image) => {
+      if (image.isIntersecting) {
+        this.observer.unobserve(image.target);
+        image.target.src = image.target.dataset.src;
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.results$ = this.queryService.getRandom();
+    this.imagesToLoad.forEach((image) => {
+      this.observer.observe(image);
+    });
   }
 }
