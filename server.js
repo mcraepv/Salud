@@ -30,7 +30,7 @@ app.get('/*', function (req, res) {
 });
 
 app.set('port', PORT);
-
+//
 const server = http.createServer(app);
 
 db.sequelize.sync().then(function () {
