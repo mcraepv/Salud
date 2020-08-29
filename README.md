@@ -63,7 +63,7 @@ JSON Web Tokens: https://jwt.io/
 
 Passport: http://www.passportjs.org/
 
-Boostrap: https://getbootstrap.com/
+Bootstrap: https://getbootstrap.com/
 
 NG Bootstrap: https://ng-bootstrap.github.io/#/home
 
