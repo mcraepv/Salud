@@ -17,6 +17,8 @@ export class AdvancedSearchComponent implements OnInit {
 
   results$: Observable<Drink[]>;
   isSuccessful: boolean = true;
+  observer = new IntersectionObserver(this.onIntersection);
+  imagesToLoad = document.querySelectorAll('img[data-src]');
 
   getResults(res): void {
     if (res.length) {
@@ -25,6 +27,15 @@ export class AdvancedSearchComponent implements OnInit {
       this.isSuccessful = true;
       this.results$ = this.queryService.initAdvanced();
     }
+  }
+
+  onIntersection(imageEntities): void {
+    imageEntities.forEach((image) => {
+      if (image.isIntersecting) {
+        this.observer.unobserve(image.target);
+        image.target.src = image.target.dataset.src;
+      }
+    });
   }
 
   ngOnInit(): void {
@@ -41,6 +52,10 @@ export class AdvancedSearchComponent implements OnInit {
           } else this.isSuccessful = true;
         });
       },
+    });
+
+    this.imagesToLoad.forEach((image) => {
+      this.observer.observe(image);
     });
   }
 }

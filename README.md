@@ -7,6 +7,8 @@ for front-end styling. The idea grew from a desire to have a lightweight,
 unintrusive way to find and save our favorite cocktail recipes. We hope this app
 makes the good times better for anyone who uses it!
 
+[Home Page](./assets/saludpic.png)
+
 ## Live Site
 
 https://salud-cocktails.herokuapp.com
